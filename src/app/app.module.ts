@@ -10,17 +10,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TopbarComponent } from './shared/topbar/topbar.component';
 import { MatButtonModule } from '@angular/material/button';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardModule } from './dashboard/dashboard.module';
-
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { FullLayoutComponent } from './full-layout/full-layout.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     TopbarComponent,
- 
-   
+    LoginComponent,
+    RegisterComponent,
+    MainLayoutComponent,
+    FullLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,11 +38,19 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    DashboardModule
-    
-    
+    DashboardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      timeOut: 3000, 
+      closeButton: true, 
+      progressBar: true,
+      progressAnimation: 'decreasing',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

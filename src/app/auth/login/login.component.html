@@ -1,0 +1,179 @@
+<!-- Section: Design Block -->
+<section class="">
+  <!-- Jumbotron -->
+  <div
+    class="px-4 py-5 px-md-5 text-center text-lg-start"
+    style="background-color: hsl(0, 0%, 96%)"
+  >
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-5 display-3 fw-bold ls-tight">
+            Revolutionize Healthcare <br />
+            <span class="title">with MedHub</span>
+          </h1>
+          <p style="color: hsl(217, 10%, 50.8%)">
+             Welcome to MedHub, your comprehensive solution for seamless
+            healthcare management. Whether you're a doctor looking to
+            streamline your workflow or a patient seeking effortless
+            communication with medical professionals, MedHub has you covered.
+            Experience a smarter way to manage appointments, consultations, and
+            more—all in one place.
+          </p>
+        </div>
+        <!-- Form -->
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="card">
+            <div class="card-body py-5 px-md-5">
+              <form #form="ngForm" (submit)="login(user)">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                  <!-- Email input -->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      id="form3Example3"
+                      class="form-control"
+                      [(ngModel)]="user.email"
+                      #email="ngModel"
+                      required
+                    />
+                    <label class="form-label" for="form3Example3"
+                      >Email address</label
+                    >
+                    <small
+                    *ngIf="email.invalid && email.touched"
+                    class="text-danger"
+                    >Please enter a valid email</small
+                  >
+                  </div>
+
+                  <!-- Password input -->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input
+                      type="password"
+                      name="password"
+                      id="form3Example4"
+                      class="form-control"
+                      [(ngModel)]="user.password"
+                      required
+                      minlength="7"
+                      #password="ngModel"
+                    />
+                    <label class="form-label" for="form3Example4"
+                      >Password</label
+                    >
+                    <small
+                    *ngIf="password.invalid && password.touched"
+                    class="text-danger"
+                    >Please enter a valid email</small
+                  >
+                  </div>
+                  <!-- <div class="form-outline mb-4 d-flex align-items-center">
+                    <label class="form-label me-3">Select Role:</label>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="doctor"
+                        name="role"
+                        value="doctor"
+                        [(ngModel)]="user.role"
+                      />
+                      <label class="form-check-label" for="doctor">Doctor</label>
+                    </div>
+                    <div class="form-check form-check-inline ms-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="patient"
+                        name="role"
+                        value="patient"
+                        [(ngModel)]="user.role"
+                      />
+                      <label class="form-check-label" for="patient">Patient</label>
+                    </div>
+                  </div>
+ -->
+
+                  <!-- Checkbox -->
+                  <div class="form-check d-flex justify-content-center mb-4">
+                    <input
+                      class="form-check-input me-2 check"
+                      type="checkbox"
+                      value=""
+                      id="form2Example33"
+                      checked
+                    />
+                    <label class="form-check-label " for="form2Example33">
+                      Subscribe to our newsletter
+                    </label>
+                  </div>
+
+                  <!-- Submit button -->
+                  <button
+                    type="submit"
+                    data-mdb-button-init
+                    data-mdb-ripple-init
+                    class="btn button btn-block mb-4"
+                  >
+                    Sign in
+                  </button>
+                  <a
+                    [routerLink]="'/register'"
+                    class="btn btn-link btn-block mb-4"
+                  >
+                    Don't have an account? Sign up
+                  </a>
+
+                  <!-- Register buttons -->
+                  <div class="text-center">
+                    <p>or sign in with:</p>
+                    <button
+                      type="button"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-link btn-floating mx-1"
+                    >
+                      <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-link btn-floating mx-1"
+                    >
+                      <i class="fab fa-google"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-link btn-floating mx-1"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-link btn-floating mx-1"
+                    >
+                      <i class="fab fa-github"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

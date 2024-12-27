@@ -1,17 +1,17 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
-
-selectedItem:any;
-updateSelected(item:any) {
-this.selectedItem=item.textContent.trim();
-console.log(item.textContent)
-}
-
-
+export class SidebarComponent implements OnInit {
+  ngOnInit(): void {
+    console.log('on init works');
+  }
+  selectedItem = '';
+  logged = false;
+  // updateSelected(item: any) {
+  //   this.selectedItem = item.textContent.trim();
+  // }
 }

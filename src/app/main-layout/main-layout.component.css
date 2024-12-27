@@ -1,0 +1,15 @@
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .sidenav-container {
+    flex: 1;
+    display: flex;
+  }
+  
+  .sidenav {
+    width: 240px;
+  }
+  
