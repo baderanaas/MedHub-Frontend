@@ -6,11 +6,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { FullLayoutComponent } from './full-layout/full-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { authGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainLayoutComponent,
+    component: MainLayoutComponent,canActivate:[authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent, title: 'Dashboard' },
     ],

@@ -1,6 +1,7 @@
 import { Component, inject, Input, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Api_Urls } from 'src/app/config/api-urls';
 
 @Component({
   selector: 'app-topbar',
@@ -32,7 +33,8 @@ export class TopbarComponent implements OnInit, OnChanges {
   }
 
   logout() {
-    this.router.navigate(['auth/login']);
+    this.router.navigate([Api_Urls.login]);
+    localStorage.removeItem('token');
   }
   loggedIn = true;
   acr = inject(ActivatedRoute);
