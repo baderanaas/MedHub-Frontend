@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { LoginDto } from 'src/app/auth/login/Dto/login-dto';
 import { RegisterDto } from 'src/app/auth/register/register-dto';
 import { Api_Urls } from 'src/app/config/api-urls';
+
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +36,15 @@ export class AuthService {
 
   register(user: RegisterDto): Observable<void> {
     return this.http.post<void>(Api_Urls.register, user);
+  }
+  getDecodetToken(token:string){
+    try{
+      const decodedToken=jwtDecode(token);
+      return decodedToken;
+    }
+    catch(error){
+      console.error("error while decoding token",error);
+      return null;
+    }
   }
 }
