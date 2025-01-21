@@ -10,20 +10,23 @@ import { authGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
+    path: 'auth',
+    component: FullLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent, title: 'Login' },
+      { path: 'register', component: RegisterComponent, title: 'Register' },
+    ],
+  },
+  {
     path: '',
-    component: MainLayoutComponent,canActivate:[authGuard],
+    component: MainLayoutComponent,
+    canActivate: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent, title: 'Dashboard' },
     ],
   },
-  {
-    path: 'auth',
-    component: FullLayoutComponent,
-    children: [{ path: 'login', component: LoginComponent, title: 'Login' },
-      { path: 'register', component: RegisterComponent, title: 'Register' }
-    ],
-  },
-  {path:'**', redirectTo:'login'}
+
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

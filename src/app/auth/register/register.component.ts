@@ -4,6 +4,7 @@ import { RegisterDto } from './register-dto';
 import { Role } from '../enums/role-enum';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { routes } from 'src/app/config/routes';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,7 @@ export class RegisterComponent {
       next: (res) => {
         console.log('registered successfully ' + res);
         this.toastr.success('user added successfuly','success');
-        this.router.navigate(['auth/login']);
+        this.router.navigate([routes.login]);
       },
       error: (err) => {
         console.log(err);

@@ -1,15 +1,23 @@
 .main-layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  .sidenav-container {
-    flex: 1;
-    display: flex;
-  }
-  
-  .sidenav {
-    width: 240px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure the layout takes full screen height */
+}
+
+.layout-body {
+  display: flex;
+  flex: 1; /* Take remaining space below the top bar */
+}
+
+app-sidebar {
+  width: 300px; /* Set a fixed width for the sidebar */
+  height: 100%; /* Sidebar should stretch the full height of the layout body */
+  background-color: #2c3e50; /* Example: adjust as per your theme */
+}
+
+.content {
+  flex: 1; /* Take all remaining space for the content */
+  margin-top: 0; /* Reset margin to align under the top bar */
+  padding-top: 100px; /* Add padding for better spacing */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}

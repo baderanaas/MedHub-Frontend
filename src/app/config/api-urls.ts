@@ -1,4 +1,4 @@
 export const Api_Urls = {
-  login: '/auth/login',
-  register: '/auth/register',
+  login: 'http://localhost:3000/auth/login',
+  register: 'http://localhost:3000/auth/register',
 };
