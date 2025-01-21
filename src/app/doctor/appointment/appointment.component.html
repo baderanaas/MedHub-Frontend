@@ -1,0 +1,100 @@
+<div class="appointment-container">
+  <div class="appointment-card">
+    <div class="header">
+      <h2>Schedule Appointment</h2>
+      <p>Fill in your information to book your appointment</p>
+    </div>
+
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+      <div class="appointment-details">
+        <h3>Appointment Details</h3>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="doctor">
+              Select Doctor <span class="required">*</span>
+            </label>
+            <select 
+              id="doctor"
+              formControlName="doctor"
+              [class.invalid]="isFieldInvalid('doctor')"
+            >
+              <option value="">Choose a doctor</option>
+              <option *ngFor="let doctor of doctors" [value]="doctor.id">
+                {{ doctor.name }} - {{ doctor.specialization }}
+              </option>
+            </select>
+            <div *ngIf="isFieldInvalid('doctor')" class="error-message">
+              Please select a doctor
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="appointmentDate">
+              Preferred Date <span class="required">*</span>
+            </label>
+            <input
+              id="appointmentDate"
+              type="date"
+              formControlName="appointmentDate"
+              [min]="minDate"
+              [class.invalid]="isFieldInvalid('appointmentDate')"
+            >
+            <div *ngIf="isFieldInvalid('appointmentDate')" class="error-message">
+              Please select a valid date
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="timeSlot">
+              Preferred Time <span class="required">*</span>
+            </label>
+            <select
+              id="timeSlot"
+              formControlName="timeSlot"
+              [class.invalid]="isFieldInvalid('timeSlot')"
+            >
+              <option value="">Select a time</option>
+              <option 
+                *ngFor="let slot of timeSlots" 
+                [value]="slot.time"
+                [disabled]="!slot.available"
+              >
+                {{ slot.time }} {{ !slot.available ? '(Not Available)' : '' }}
+              </option>
+            </select>
+            <div *ngIf="isFieldInvalid('timeSlot')" class="error-message">
+              Please select an available time slot
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">
+            Reason for Visit <span class="required">*</span>
+          </label>
+          <textarea
+            id="reason"
+            formControlName="reason"
+            rows="4"
+            placeholder="Please describe your symptoms or reason for visit"
+            [class.invalid]="isFieldInvalid('reason')"
+          ></textarea>
+          <div *ngIf="isFieldInvalid('reason')" class="error-message">
+            Please provide a reason for your visit (minimum 10 characters)
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <button
+          type="submit"
+          [disabled]="appointmentForm.invalid"
+          class="submit-button"
+        >
+          Schedule Appointment
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

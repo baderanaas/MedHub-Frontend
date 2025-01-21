@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { FullLayoutComponent } from './full-layout/full-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AppointmentComponent } from './doctor/appointment/appointment.component';
 
 const routes: Routes = [
   {
@@ -18,11 +19,13 @@ const routes: Routes = [
   {
     path: 'auth',
     component: FullLayoutComponent,
-    children: [{ path: 'login', component: LoginComponent, title: 'Login' },
-      { path: 'register', component: RegisterComponent, title: 'Register' }
+    children: [
+      { path: 'login', component: LoginComponent, title: 'Login' },
+      { path: 'register', component: RegisterComponent, title: 'Register' },
     ],
   },
-  {path:'**', redirectTo:'login'}
+  { path: '**', redirectTo: 'login' },
+  { path: 'appointment', component: AppointmentComponent}
 ];
 
 @NgModule({

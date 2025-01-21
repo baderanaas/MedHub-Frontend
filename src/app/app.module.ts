@@ -18,6 +18,7 @@ import { FullLayoutComponent } from './full-layout/full-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { AppointmentComponent } from './doctor/appointment/appointment.component';
 
 @NgModule({
   declarations: [
