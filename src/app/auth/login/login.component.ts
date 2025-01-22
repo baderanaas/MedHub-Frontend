@@ -12,7 +12,7 @@ import { Api_Urls } from 'src/app/config/api-urls';
 export class LoginComponent {
   authService = inject(AuthService);
   router = inject(Router);
-  registerLink=Api_Urls.register;
+  registerLink = Api_Urls.register;
   user: LoginDto = {
     email: '',
     password: '',
@@ -22,7 +22,9 @@ export class LoginComponent {
       next: (res: any) => {
         localStorage.setItem('token', res.token);
         console.log('logged successfully', res);
-        this.router.navigate(['/dashboard']);
+        const role = this.authService.getRoleFromToken();
+        if (role == 'patient') this.router.navigate(['patient/dashboard']);
+        if (role == 'doctor') this.router.navigate(['doctor/dashboard']);
       },
     });
   }

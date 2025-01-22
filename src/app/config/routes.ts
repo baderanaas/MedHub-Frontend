@@ -1,4 +1,5 @@
 export const routes={
     login:'auth/login',
-    register:'auth/register'
+    register:'auth/register',
+    unAuthorized:'unauthorized'
 }

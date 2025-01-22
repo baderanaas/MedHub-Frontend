@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { LoginDto } from 'src/app/auth/login/Dto/login-dto';
 import { RegisterDto } from 'src/app/auth/register/register-dto';
 import { Api_Urls } from 'src/app/config/api-urls';
-
+import { routes } from 'src/app/config/routes';
 
 @Injectable({
   providedIn: 'root',
@@ -31,19 +31,29 @@ export class AuthService {
   logout() {
     this.loggedInSubject.next(false);
     localStorage.removeItem('token');
-    this.router.navigate(['auth/login']);
+    this.router.navigate([routes.login]);
   }
 
   register(user: RegisterDto): Observable<void> {
     return this.http.post<void>(Api_Urls.register, user);
   }
-  getDecodetToken(token:string){
-    try{
-      const decodedToken=jwtDecode(token);
-      return decodedToken;
+  decodeToken(token: string): any {
+    try {
+      const payload = token.split('.')[1];
+      const decodedPayload = atob(payload);
+      return JSON.parse(decodedPayload);
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return null;
     }
-    catch(error){
-      console.error("error while decoding token",error);
+  }
+
+  getRoleFromToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded?.role || null;
+    } else {
       return null;
     }
   }
