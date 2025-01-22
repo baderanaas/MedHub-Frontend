@@ -11,7 +11,4 @@ export class SidebarComponent implements OnInit {
   }
   selectedItem = '';
   logged = false;
-  // updateSelected(item: any) {
-  //   this.selectedItem = item.textContent.trim();
-  // }
 }

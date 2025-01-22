@@ -24,27 +24,15 @@ const routes: Routes = [
   {
     path: 'patient',
     component: PatientLayoutComponent,
-    data: { role: 'patient' },
-    canActivate: [authGuard, roleGuard],
-    children: [
-      { path: 'dashboard', component: DashboardComponent, title: 'Dashboard' },
-    ],
+    loadChildren: () =>
+      import('./patient/patient.module').then((m) => m.PatientModule),
   },
   {
-    path: 'doctor',
-    component: DoctorLayoutComponent,
-    data: { role: 'doctor' },
-    canActivate: [authGuard, roleGuard],
-    children: [
-      {
-        path: 'dashboard',
-        component: DocDashboardComponent,
-        title: 'Dashboard',
-      },
-    ],
+   path:'doctor',component:DoctorLayoutComponent,
+   loadChildren:()=>import('./doctor/doctor.module').then((m)=>m.DoctorModule),
   },
   { path: 'unauthorized', component: UnauthorizedComponent },
-  { path: '**', redirectTo: 'login' },
+  { path: '**', redirectTo: 'unauthorized' },
 ];
 
 @NgModule({

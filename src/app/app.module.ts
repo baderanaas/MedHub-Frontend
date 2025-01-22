@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
+import { PatientModule } from './patient/patient.module';
+import { DoctorModule } from './doctor/doctor.module';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
       progressBar: true,
       progressAnimation: 'decreasing',
     }),
+    PatientModule,
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent],
