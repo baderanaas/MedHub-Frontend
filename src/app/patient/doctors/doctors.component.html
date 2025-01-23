@@ -4,9 +4,13 @@
       <div class="d-flex align-items-center">
         <div class="position-relative me-3">
           <input 
+          [(ngModel)]="speciality"
+          name="speciality"
             type="text" 
             class="form-control pe-5" 
             placeholder="Search by Speciality" 
+            (keydown.enter)="search()"
+            (input)="reset()"
             >
           <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
         </div>
