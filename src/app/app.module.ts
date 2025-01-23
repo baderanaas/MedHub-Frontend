@@ -22,6 +22,9 @@ import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.com
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
+import { MatMenuModule } from '@angular/material/menu';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { DoctorModule } from './doctor/doctor.module';
     PatientLayoutComponent,
     FullLayoutComponent,
     DoctorLayoutComponent,
-    UnauthorizedComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { DoctorModule } from './doctor/doctor.module';
       progressAnimation: 'decreasing',
     }),
     PatientModule,
-    DoctorModule
+    DoctorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

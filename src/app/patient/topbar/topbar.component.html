@@ -6,7 +6,19 @@
       <mat-icon>search</mat-icon>
     </button>
   </div>
-  <button mat-stroked-button class="login" (click)="logout()">
-    Log out
+
+  <!-- Dropdown with Font Awesome icon -->
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <i class="fa-solid fa-user-doctor"></i>
   </button>
+
+  <!-- Menu content -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><i class="fa-solid fa-user-nurse"></i> Profile</button>
+    <button mat-menu-item><i class="fa-solid fa-user-md"></i> Settings</button>
+    <button mat-menu-item><i class="fa-solid fa-user-injured"></i> Log Out</button>
+  </mat-menu>
+
+  <!-- Login Button -->
+  <button class="login">Login</button>
 </mat-toolbar>

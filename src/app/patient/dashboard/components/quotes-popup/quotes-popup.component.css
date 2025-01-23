@@ -1,0 +1,24 @@
+.quote-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px; /* Reduced min-height */
+    padding: 15px; /* Reduced padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quotes-container {
+    max-width: 300px; /* Reduced max-width */
+    padding: 10px; /* Reduced padding */
+    background-color: #f9f9f9; /* Light gray background */
+    border-radius: 3px;
+  }
+  
+  .quote-text {
+    font-size: 1rem; 
+    font-style: italic;
+    color: #333;
+    text-align: center;
+  }
