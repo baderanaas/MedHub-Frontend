@@ -57,4 +57,13 @@ export class AuthService {
       return null;
     }
   }
+  getIdFromToken(): number| null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded?.id || null;
+    } else {
+      return null;
+    }
+  }
 }

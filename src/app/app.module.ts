@@ -16,12 +16,13 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
+import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,11 @@ import { DoctorModule } from './doctor/doctor.module';
     PatientModule,
     DoctorModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:RequestInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: 'appointments', component: PatientAppointmentsComponent, },
       { path: 'doctors', component: DoctorsComponent, },
     ],
-    canActivate: [authGuard, roleGuard],
+    canActivate: [ roleGuard],
     data: { role: 'patient' },
   },
 ];

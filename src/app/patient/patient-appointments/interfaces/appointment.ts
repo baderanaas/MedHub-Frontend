@@ -1,4 +1,8 @@
+import { Doctor } from "../../doctors/interfaces/doctor";
+
 export interface Appointment{
-    message:string,
+    doctor:Doctor,
+    status:string,
+    payed:boolean,
     date:Date
 }

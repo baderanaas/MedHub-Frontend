@@ -6,10 +6,9 @@ import { roleGuard } from '../shared/guards/role.guard';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 
 const routes: Routes = [{
-    path: 'doctor',
-    component: DoctorLayoutComponent,
+    path: '',
     data: { role: 'doctor' },
-    canActivate: [authGuard, roleGuard],
+    canActivate: [ roleGuard],
     children: [
       {
         path: 'dashboard',
