@@ -1,24 +1,63 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 25vh;
+  background-color: #2a3a42; /* Matches sidebar color */
+  color: #fff;
+}
+
+.left-section {
+  flex: 1;
+  padding: 10px;
+}
+
+.right-section {
+  flex: 1.5;
+  padding: 10px;
+  display: flex;
+  justify-content: center; /* Center the tips card vertically */
+  align-items: center;
+}
+
+/* Quotes Section */
 .quote-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 150px; /* Reduced min-height */
-    padding: 15px; /* Reduced padding */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .quotes-container {
-    max-width: 300px; /* Reduced max-width */
-    padding: 10px; /* Reduced padding */
-    background-color: #f9f9f9; /* Light gray background */
-    border-radius: 3px;
-  }
-  
-  .quote-text {
-    font-size: 1rem; 
-    font-style: italic;
-    color: #333;
-    text-align: center;
-  }
+  background-color: #1e2c30; /* Matches sidebar's dark theme */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+}
+
+.quotes-container {
+  max-width: 250px; /* Smaller width */
+  margin: 0 auto;
+}
+
+.quote-text {
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tips Card */
+.tips-card {
+  background-color: #1e2c30;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+}
+
+.tips-card h3 {
+  margin-bottom: 8px;
+  color: #4caf50; /* Green highlight for title */
+  font-size: 1rem;
+}
+
+.tips-card p {
+  margin: 0;
+  color: #cfd8dc; /* Light text color */
+  font-size: 0.85rem; /* Smaller text */
+}

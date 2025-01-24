@@ -1,4 +1,9 @@
-<h4 class="my-appointments-heading">{{ title }}</h4>
+<div class="table-header">
+  <h4 class="my-appointments-heading">{{ title }}</h4>
+  <button class="btn btn-primary add-appointment-btn" (click)="onAddAppointment()">
+    + Add Appointment
+  </button>
+</div>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -16,7 +21,6 @@
       <td>{{ appointment.date | date: 'shortDate' }}</td>
       <td>{{ appointment.time }}</td>
       <td>
-        <!-- Dropdown -->
         <div class="dropdown">
           <button
             class="btn btn-light dropdown-toggle"
@@ -27,7 +31,10 @@
           >
             <i class="fas fa-ellipsis-v"></i>
           </button>
-          <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenuButton">
+          <ul
+            class="dropdown-menu custom-dropdown"
+            aria-labelledby="dropdownMenuButton"
+          >
             <li>
               <a
                 class="dropdown-item"

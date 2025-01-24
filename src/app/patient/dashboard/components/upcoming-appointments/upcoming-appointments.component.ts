@@ -32,4 +32,10 @@ export class UpcomingAppointmentsComponent {
       // Logic to view appointment details
     }
   }
+
+  onAddAppointment() {
+    console.log('Add Appointment button clicked');
+    // Implement your logic for adding appointments, e.g., opening a modal
+  }
+  
 }

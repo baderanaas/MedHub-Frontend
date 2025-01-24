@@ -24,3 +24,32 @@ table {
     background-color: #ffe6e6; /* Light red background for danger items */
     color: #dc3545; /* Red text for danger items */
   }
+
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .my-appointments-heading {
+    color: rgb(39, 39, 67);
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .add-appointment-btn {
+    background-color: #1e2c30; /* Primary blue */
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-appointment-btn:hover {
+    background-color: #2a3a42; /* Darker blue on hover */
+  }
+  
