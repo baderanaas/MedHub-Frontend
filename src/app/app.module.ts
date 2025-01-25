@@ -2,23 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { SidebarComponent } from './patient/sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { TopbarComponent } from './shared/topbar/topbar.component';
+import { TopbarComponent } from './patient/topbar/topbar.component';
 import { MatButtonModule } from '@angular/material/button';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { DashboardModule } from './patient/dashboard/dashboard.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { FullLayoutComponent } from './full-layout/full-layout.component';
+import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
+import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { AppointmentComponent } from './doctor/appointment/appointment.component';
+import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
+import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
+import { PatientModule } from './patient/patient.module';
+import { DoctorModule } from './doctor/doctor.module';
+import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,8 +31,10 @@ import { AppointmentComponent } from './doctor/appointment/appointment.component
     TopbarComponent,
     LoginComponent,
     RegisterComponent,
-    MainLayoutComponent,
+    PatientLayoutComponent,
     FullLayoutComponent,
+    DoctorLayoutComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,13 +51,19 @@ import { AppointmentComponent } from './doctor/appointment/appointment.component
     HttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
-      timeOut: 3000, 
-      closeButton: true, 
+      timeOut: 3000,
+      closeButton: true,
       progressBar: true,
       progressAnimation: 'decreasing',
     }),
+    PatientModule,
+    DoctorModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:RequestInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
