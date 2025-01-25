@@ -22,6 +22,7 @@ import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.com
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
+import { MatMenuModule } from '@angular/material/menu';
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    MatMenuModule,
     MatToolbarModule,
     MatButtonModule,
     DashboardModule,
@@ -57,13 +59,15 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
       progressAnimation: 'decreasing',
     }),
     PatientModule,
-    DoctorModule
+    DoctorModule,
   ],
-  providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:RequestInterceptor,
-    multi:true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
