@@ -23,6 +23,7 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component';
 
 
 
@@ -36,7 +37,8 @@ import { MatMenuModule } from '@angular/material/menu';
     PatientLayoutComponent,
     FullLayoutComponent,
     DoctorLayoutComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    DocSidebarComponent
   ],
   imports: [
     BrowserModule,

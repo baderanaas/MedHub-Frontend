@@ -7,6 +7,10 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { DocSidebarComponent } from './doc-sidebar/doc-sidebar.component';
 import { DocTopbarComponent } from './doc-topbar/doc-topbar.component';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,12 +18,16 @@ import { DocTopbarComponent } from './doc-topbar/doc-topbar.component';
     PatientsComponent,
     AppointmentsComponent,
     DocDashboardComponent,
-    DocSidebarComponent,
-    DocTopbarComponent
+    DocTopbarComponent,
+    
   ],
   imports: [
     CommonModule,
-    DoctorRoutingModule
+    DoctorRoutingModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    RouterModule
   ]
 })
 export class DoctorModule { }

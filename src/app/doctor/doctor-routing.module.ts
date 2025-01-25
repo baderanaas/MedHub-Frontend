@@ -4,19 +4,17 @@ import { DoctorLayoutComponent } from '../layouts/doctor-layout/doctor-layout.co
 import { authGuard } from '../shared/guards/auth.guard';
 import { roleGuard } from '../shared/guards/role.guard';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 const routes: Routes = [{
-    path: 'doctor',
-    component: DoctorLayoutComponent,
-    data: { role: 'doctor' },
-    // canActivate: [authGuard, roleGuard],
-    children: [
-      {
-        path: 'dashboard',
-        component: DocDashboardComponent,
-        title: 'Dashboard',
-      },
-    ],
+     path: '',
+        children: [
+          { path: 'dashboard', component: DocDashboardComponent,  },
+          //{ path: 'appointments', component: PatientAppointmentsComponent, },
+          //{ path: 'doctors', component: DoctorsComponent, },
+        ],
+        // canActivate: [authGuard, roleGuard],
+        data: { role: 'doctor' },
   }];
 
 @NgModule({
