@@ -5,6 +5,7 @@ import { Api_Urls } from 'src/app/config/api-urls';
 import { Doctor } from 'src/app/patient/doctors/interfaces/doctor';
 import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
 import { AuthService } from './auth.service';
+import { AddAppointmentDto } from '../dto/add-appointment.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -17,14 +18,18 @@ export class DataService {
     return this.http.get<Doctor[]>(Api_Urls.getDoctors);
   }
   getPatientAppointments(): Observable<Appointment[]> | null {
-    const id = this.auth.getIdFromToken();
-    console.log(id);
-    if (id) {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    console.log(username);
+    if (username) {
       return this.http.get<Appointment[]>(
-        Api_Urls.getPateintAppointments + `/${id}`
+        Api_Urls.getPateintAppointments + `/${username}`
       );
     } else {
       return null;
     }
+  }
+  addAppointment(docId:number,appointment:AddAppointmentDto):Observable<Appointment>{
+    const userName=this.auth.getUserNameFromToken();
+    return this.http.post<Appointment>(Api_Urls.addAppointment+`/${userName}/${docId}`,appointment);
   }
 }

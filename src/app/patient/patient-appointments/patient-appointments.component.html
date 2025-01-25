@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="text-dark font-medium fs-4">Doctors List</h2>
+    <h2 class="text-dark font-medium fs-4">Appointments List</h2>
     <div class="d-flex align-items-center">
       <div class="position-relative me-3">
         <input
@@ -9,7 +9,6 @@
           type="text"
           class="form-control pe-5"
           placeholder="Search by Speciality"
-         
         />
         <i
           class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
@@ -34,13 +33,14 @@
           <td>
             <div class="ms-3">
               <h5 class="mb-0 font-medium">
-                {{ appointment.doctor.lastName }} {{ appointment.doctor.firstName }}
+                {{ appointment.doctor.lastName }}
+                {{ appointment.doctor.firstName }}
               </h5>
             </div>
           </td>
           <td>{{ appointment.doctor.speciality }}</td>
           <td>{{ appointment.date }}</td>
-          <td>{{ appointment.payed? 'Payed':'Not Payed' }}</td>
+          <td>{{ appointment.payed ? "Payed" : "Not Payed" }}</td>
           <td class="text-center">
             <button type="button" class="btn btn-outline-primary btn-sm me-2">
               Paye
