@@ -25,6 +25,10 @@ mat-icon.logo {
   font-size: 36px;
   color: #0cd62d; /* Highlight color for the logo */
 }
+.icon{
+  font-size: 20px;
+  color: #0cd62d; /* Highlight color for the logo */
+}
 mat-nav-list {
   padding: 0;
 }

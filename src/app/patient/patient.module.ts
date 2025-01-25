@@ -11,7 +11,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
   declarations: [
     DocumentComponent,
     DoctorsComponent,
-    PatientAppointmentsComponent
+    PatientAppointmentsComponent,
   ],
   imports: [
     CommonModule,

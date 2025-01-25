@@ -9,7 +9,7 @@ const routes: Routes = [{
     path: 'doctor',
     component: DoctorLayoutComponent,
     data: { role: 'doctor' },
-    canActivate: [authGuard, roleGuard],
+    // canActivate: [authGuard, roleGuard],
     children: [
       {
         path: 'dashboard',

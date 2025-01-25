@@ -1,7 +1,7 @@
 .dashboard {
   display: flex;
   flex-direction: row;
-  height: 25vh;
+  height: 20vh;
   background-color: #2a3a42; /* Matches sidebar color */
   color: #fff;
 }
@@ -28,7 +28,7 @@
 }
 
 .quotes-container {
-  max-width: 250px; /* Smaller width */
+  max-width: 300px; /* Smaller width */
   margin: 0 auto;
 }
 
