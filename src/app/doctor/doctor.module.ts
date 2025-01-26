@@ -7,6 +7,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { DocSidebarComponent } from './doc-sidebar/doc-sidebar.component';
 import { DocTopbarComponent } from './doc-topbar/doc-topbar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DocTopbarComponent } from './doc-topbar/doc-topbar.component';
   ],
   imports: [
     CommonModule,
-    DoctorRoutingModule
+    DoctorRoutingModule,
+    FormsModule
   ]
 })
 export class DoctorModule { }

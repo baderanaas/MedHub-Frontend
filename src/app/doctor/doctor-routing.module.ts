@@ -4,6 +4,7 @@ import { DoctorLayoutComponent } from '../layouts/doctor-layout/doctor-layout.co
 import { authGuard } from '../shared/guards/auth.guard';
 import { roleGuard } from '../shared/guards/role.guard';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
+import { PatientsComponent } from './patients/patients.component';
 
 const routes: Routes = [{
     path: '',
@@ -13,6 +14,11 @@ const routes: Routes = [{
       {
         path: 'dashboard',
         component: DocDashboardComponent,
+        title: 'Dashboard',
+      },
+      {
+        path: 'patient',
+        component: PatientsComponent,
         title: 'Dashboard',
       },
     ],
