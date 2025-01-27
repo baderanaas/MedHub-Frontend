@@ -23,12 +23,12 @@
     <table class="table align-middle text-nowrap">
       <thead class="table-dark">
         <tr>
-          <th class="text-light font-medium">Doctor</th>
-          <th class="text-light font-medium">Matricule</th>
-          <th class="text-light font-medium">Speciality</th>
-          <th class="text-light font-medium">Email</th>
-          <th class="text-light font-medium text-center">Phone</th>
-          <th class="text-light font-medium text-center"></th>
+          <th class="text font-medium">Doctor</th>
+          <th class="text font-medium">Matricule</th>
+          <th class="text font-medium">Speciality</th>
+          <th class="text font-medium">Email</th>
+          <th class="text font-medium text-center">Phone</th>
+          <th class="text font-medium text-center"></th>
         </tr>
       </thead>
       <tbody>
@@ -106,15 +106,34 @@
             />
           </div>
           <div class="mb-3">
-            <label for="appointmentDate" class="form-label">Appointment Date and Time</label>
+            <label for="appointmentDate" class="form-label"
+              >Appointment Date
+            </label>
             <input
-              type="datetime-local"
+              type="date"
               class="form-control"
               id="appointmentDate"
               [(ngModel)]="appointmentDate"
               name="appointmentDate"
             />
           </div>
+          <div class="mb-3">
+            <label for="session" class="form-label">Session</label>
+            <select
+              class="form-control"
+              id="session"
+              [(ngModel)]="selectedSession"
+              name="session"
+            >
+              <option
+                *ngFor="let session of availableSessions"
+                [value]="session"
+              >
+                {{ session | sessionLabel }}
+              </option>
+            </select>
+          </div>
+
           <!-- Add more fields if needed -->
         </form>
       </div>

@@ -23,6 +23,7 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
+import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
     FullLayoutComponent,
     DoctorLayoutComponent,
     UnauthorizedComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -65,5 +68,6 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
     multi:true
   }],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}

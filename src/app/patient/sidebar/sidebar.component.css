@@ -4,17 +4,17 @@
 }
 .sidenav {
   width: 250px;
-  background-color: #263238; /* Dark color */
+  background-color: #3f8f8f; /* Dark color */
   color: white;
   padding-top: 20px;
-  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 0px 10px #3f8f8f;
 }
 .sidenav-header {
   display: flex;
   align-items: center;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #37474f; /* Slightly lighter background */
+  background-color: #3f8f8f; /* Slightly lighter background */
 }
 .sidenav-title {
   font-size: 24px;
@@ -23,12 +23,18 @@
 }
 mat-icon.logo {
   font-size: 36px;
+  color: #E8D7C3; /* Highlight color for the logo */
+}
+.icon{
+  font-size: 20px;
   color: #0cd62d; /* Highlight color for the logo */
 }
 mat-nav-list {
+  background-color: #3f8f8f;
   padding: 0;
 }
 mat-list-item {
+  background-color: #3f8f8f;
   display: flex;
   align-items: center; /* Ensures vertical alignment */
   padding: 10px 20px;
@@ -39,7 +45,7 @@ mat-list-item:hover {
   background-color: #455a64; /* Darken color on hover */
 }
 mat-icon {
-  color: #086016;
+  color: #E8D7C3;
   margin-right: 15px; /* Space between icon and text */
   font-size: 20px;
   display:inline;
@@ -48,6 +54,7 @@ mat-icon {
   min-width: 30px; /* Add a fixed minimum width to align properly */
 }
 mat-sidenav[mode="over"] {
+  background-color: #3f8f8f;
   width: 200px;
 }
 mat-sidenav-content {
@@ -56,6 +63,7 @@ mat-sidenav-content {
 }
 @media screen and (max-width: 768px) {
   .sidenav {
+    background-color: #3f8f8f;
     width: 200px;
   }
 
@@ -66,6 +74,7 @@ mat-sidenav-content {
 
 /* Additional custom styles for the items */
 .sidenav-item {
+  background-color:  #3f8f8f;
   display: flex;
   align-items: center; /* Ensures items (icon + text) are aligned */
   padding: 10px 20px;
@@ -73,14 +82,16 @@ mat-sidenav-content {
   min-height: 50px; /* Ensures that the items are consistent in height */
 }
 
+
+
 .sidenav-item:hover {
-  background-color: #1e2a36;
+  background-color: #3f8f8f;
 }
 
 .sidenav-item-text {
   font-size: 20px;
   font-weight: 500;
-  color:darkgray;
+  color:white;
   transition: color 0.3s ease;
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflowing text */
@@ -93,5 +104,5 @@ mat-sidenav-content {
 
 /* Active state - Change background color (optional) */
 .sidenav-item.active {
-  background-color: #263238; /* Darker background on active item */
+  background-color: #3f8f8f; /* Darker background on active item */
 }

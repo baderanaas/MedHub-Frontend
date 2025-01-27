@@ -6,18 +6,23 @@ import { DocumentComponent } from './document/document.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
 import { FormsModule } from '@angular/forms';
+import { SessionLabelPipe } from '../shared/pipes/session-label.pipe';
+
 
 
 @NgModule({
   declarations: [
     DocumentComponent,
     DoctorsComponent,
-    PatientAppointmentsComponent
+    PatientAppointmentsComponent,
+    SessionLabelPipe
+    
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+   
+]
 })
 export class PatientModule { }
