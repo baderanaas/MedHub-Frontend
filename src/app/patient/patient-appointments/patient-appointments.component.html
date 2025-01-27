@@ -1,65 +1,53 @@
-<div class="table-header">
-    <h4 class="my-appointments-heading">{{ title }}</h4>
-    <button class="btn btn-primary add-appointment-btn" (click)="openAddAppointment()">
-      + Add Appointment
-    </button>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Appointments List</h2>
+    <div class="d-flex align-items-center">
+      <div class="position-relative me-3">
+        <input
+          [(ngModel)]="name"
+          name="speciality"
+          type="text"
+          class="form-control pe-5"
+          placeholder="Search by Speciality"
+        />
+        <i
+          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+        ></i>
+      </div>
+    </div>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Doctor Name</th>
-        <th>Specialty</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let appointment of Appointments">
-        <td>{{ appointment.doctorName }}</td>
-        <td>{{ appointment.specialty }}</td>
-        <td>{{ appointment.date | date: 'shortDate' }}</td>
-        <td>{{ appointment.time }}</td>
-        <td>
-          <div class="dropdown">
-            <button
-              class="btn btn-light dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="fas fa-ellipsis-v"></i>
+
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-light font-medium">Doctor</th>
+          <th class="text-light font-medium">Speciality</th>
+          <th class="text-light font-medium">Date</th>
+          <th class="text-light font-medium">Payed</th>
+          <th class="text-light font-medium text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments$ | async">
+          <td>
+            <div class="ms-3">
+              <h5 class="mb-0 font-medium">
+                {{ appointment.doctor.lastName }}
+                {{ appointment.doctor.firstName }}
+              </h5>
+            </div>
+          </td>
+          <td>{{ appointment.doctor.speciality }}</td>
+          <td>{{ appointment.date }}</td>
+          <td>{{ appointment.payed ? "Payed" : "Not Payed" }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-outline-primary btn-sm me-2">
+              Paye
             </button>
-            <ul
-              class="dropdown-menu custom-dropdown"
-              aria-labelledby="dropdownMenuButton"
-            >
-              <li>
-                <a
-                  class="dropdown-item"
-                  (click)="onActionSelected(appointment, 'viewProfile')"
-                  >View Profile</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item"
-                  (click)="onActionSelected(appointment, 'reschedule')"
-                  >Reschedule</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item text-danger"
-                  (click)="onActionSelected(appointment, 'cancel')"
-                  >Cancel</a
-                >
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

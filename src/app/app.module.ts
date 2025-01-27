@@ -16,7 +16,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 
+import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,11 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:RequestInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

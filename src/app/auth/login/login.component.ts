@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginDto } from './Dto/login-dto';
 import { Router } from '@angular/router';
 import { Api_Urls } from 'src/app/config/api-urls';
+import { routes } from 'src/app/config/routes';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { Api_Urls } from 'src/app/config/api-urls';
 export class LoginComponent {
   authService = inject(AuthService);
   router = inject(Router);
-  registerLink = Api_Urls.register;
+  registerLink = routes.register;
   user: LoginDto = {
     email: '',
     password: '',
