@@ -14,13 +14,14 @@ import { routes } from 'src/app/config/routes';
 export class RegisterComponent {
   authService = inject(AuthService);
   router = inject(Router);
-  toastr=inject(ToastrService);
+  toastr = inject(ToastrService);
+  loginLink = routes.login;
 
   register(user: RegisterDto) {
     this.authService.register(user).subscribe({
       next: (res) => {
         console.log('registered successfully ' + res);
-        this.toastr.success('user added successfuly','success');
+        this.toastr.success('user added successfuly', 'success');
         this.router.navigate([routes.login]);
       },
       error: (err) => {
@@ -36,6 +37,7 @@ export class RegisterComponent {
     dateOfBirth: new Date(),
     role: Role.PATIENT,
     phone: '',
+    sexe: '',
     password: '',
   };
 }
