@@ -4,11 +4,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { filter, map } from 'rxjs';
 import * as bootstrap from 'bootstrap';
 import { AddAppointmentDto } from 'src/app/shared/dto/add-appointment.dto';
+import { AppModule } from "../../app.module";
 
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
   styleUrls: ['./doctors.component.css'],
+
 })
 export class DoctorsComponent {
   doctors: Doctor[] = [];
@@ -16,11 +18,14 @@ export class DoctorsComponent {
   selectedDoctor: any;
   appointmentDto: AddAppointmentDto = {
     date: new Date(),
+    session: 0,
   };
   appointmentDate!: Date;
   dataService = inject(DataService);
   filteredDoctor: Doctor[] = [];
   doctors$ = this.dataService.getDoctors();
+selectedSession: any;
+availableSessions: number[]=[1,2,3,4,5];
   getDoctors() {
     this.doctors$.subscribe({
       next: (docs) => {
@@ -85,7 +90,7 @@ export class DoctorsComponent {
           console.log(err);
         },
       });
-      
+
       this.closeModal();
     } else {
       alert('Please fill in all fields.');

@@ -83,7 +83,7 @@
 /* Login Button */
 .login {
   color: #ced9de;
-  font-size: large;
+  font-size: med;
   width: 35px;
   margin-left: auto; /* Push the button to the right */
   white-space: nowrap; /* Prevent text wrapping */
