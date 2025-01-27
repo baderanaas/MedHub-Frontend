@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from '../shared/guards/auth.guard';
 import { roleGuard } from '../shared/guards/role.guard';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { MedicationsComponent } from './medications/medications.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent,  },
       { path: 'appointments', component: PatientAppointmentsComponent, },
       { path: 'doctors', component: DoctorsComponent, },
+      {path:'medications',component:MedicationsComponent}
     ],
     // canActivate: [authGuard, roleGuard],
     data: { role: 'patient' },

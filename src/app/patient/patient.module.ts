@@ -6,17 +6,38 @@ import { DocumentComponent } from './document/document.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { AddAppointmentComponent } from './dashboard/components/add-appointment/add-appointment.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MedicationsComponent } from './medications/medications.component';
 
 @NgModule({
   declarations: [
     DocumentComponent,
     DoctorsComponent,
     PatientAppointmentsComponent,
+    AddAppointmentComponent,
+    MedicationsComponent,
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    DashboardModule
+    DashboardModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    FormsModule,
+    MatIconModule,
   ]
 })
 export class PatientModule { }

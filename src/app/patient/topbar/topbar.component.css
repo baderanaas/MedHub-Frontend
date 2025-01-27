@@ -1,6 +1,6 @@
 /* Top Bar Styles */
 .top-bar {
-  background-color: #263238; /* Sidebar and Top Bar Matching Background */
+  background-color: #3f8f8f; /* Sidebar and Top Bar Matching Background */
   color: white;
   height: 65px;
   padding: 0 16px;
@@ -41,7 +41,7 @@
 /* Search Input */
 .search-input {
   background: transparent; /* No background color */
-  border: 2px solid rgb(10, 20, 75); /* Black border */
+  border: 2px solid white; /* Black border */
   border-radius: 8px; /* Rounded corners */
   padding: 8px 12px;
   color: rgb(255, 255, 255); /* Text color */
@@ -62,7 +62,7 @@
 
 /* Search Button */
 .search-button {
-  background-color: #263238; /* Match top bar color */
+  background-color: #3f8f8f; /* Match top bar color */
   border: none;
   margin-left: 8px; /* Space between input and button */
   border-radius: 50%; /* Circular button */

@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: row;
   height: 20vh;
-  background-color: #2a3a42; /* Matches sidebar color */
+  background-color: #376161; /* Matches sidebar color */
   color: #fff;
+  border-radius: 10px;
 }
 
 .left-section {
@@ -21,10 +22,10 @@
 
 /* Quotes Section */
 .quote-section {
-  background-color: #1e2c30; /* Matches sidebar's dark theme */
+  background-color: #3f8f8f; /* Matches sidebar's dark theme */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 7px #3f8f8f;
 }
 
 .quotes-container {
@@ -42,7 +43,7 @@
 
 /* Tips Card */
 .tips-card {
-  background-color: #1e2c30;
+  background-color: #2f5959;
   border-radius: 6px;
   padding: 15px;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);

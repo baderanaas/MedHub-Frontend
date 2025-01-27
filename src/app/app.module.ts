@@ -24,6 +24,9 @@ import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -62,7 +65,10 @@ import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component'
     }),
     PatientModule,
     DoctorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

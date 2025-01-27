@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import {AddAppointmentComponent} from '../add-appointment/add-appointment.component'
 
 interface Appointment {
   doctorName: string;
@@ -19,6 +21,8 @@ export class UpcomingAppointmentsComponent {
     // Add more appointments here
   ];
   title:string=" Upcoming Appointments"
+  
+  //dialog: any;
 
   onActionSelected(appointment: Appointment, action: string) {
     console.log('Selected action:', action, 'for appointment:', appointment);
@@ -31,6 +35,21 @@ export class UpcomingAppointmentsComponent {
     } else if (action === 'viewDetails') {
       // Logic to view appointment details
     }
+  }
+  constructor(private dialog: MatDialog) {}
+
+  openAddAppointment() {
+    const dialogRef = this.dialog.open(AddAppointmentComponent, {
+      width: '600px',
+      data: {}, // Optional: Pass initial data if needed
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('New Appointment:', result);
+        // Save the data or perform further actions
+      }
+    });
   }
 
   onAddAppointment() {

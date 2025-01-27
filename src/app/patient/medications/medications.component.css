@@ -1,0 +1,60 @@
+/* You can add custom styles here if needed */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .my-medications-heading {
+    color: rgb(39, 39, 67);
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .add-medication-btn {
+    background-color: #3f8f8f;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-medication-btn:hover {
+    background-color: #2a3a42;
+  }
+  
+  .dropdown-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+  }
+  
+  .dropdown-item.text-success:hover {
+    background-color: #e6f7e6;
+    color: #28a745;
+  }
+  
+  .dropdown-item.text-danger:hover {
+    background-color: #ffe6e6;
+    color: #dc3545;
+  }
+  
+  .table th, .table td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+  
