@@ -39,7 +39,6 @@ export class RegisterComponent {
     role: Role.PATIENT,
     phone: '',
     sexe: '',
-    sexe: '',
     password: '',
   };
 }

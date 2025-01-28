@@ -11,6 +11,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.component';
+import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { RouterModule } from '@angular/router';
     AppointmentsComponent,
     DocDashboardComponent,
     DocTopbarComponent,
+    DocTopCardComponent,
+    TodaysAppointmentsComponent,
     
   ],
   imports: [

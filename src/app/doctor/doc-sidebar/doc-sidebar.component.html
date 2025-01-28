@@ -1,34 +1,42 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav class="sidenav" mode="side" opened>
-      <div class="sidenav-header">
-        <mat-icon class="logo">home</mat-icon>
-        <span class="sidenav-title">MedHub</span>
-      </div>
-      <mat-nav-list>
-        <mat-list-item  routerLink="dashboard"  class="sidenav-item" routerLinkActive="active" >
-          <mat-icon >dashboard</mat-icon>
-          <span  #item class="sidenav-item-text">Dashboard</span>
-        </mat-list-item>
-        <mat-list-item routerLink="appointments" routerLinkActive="active" class="sidenav-item" >
-          <mat-icon>person</mat-icon>
-          <span  #item class="sidenav-item-text">Appointments</span>
-        </mat-list-item>
-        <mat-list-item routerLink="doctors" routerLinkActive="active" class="sidenav-item" >
-          <mat-icon>person</mat-icon>
-          <span  #item class="sidenav-item-text">Patients</span>
-        </mat-list-item>
-        <mat-list-item routerLink="/help" routerLinkActive="active" class="sidenav-item" >
-          <mat-icon>help</mat-icon>
-          <span  #item class="sidenav-item-text">Help</span>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <!-- Main Content -->
-    <mat-sidenav-content>
-      <!-- Top Bar (Toolbar) -->
-  
-      <ng-content></ng-content>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  <mat-sidenav #sidenav class="sidenav" mode="side" opened>
+    <div class="sidenav-header">
+      <mat-icon class="logo">home</mat-icon>
+      <span class="sidenav-title">MedHub</span>
+    </div>
+    <mat-nav-list>
+      <mat-list-item
+        routerLink="dashboard"
+        class="sidenav-item"
+        routerLinkActive="active"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span #item class="sidenav-item-text">Dashboard</span>
+      </mat-list-item>
+      <mat-list-item
+        routerLink="appointments"
+        routerLinkActive="active"
+        class="sidenav-item"
+      >
+        <mat-icon>person</mat-icon>
+        <span #item class="sidenav-item-text">Appointments</span>
+      </mat-list-item>
+      <mat-list-item
+        routerLink="patients"
+        routerLinkActive="active"
+        class="sidenav-item"
+      >
+        <mat-icon>person</mat-icon>
+        <span #item class="sidenav-item-text">Patients</span>
+      </mat-list-item>
+      <mat-list-item
+        routerLink="/help"
+        routerLinkActive="active"
+        class="sidenav-item"
+      >
+        <mat-icon>help</mat-icon>
+        <span #item class="sidenav-item-text">Help</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
