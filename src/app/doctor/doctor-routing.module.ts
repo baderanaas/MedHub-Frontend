@@ -5,6 +5,7 @@ import { authGuard } from '../shared/guards/auth.guard';
 import { roleGuard } from '../shared/guards/role.guard';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { PatientsComponent } from './patients/patients.component';
+import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
 
 const routes: Routes = [{
     path: '',
@@ -20,6 +21,11 @@ const routes: Routes = [{
         path: 'patient',
         component: PatientsComponent,
         title: 'Dashboard',
+      },
+      {
+        path: 'patient-details/:id', 
+        component: PatientDetailsComponent,
+        title: 'Patient Details',
       },
     ],
   }];

@@ -1,1 +1,45 @@
-<p>patient-details works!</p>
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <h3 class="text-primary mb-3">Patient Details</h3>
+
+    <!-- Section: Informations personnelles -->
+    <div class="mb-4">
+      <h5 class="text-secondary">Personal Information</h5>
+      <p><strong>Name:</strong> {{ patient?.name }}</p>
+      <p><strong>Date of Birth:</strong> {{ patient?.dateOfBirth }}</p>
+      <p><strong>Age:</strong> {{ calculateAge(patient?.dateOfBirth) }}</p>
+      <p><strong>Sex:</strong> {{ patient?.gender }}</p>
+      <p><strong>Contact:</strong> {{ patient?.contact }}</p>
+    </div>
+
+    <!-- Section: Antécédents médicaux -->
+    <div class="mb-4">
+      <h5 class="text-secondary">Medical History</h5>
+      <p><strong>Allergies:</strong> {{ patient?.allergies || 'None' }}</p>
+      <p><strong>Chronic Diseases:</strong> {{ patient?.chronicDiseases || 'None' }}</p>
+      <p><strong>Previous Surgeries:</strong> {{ patient?.surgeries || 'None' }}</p>
+    </div>
+
+    <!-- Section: Historique des consultations -->
+    <div class="mb-4">
+      <h5 class="text-secondary">Consultation History</h5>
+      <ul>
+        <li *ngFor="let consultation of patient?.consultations">
+          <strong>{{ consultation.date }}</strong>: {{ consultation.diagnosis }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section: Traitements actuels -->
+    <div class="mb-4">
+      <h5 class="text-secondary">Current Treatments</h5>
+      <ul>
+        <li *ngFor="let treatment of patient?.currentTreatments">
+          {{ treatment.name }} - {{ treatment.dosage }}
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</div>

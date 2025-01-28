@@ -9,6 +9,7 @@ import { DocSidebarComponent } from './doc-sidebar/doc-sidebar.component';
 import { DocTopbarComponent } from './doc-topbar/doc-topbar.component';
 import { FormsModule } from '@angular/forms';
 import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
+import { DocNotesComponent } from './doc-notes/doc-notes.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PatientDetailsComponent } from './patients/patient-details/patient-deta
     DocDashboardComponent,
     DocSidebarComponent,
     DocTopbarComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    DocNotesComponent
   ],
   imports: [
     CommonModule,
