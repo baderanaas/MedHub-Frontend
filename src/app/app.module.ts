@@ -65,7 +65,6 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
       progressBar: true,
       progressAnimation: 'decreasing',
     }),
-    PatientModule,
     DoctorModule,
     MatMenuModule,
     MatDialogModule,

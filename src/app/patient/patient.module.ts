@@ -19,6 +19,7 @@ import { MedicationsComponent } from './medications/medications.component';
 import { SessionLabelPipe } from '../shared/pipes/session-label.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     PatientAppointmentsComponent,
     AddAppointmentComponent,
     MedicationsComponent,
-    SessionLabelPipe
+    SessionLabelPipe,
+    PatientProfileComponent
   ],
   imports: [
     CommonModule,

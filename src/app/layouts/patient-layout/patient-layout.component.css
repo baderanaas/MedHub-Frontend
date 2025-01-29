@@ -18,6 +18,6 @@ app-sidebar {
 .content {
   flex: 1; /* Take all remaining space for the content */
   margin-top: 0; /* Reset margin to align under the top bar */
-  padding-top: 100px; /* Add padding for better spacing */
+  padding-top: 59px; /* Add padding for better spacing */
   overflow-y: auto; /* Allow scrolling if content overflows */
 }

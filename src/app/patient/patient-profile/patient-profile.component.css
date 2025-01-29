@@ -1,0 +1,49 @@
+.patient-profile-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+  
+  h4 {
+    color: #333;
+    border-bottom: 2px solid #b6d8e7;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .profile-sections {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-section,
+  .right-section {
+    flex: 1;
+  }
+  
+  .left-section {
+    margin-right: 16px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 12px;
+    background-color: #ffffff;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 12px;
+  }
+  
+  th {
+    background-color: #b6d8e7;
+  }
+  

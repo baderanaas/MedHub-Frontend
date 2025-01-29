@@ -60,4 +60,9 @@ export class DataService {
       params,
     });
   }
+
+
+  getPatientHistory(username: string): Observable<any[]> {
+    return this.http.get<any[]>(`${Api_Urls.getPassedAppointement}/history/${username}`);
+  }
 }
