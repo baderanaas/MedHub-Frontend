@@ -12,6 +12,7 @@ export class PatientAppointmentsComponent implements OnInit {
   data = inject(DataService);
   appointments$: Observable<Appointment[]> = this.data.getPatientAppointments() ?? new Observable<Appointment[]>();
 
+  name: string = ''
   ngOnInit(): void {
     this.appointments$.subscribe({
       next: (res) => {
