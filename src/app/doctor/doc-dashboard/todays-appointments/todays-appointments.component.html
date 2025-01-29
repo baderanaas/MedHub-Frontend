@@ -68,10 +68,26 @@
         <p>No requested appointments.</p>
       </div>
 
-      <div class="appointment-card" *ngFor="let request of paginatedAppointments">
+      <div 
+        class="appointment-card" 
+        *ngFor="let request of paginatedAppointments; let i = index" 
+        (click)="selectRequest(i)">
         <h5>{{ request.patientName }}</h5>
         <p>Date: {{ request.date }}</p>
         <p>Time: {{ request.time }}</p>
+
+        <div *ngIf="selectedRequestIndex === i" class="action-buttons">
+          <button 
+            class="btn btn-success accept-btn" 
+            (click)="onAccept(request, $event)">
+            Accept
+          </button>
+          <button 
+            class="btn btn-danger reject-btn" 
+            (click)="onReject(request, $event)">
+            Reject
+          </button>
+        </div>
       </div>
 
       <!-- Navigation Buttons -->

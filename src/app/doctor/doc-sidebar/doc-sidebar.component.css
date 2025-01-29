@@ -47,7 +47,7 @@ mat-list-item:hover {
 mat-icon {
   color: #E8D7C3;
   margin-right: 15px; /* Space between icon and text */
-  font-size: 20px;
+  font-size: 20px;  
   display:inline;
   align-items: center; /* Vertically center the icon */
   justify-content: center; /* Ensure the icon is centered horizontally */
