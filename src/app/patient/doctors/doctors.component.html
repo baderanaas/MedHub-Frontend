@@ -61,6 +61,7 @@
               type="button"
               class="btn btn-outline-primary btn-sm me-2"
               (click)="openAppointmentModal(doc)"
+
             >
               Take Appointment
             </button>
@@ -113,8 +114,9 @@
               type="date"
               class="form-control"
               id="appointmentDate"
-              [(ngModel)]="appointmentDate"
+              [(ngModel)]="appointmentDto.date"
               name="appointmentDate"
+              (change)="onDateChange()"
             />
           </div>
           <div class="mb-3">
@@ -122,11 +124,11 @@
             <select
               class="form-control"
               id="session"
-              [(ngModel)]="selectedSession"
-              name="session"
+              [(ngModel)]="appointmentDto.session"
+              name="selectedSession"
             >
               <option
-                *ngFor="let session of availableSessions"
+                *ngFor="let session of sessions$ | async"
                 [value]="session"
               >
                 {{ session | sessionLabel }}

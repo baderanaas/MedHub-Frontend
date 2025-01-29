@@ -1,0 +1,128 @@
+
+  .dialog-title {
+    font-size: 26px; /* Slightly larger for emphasis */
+    font-weight: 600; /* Bold for clarity */
+    color: #263238; /* Dark gray for readability */
+    margin-bottom: 24px; /* Increased spacing */
+    text-align: center;
+    padding-top: 16px; /* Added padding for better alignment */
+  }
+
+  .dialog-content {
+    padding: 24px; /* Consistent padding */
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 12px; /* Subtle rounded corners */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    max-height: 500px; /* Max height for scrollable content */
+    overflow-y: auto; /* Scroll if content overflows */
+  }
+
+  .appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Increased gap for better spacing */
+    
+  }
+
+  .form-row {
+    display: flex;
+    gap: 16px; /* Consistent spacing between fields */
+  }
+
+  .form-field {
+    width: 100%; /* Full width for inputs */
+  }
+
+  .mat-form-field {
+    background-color: #f5f5f5; /* Light gray background for inputs */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px; /* Padding for better spacing */
+    transition: box-shadow 0.2s ease-in-out; /* Smooth transition */
+  }
+
+  .mat-form-field:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: #0cd62d; /* Green for focused state */
+  }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 24px; /* Consistent padding */
+    gap: 12px; /* Spacing between buttons */
+    background-color: #fafafa; /* Light background for actions */
+    border-top: 1px solid #e0e0e0; /* Subtle border for separation */
+  }
+
+  .cancel-button {
+    color: #d32f2f; /* Red for cancel button */
+    font-weight: 500; /* Medium weight for clarity */
+    transition: color 0.2s ease; /* Smooth transition */
+  }
+
+  .cancel-button:hover {
+    color: #b71c1c; /* Darker red on hover */
+  }
+
+  .save-button {
+    background-color: #0cd62d; /* Green for save button */
+    color: white; /* White text for contrast */
+    font-weight: 500; /* Medium weight */
+    padding: 10px 24px; /* Comfortable padding */
+    border-radius: 6px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+
+  .save-button:hover {
+    background-color: #0a9c1e; /* Darker green on hover */
+  }
+
+  .save-button:disabled {
+    background-color: #b0bec5; /* Gray for disabled state */
+    cursor: not-allowed; /* Disabled cursor */
+  }
+
+  button.mat-button,
+  button.mat-raised-button {
+    min-width: 120px; /* Minimum width for buttons */
+    padding: 10px 20px; /* Consistent padding */
+    font-size: 16px; /* Readable font size */
+    border-radius: 6px; /* Rounded buttons */
+  }
+
+  .mat-datepicker-toggle,
+  .mat-datepicker-input {
+    font-size: 16px; /* Consistent font size */
+    padding: 10px; /* Padding for better spacing */
+    background-color: #f5f5f5; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  }
+  .dialog-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #263238;
+    margin-bottom: 24px;
+    text-align: center;
+    padding-top: 16px;
+    position: relative; /* Required for absolute positioning of the close button */
+  }
+  
+  .close-button {
+    position: absolute; /* Position the button absolutely within the title */
+    top: 16px; /* Adjust top position */
+    right: 16px; /* Adjust right position */
+    color: #757575; /* Gray color for the icon */
+    transition: color 0.2s ease; /* Smooth transition for hover effect */
+  }
+  
+  .close-button:hover {
+    color: #d32f2f; /* Red color on hover */
+  }
+  
+  .close-button mat-icon {
+    font-size: 24px; /* Adjust icon size */
+  }

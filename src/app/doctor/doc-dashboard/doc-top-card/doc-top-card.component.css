@@ -1,0 +1,41 @@
+.card {
+    background-color: #ffffff; 
+    width: 300px; 
+    height: 150px; 
+    padding: 20px;
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if there are too many */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 20px; /* Space between cards */
+    height: 40vh; /* Ensures the container takes full viewport height */
+    width:50vh;
+    padding: 0px;
+    margin:5px
+  }
+  
+  
+  .card:hover {
+    transform: translateY(-5px); /* Adds a hover effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  .rounded-circle {
+    width: 50px;
+    height: 50px; /* Ensure the circle is consistent */
+  }
+  
+  .card-body h5 {
+    font-size: 1.25rem; /* Slightly larger title */
+  }
+  
+  .card-body small {
+    
+    font-size: 0.9rem; /* Subtitle size */
+    color: #6c757d; /* Neutral gray for subtitles */
+  }
+  
