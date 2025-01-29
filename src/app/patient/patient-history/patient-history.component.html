@@ -1,0 +1,64 @@
+<div class="history-container">
+    <h2 class="title">Health history</h2>
+  
+    <div class="history-card" *ngFor="let question of healthQuestions">
+        <p class="question">{{ question.question }}</p>
+        <div class="toggle-group">
+          <button class="toggle" [class.active]="question.value === 'No'" (click)="updateAnswer(question, 'No')">No</button>
+          <button class="toggle" [class.active]="question.value === 'Yes'" (click)="updateAnswer(question, 'Yes')">Yes</button>
+        </div>
+      </div>
+    
+  
+    <div class="other-conditions">
+      <p class="question">Do you have other health conditions?</p>
+      <textarea class="text-area" placeholder="Describe your other health conditions..."></textarea>
+    </div>
+  </div>
+  <mat-card class="social-history-container">
+    <h2>Social history</h2>
+    <p class="description">Description</p>
+  
+    <div class="question-section">
+      <mat-card class="question-card">
+        <p class="question">Do you smoke cigarettes?</p>
+        <mat-radio-group>
+          <mat-radio-button *ngFor="let option of smokingOptions" [value]="option.value">
+            {{ option.label }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-card>
+  
+      <mat-card class="question-card">
+        <p class="question">How many packs a day?</p>
+        <mat-form-field>
+          <input matInput placeholder="Enter number">
+        </mat-form-field>
+      </mat-card>
+  
+      <mat-card class="question-card">
+        <p class="question">Do you drink alcohol?</p>
+        <mat-button-toggle-group>
+          <mat-button-toggle value="No">No</mat-button-toggle>
+          <mat-button-toggle value="Yes">Yes</mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-card>
+  
+      <mat-card class="question-card">
+        <p class="question">How many drinks per week?</p>
+        <mat-form-field>
+          <input matInput placeholder="Enter number">
+        </mat-form-field>
+      </mat-card>
+  
+      <mat-card class="question-card">
+        <p class="question">Do you use recreational drugs?</p>
+        <mat-radio-group>
+          <mat-radio-button *ngFor="let option of drugOptions" [value]="option.value">
+            {{ option.label }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-card>
+    </div>
+  </mat-card>
+  
