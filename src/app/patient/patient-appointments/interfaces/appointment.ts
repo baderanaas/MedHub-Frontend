@@ -5,4 +5,5 @@ export interface Appointment{
     status:string,
     payed:boolean,
     date:Date
+    session:number
 }

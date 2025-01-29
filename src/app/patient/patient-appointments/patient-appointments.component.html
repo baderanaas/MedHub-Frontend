@@ -24,6 +24,7 @@
           <th class="text-light font-medium">Doctor</th>
           <th class="text-light font-medium">Speciality</th>
           <th class="text-light font-medium">Date</th>
+          <th class="text-light font-medium">Time</th>
           <th class="text-light font-medium">Payed</th>
           <th class="text-light font-medium text-center"></th>
         </tr>
@@ -40,6 +41,7 @@
           </td>
           <td>{{ appointment.doctor.speciality }}</td>
           <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
           <td>{{ appointment.payed ? "Payed" : "Not Payed" }}</td>
           <td class="text-center">
             <button type="button" class="btn btn-outline-primary btn-sm me-2">
