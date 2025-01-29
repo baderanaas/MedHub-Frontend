@@ -12,6 +12,6 @@ app-sidebar {
 .main-content {
   flex: 1; /* Take up the remaining space */
   padding: 16px; /* Add some padding for content */
-  background-color: #f4f4f4; /* Example background color */
+  background-color: #ffffff; /* Example background color */
   margin-top: 65px;
 }

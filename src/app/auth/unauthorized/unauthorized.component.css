@@ -1,0 +1,13 @@
+.unauthorized-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa; /* Light gray background */
+  
+    img {
+      max-width: 50%;
+      height: auto;
+    }
+  }
+  

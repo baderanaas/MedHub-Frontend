@@ -6,19 +6,19 @@
       <span class="sidenav-title">MedHub</span>
     </div>
     <mat-nav-list>
-      <mat-list-item  routerLink="dashboard"  class="sidenav-item" routerLinkActive="active" (click)="updateSelected(item)">
+      <mat-list-item  routerLink="dashboard"  class="sidenav-item" routerLinkActive="active" >
         <mat-icon >dashboard</mat-icon>
         <span  #item class="sidenav-item-text">Dashboard</span>
       </mat-list-item>
-      <mat-list-item routerLink="/profile" routerLinkActive="active" class="sidenav-item" (click)="updateSelected(item)">
+      <mat-list-item routerLink="appointments" routerLinkActive="active" class="sidenav-item" >
         <mat-icon>person</mat-icon>
-        <span  #item class="sidenav-item-text">Profile</span>
+        <span  #item class="sidenav-item-text">Appointments</span>
       </mat-list-item>
-      <mat-list-item routerLink="/settings" routerLinkActive="active" class="sidenav-item" (click)="updateSelected(item)">
-        <mat-icon>settings</mat-icon>
-        <span  #item class="sidenav-item-text">Settings</span>
+      <mat-list-item routerLink="doctors" routerLinkActive="active" class="sidenav-item" >
+        <mat-icon>person</mat-icon>
+        <span  #item class="sidenav-item-text">Doctors</span>
       </mat-list-item>
-      <mat-list-item routerLink="/help" routerLinkActive="active" class="sidenav-item" (click)="updateSelected(item)">
+      <mat-list-item routerLink="/help" routerLinkActive="active" class="sidenav-item" >
         <mat-icon>help</mat-icon>
         <span  #item class="sidenav-item-text">Help</span>
       </mat-list-item>
@@ -28,9 +28,6 @@
   <!-- Main Content -->
   <mat-sidenav-content>
     <!-- Top Bar (Toolbar) -->
-    <app-topbar (toggleSidebarEvent)="sidenav.toggle()" [selectedRoute]="selectedItem" >
-      
-    </app-topbar>
 
     <ng-content></ng-content>
   </mat-sidenav-content>
