@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { PatientHistoryModule } from './patient-history.module';
 @Component({
   selector: 'app-patient-history',
   templateUrl: './patient-history.component.html',
