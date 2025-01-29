@@ -25,7 +25,7 @@ export class PatientAppointmentsComponent implements OnInit {
    */
   togglePayment(appointment: Appointment): void {
     if (!appointment.payed) {
-      appointment.payed = true; // ✅ Can only switch to paid
+      appointment.payed = true; //  Can only switch to paid
     }
   }
 }
