@@ -1,0 +1,110 @@
+/* Global card container */
+.personal-details-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 65px;
+    max-width: 1000px;
+    font-family: Arial, sans-serif;
+    margin: auto;
+    border-left: 6px solid #28a745;
+  }
+  
+  /* Section titles */
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+  }
+  
+  /* Styling each form section */
+  .section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Labels for input fields */
+  .section label {
+    font-weight: bold;
+    font-size: 15px;
+    color: #444;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* Styling for select dropdowns */
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #f8f8f8;
+    transition: border 0.3s ease;
+  }
+  
+  select:hover, select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Styling input fields */
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #f8f8f8;
+    transition: border 0.3s ease;
+    margin-top: 5px;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Grouped radio buttons */
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Customizing radio button labels */
+  .options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Custom radio buttons */
+  input[type="radio"] {
+    accent-color: #007bff;
+    transform: scale(1.2);
+  }
+  
+  /* Larger input boxes */
+  input[type="text"].large-input {
+    height: 40px;
+    font-size: 16px;
+    padding: 8px;
+  }
+  
+  /* Adjustments for responsiveness */
+  @media (max-width: 600px) {
+    .personal-details-card {
+      max-width: 100%;
+      padding: 20px;
+    }
+  }
+  
