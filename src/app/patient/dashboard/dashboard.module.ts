@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 import { QuotesPopupComponent } from './components/quotes-popup/quotes-popup.component';
 import { UpcomingAppointmentsComponent } from './components/upcoming-appointments/upcoming-appointments.component';
 import { FormsModule } from '@angular/forms';
+import { SessionLabelPipe } from 'src/app/shared/pipes/session-label.pipe';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     TopCardComponent,
     DashboardComponent,
     QuotesPopupComponent,
-    UpcomingAppointmentsComponent
+    UpcomingAppointmentsComponent,
+    SessionLabelPipe
   ],
   imports: [
     CommonModule,

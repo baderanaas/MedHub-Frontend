@@ -54,7 +54,7 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    DashboardModule,
+    //DashboardModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

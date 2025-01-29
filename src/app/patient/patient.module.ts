@@ -29,12 +29,12 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
     AddAppointmentComponent,
     MedicationsComponent,
     SessionLabelPipe,
-    PatientProfileComponent
+    PatientProfileComponent,
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    DashboardModule,
+    //DashboardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,

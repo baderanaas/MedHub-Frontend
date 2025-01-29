@@ -65,4 +65,8 @@ export class DataService {
   getPatientHistory(username: string): Observable<any[]> {
     return this.http.get<any[]>(`${Api_Urls.getPassedAppointement}/history/${username}`);
   }
+
+  getUpcomingAppointments(username: string): Observable<any[]> {
+    return this.http.get<any[]>(`${Api_Urls.getUpcommingAppointment}/${username}`);
+  }
 }

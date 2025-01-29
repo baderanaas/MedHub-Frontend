@@ -52,4 +52,44 @@ table {
   .add-appointment-btn:hover {
     background-color: #2a3a42; /* Darker blue on hover */
   }
+
+  .upcoming-appointments-container {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  h4 {
+    color: #333;
+    border-bottom: 2px solid #b6d8e7;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .appointments-table {
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+  
+  .appointments-table th,
+  .appointments-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .appointments-table th {
+    background-color: #b6d8e7;
+    color: #333;
+  }
+  
+  .appointments-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
   
