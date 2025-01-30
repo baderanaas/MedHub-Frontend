@@ -35,7 +35,7 @@ export class PatientDetailsComponent implements OnInit {
         { name: 'Metformin', dosage: '500mg twice daily' },
         { name: 'Lisinopril', dosage: '10mg once daily' },
       ],
-  
+
     };
   }
 

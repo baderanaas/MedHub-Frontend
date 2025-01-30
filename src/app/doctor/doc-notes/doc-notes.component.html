@@ -1,1 +1,26 @@
-<p>doc-notes works!</p>
+<div class="container">
+  <!-- Header Section -->
+  <div class="header">
+    <div class="doctor-info">
+      <h2>{{ doctor.name }}</h2>
+      <p>{{ doctor.speciality }}</p>
+    </div>
+    <div class="patient-info">
+      <h2>{{ patient.name }}</h2>
+      <p>{{ patient.birthDate }}</p>
+    </div>
+  </div>
+
+  <!-- Date Section -->
+  <div class="date">{{ today | date }}</div>
+
+  <!-- Prescription Content -->
+  <textarea
+    [(ngModel)]="content"
+    rows="10"
+    placeholder="Écrire une note pour le patient..."
+  ></textarea>
+
+  <!-- Save Button -->
+  <button (click)="save()">Enregistrer</button>
+</div>
