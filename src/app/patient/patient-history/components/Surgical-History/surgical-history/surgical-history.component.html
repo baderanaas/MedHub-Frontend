@@ -1,0 +1,82 @@
+<div class="patient-history-container">
+    <!-- Surgical History Section -->
+    <section class="history-section">
+      <h2>Surgical history / recent hospitalizations</h2>
+      <mat-form-field appearance="outline" class="full-width">
+        <textarea matInput placeholder="Date and type of surgery / procedure"></textarea>
+      </mat-form-field>
+    </section>
+  
+   <!-- Medications Section -->
+   <div class="section">
+    <h2>Medications</h2>
+    <div class="input-group">
+      <label>Name</label>
+      <input type="text" placeholder="Enter medication name">
+    </div>
+    <div class="input-group">
+      <label>Dose</label>
+      <input type="text" placeholder="Enter dose">
+    </div>
+    <div class="input-group">
+      <label>Times per day</label>
+      <input type="text" placeholder="Enter frequency">
+    </div>
+    <button class="add-button">Add Question</button>
+  </div>
+
+  <!-- Allergies Section -->
+  <div class="section">
+    <h2>Allergies</h2>
+    <div class="input-group">
+      <label>Type</label>
+      <input type="text" placeholder="Enter allergy type">
+    </div>
+    <div class="input-group">
+      <label>Reaction</label>
+      <input type="text" placeholder="Describe reaction">
+    </div>
+    <button class="add-button">Add Question</button>
+  </div>
+
+  <!-- Symptoms Section -->
+  <div class="section">
+    <h2>Symptoms</h2>
+    <p>Please select any symptoms you have now or have had in the past month.</p>
+
+    <div class="dropdown">
+      <select>
+        <option>Select...</option>
+      </select>
+    </div>
+
+    <div class="symptoms-list">
+      <div class="symptom-item">
+        <input type="checkbox" id="select-all">
+        <label for="select-all">Select All</label>
+      </div>
+      <div class="symptom-item">
+        <input type="checkbox" id="fever">
+        <label for="fever">Fever</label>
+      </div>
+      <div class="symptom-item">
+        <input type="checkbox" id="chills">
+        <label for="chills">Chills</label>
+      </div>
+      <div class="symptom-item">
+        <input type="checkbox" id="fatigue">
+        <label for="fatigue">Feeling tired</label>
+      </div>
+      <div class="symptom-item">
+        <input type="checkbox" id="weight-loss">
+        <label for="weight-loss">Weight loss</label>
+      </div>
+      <div class="symptom-item">
+        <input type="checkbox" id="chest-pain">
+        <label for="chest-pain">Chest pain</label>
+      </div>
+    </div>
+    <button class="add-button">Add Question</button>
+  </div>
+</div>
+  

@@ -26,6 +26,76 @@
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
   }
+  /* TABLEAU ANTECEDENTS FAMILIAUX */
+.family-history-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.family-history-table .table-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-weight: bold;
+    padding: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+}
+
+.family-history-table .table-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.family-history-table .table-row input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.family-history-table .add-row {
+    color: #00897b;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* SOINS PREVENTIFS */
+.preventive-care-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.preventive-care-grid .preventive-card {
+    border: 1px dashed #ccc;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.preventive-care-grid .preventive-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.preventive-care-grid .preventive-table {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.preventive-care-grid .preventive-table span {
+    font-weight: bold;
+}
+
+.preventive-care-grid .preventive-table input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
   
   /* Labels for input fields */
   .section label {
