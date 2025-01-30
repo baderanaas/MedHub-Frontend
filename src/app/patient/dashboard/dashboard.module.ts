@@ -9,6 +9,7 @@ import { QuotesPopupComponent } from './components/quotes-popup/quotes-popup.com
 import { UpcomingAppointmentsComponent } from './components/upcoming-appointments/upcoming-appointments.component';
 import { FormsModule } from '@angular/forms';
 import { SessionLabelPipe } from 'src/app/shared/pipes/session-label.pipe';
+import { CommModule } from 'src/app/shared/comm/comm.module';
 
 
 
@@ -18,12 +19,13 @@ import { SessionLabelPipe } from 'src/app/shared/pipes/session-label.pipe';
     DashboardComponent,
     QuotesPopupComponent,
     UpcomingAppointmentsComponent,
-    SessionLabelPipe
+    //SessionLabelPipe
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    CommModule
   ]
 })
 export class DashboardModule { }

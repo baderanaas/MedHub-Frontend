@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
+import { CommModule } from './shared/comm/comm.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     FullLayoutComponent,
     DoctorLayoutComponent,
     UnauthorizedComponent,
-    DocSidebarComponent
+    DocSidebarComponent,
+    //SessionLabelPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    CommModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

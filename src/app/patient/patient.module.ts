@@ -20,6 +20,7 @@ import { SessionLabelPipe } from '../shared/pipes/session-label.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { CommModule } from '../shared/comm/comm.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
     PatientAppointmentsComponent,
     AddAppointmentComponent,
     MedicationsComponent,
-    SessionLabelPipe,
+    //SessionLabelPipe,
     PatientProfileComponent,
   ],
   imports: [
@@ -48,6 +49,7 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    CommModule
   ]
 })
 export class PatientModule { }
