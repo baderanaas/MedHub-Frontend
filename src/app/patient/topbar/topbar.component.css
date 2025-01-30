@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   z-index: 1000;
+  padding: 10px;
 }
 
 /* App Title */
@@ -15,7 +16,27 @@
   font-weight: bold;
   color: #ffffff;
 }
+.sidenav-header {
+  display: flex;
+  align-items: center;
 
+  margin-bottom: 20px;
+  background-color: #3f8f8f;
+}
+.sidenav-title {
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+mat-icon.logo {
+  font-size: 36px;
+  color: #e8d7c3;
+  margin-left: 10px;
+}
+.username {
+  font-size: 18px;
+}
 /* Spacer */
 .spacer {
   flex-grow: 1;

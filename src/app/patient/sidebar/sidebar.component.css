@@ -1,12 +1,13 @@
 .sidenav-container {
   display: flex;
   height: 100vh;
+  background-color: white;
 }
 .sidenav {
   width: 250px;
-  background-color: #3f8f8f; /* Dark color */
+  background-color: #3f8f8f;
   color: white;
-  padding-top: 20px;
+ 
   box-shadow: 4px 0px 10px #3f8f8f;
 }
 .sidenav-header {
@@ -14,7 +15,7 @@
   align-items: center;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #3f8f8f; /* Slightly lighter background */
+  background-color: #3f8f8f;
 }
 .sidenav-title {
   font-size: 24px;
@@ -23,11 +24,11 @@
 }
 mat-icon.logo {
   font-size: 36px;
-  color: #E8D7C3; /* Highlight color for the logo */
+  color: #e8d7c3;
 }
-.icon{
+.icon {
   font-size: 20px;
-  color: #0cd62d; /* Highlight color for the logo */
+  color: #0cd62d;
 }
 mat-nav-list {
   background-color: #3f8f8f;
@@ -36,22 +37,22 @@ mat-nav-list {
 mat-list-item {
   background-color: #3f8f8f;
   display: flex;
-  align-items: center; /* Ensures vertical alignment */
+  align-items: center;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
-  min-height: 50px; /* Ensure that list item has a consistent height */
+  min-height: 50px;
 }
 mat-list-item:hover {
-  background-color: #455a64; /* Darken color on hover */
+  background-color: #455a64;
 }
 mat-icon {
-  color: #E8D7C3;
-  margin-right: 15px; /* Space between icon and text */
+  color: #e8d7c3;
+  margin-right: 15px;
   font-size: 20px;
-  display:inline;
-  align-items: center; /* Vertically center the icon */
-  justify-content: center; /* Ensure the icon is centered horizontally */
-  min-width: 30px; /* Add a fixed minimum width to align properly */
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
 }
 mat-sidenav[mode="over"] {
   background-color: #3f8f8f;
@@ -72,17 +73,14 @@ mat-sidenav-content {
   }
 }
 
-/* Additional custom styles for the items */
 .sidenav-item {
-  background-color:  #3f8f8f;
+  background-color: #3f8f8f;
   display: flex;
-  align-items: center; /* Ensures items (icon + text) are aligned */
+  align-items: center;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
-  min-height: 50px; /* Ensures that the items are consistent in height */
+  min-height: 50px;
 }
-
-
 
 .sidenav-item:hover {
   background-color: #3f8f8f;
@@ -91,18 +89,17 @@ mat-sidenav-content {
 .sidenav-item-text {
   font-size: 20px;
   font-weight: 500;
-  color:white;
+  color: white;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflowing text */
-  text-overflow: ellipsis; /* Adds ellipsis (...) for overflowed text */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sidenav-item.active .sidenav-item-text {
-  color: #ffffff; /* Change this to the color you want for the active item */
+  color: #ffffff;
 }
 
-/* Active state - Change background color (optional) */
 .sidenav-item.active {
-  background-color: #3f8f8f; /* Darker background on active item */
+  background-color: #3f8f8f;
 }

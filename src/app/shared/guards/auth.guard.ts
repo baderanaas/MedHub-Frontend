@@ -6,15 +6,15 @@ import { routes } from 'src/app/config/routes';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  const authService=inject(AuthService);
+  const authService = inject(AuthService);
   const isAuthenticated = !!localStorage.getItem('token');
-  const role=authService.getRoleFromToken();
+  const role = authService.getRoleFromToken();
   if (isAuthenticated) {
-    if(role=='patient'){
-      router.navigate(['patient/dashboard'])
+    if (role == 'patient') {
+      router.navigate([routes.patientDashboard]);
     }
-    if(role=='doctor'){
-      router.navigate(['doctor/dashboard'])
+    if (role == 'doctor') {
+      router.navigate([routes.doctorDashboard]);
     }
     return true;
   } else {

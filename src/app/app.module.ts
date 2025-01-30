@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
+import { routes } from './config/routes';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     useClass:RequestInterceptor,
     multi:true
   }],
+  
   bootstrap: [AppComponent],
 
 })

@@ -1,8 +1,5 @@
 <div class="table-header">
   <h4 class="my-appointments-heading">{{ title }}</h4>
-  <button class="btn btn-primary add-appointment-btn" (click)="openAddAppointment()">
-    + Add Appointment
-  </button>
 </div>
 <table class="table table-bordered">
   <thead>
@@ -18,7 +15,7 @@
     <tr *ngFor="let appointment of upcomingAppointments">
       <td>{{ appointment.doctorName }}</td>
       <td>{{ appointment.specialty }}</td>
-      <td>{{ appointment.date | date: 'shortDate' }}</td>
+      <td>{{ appointment.date | date : "shortDate" }}</td>
       <td>{{ appointment.time }}</td>
       <td>
         <div class="dropdown">

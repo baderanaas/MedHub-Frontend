@@ -17,5 +17,13 @@ export interface RegisterDto {
 
   sexe: string;
 
+  speciality?: string;
+
+  height?: number;
+
+  weight?: number;
+
+  bloodType?: string;
+
   password: string;
 }
