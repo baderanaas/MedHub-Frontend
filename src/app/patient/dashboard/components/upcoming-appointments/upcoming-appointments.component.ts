@@ -28,7 +28,7 @@ export class UpcomingAppointmentsComponent  implements OnInit{
   }
 
   fetchUpcomingAppointments(): void {
-    this.appointmentService.getUpcomingAppointments(this.username).subscribe({
+    this.appointmentService.getUpcomingAppointments().subscribe({
       next: (data) => {
         const today = new Date();
         const startOfWeek = new Date(today);

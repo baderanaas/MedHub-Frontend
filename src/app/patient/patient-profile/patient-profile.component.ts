@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
@@ -6,30 +6,31 @@ import { DataService } from 'src/app/shared/services/data.service';
   templateUrl: './patient-profile.component.html',
   styleUrls: ['./patient-profile.component.css']
 })
-export class PatientProfileComponent {
-  patient = {
-    name: 'John Doe',
-    sexe: 'Male',
-    email: 'john.doe@example.com',
-    phone: '+123456789',
-    height: 180,
-    weight: 75,
-    bloodType: 'O+',
-    diagnosedDiseases: ['Hypertension'],
-    allergies: ['Peanuts']
-  };
-
+export class PatientProfileComponent implements OnInit {
+  patient: any = {};
   appointments: any[] = [];
 
   constructor(private patientService: DataService) {}
 
   ngOnInit(): void {
-    const username = 'hassenhassen'; // Replace with dynamic username if available
-    this.loadPatientHistory(username);
+    
+    this.loadPatientProfile();
+    this.loadPatientHistory();
   }
 
-  loadPatientHistory(username: string) {
-    this.patientService.getPatientHistory(username).subscribe(
+  loadPatientProfile(): void {
+    this.patientService.getPatientByUsername().subscribe(
+      (data) => {
+        this.patient = data;
+      },
+      (error) => {
+        console.error('Error fetching patient profile:', error);
+      }
+    );
+  }
+
+  loadPatientHistory(): void {
+    this.patientService.getPatientHistory().subscribe(
       (data) => {
         this.appointments = data;
       },

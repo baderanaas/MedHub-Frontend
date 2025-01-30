@@ -62,11 +62,18 @@ export class DataService {
   }
 
 
-  getPatientHistory(username: string): Observable<any[]> {
+  getPatientHistory(): Observable<any[]> {
+    const username = this.auth.getUserNameFromToken()?.trim();
     return this.http.get<any[]>(`${Api_Urls.getPassedAppointement}/history/${username}`);
   }
 
-  getUpcomingAppointments(username: string): Observable<any[]> {
+  getUpcomingAppointments(): Observable<any[]> {
+    const username = this.auth.getUserNameFromToken()?.trim();
     return this.http.get<any[]>(`${Api_Urls.getUpcommingAppointment}/${username}`);
+  }
+
+  getPatientByUsername(): Observable<any> {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<any>(`${Api_Urls.getPatientByUsername}/${username}`);
   }
 }

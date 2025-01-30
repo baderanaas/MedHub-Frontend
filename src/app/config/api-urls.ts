@@ -6,5 +6,7 @@ export const Api_Urls = {
   addAppointment:'http://localhost:3000/appointment',
   getAvailableSessions:'http://localhost:3000/appointment/availableSessions',
   getPassedAppointement:'http://localhost:3000/appointment/patient',
-  getUpcommingAppointment:'http://localhost:3000/appointment/patient/upcoming'
+  getUpcommingAppointment:'http://localhost:3000/appointment/patient/upcoming',
+  getPatientByUsername:'http://localhost:3000/patient',
+  
 };
