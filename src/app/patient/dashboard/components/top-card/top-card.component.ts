@@ -12,21 +12,27 @@ export class TopCardComponent implements OnInit{
 
  topcard=[{
   bgcolor: 'danger',
-  icon: 'bi bi-chat-left-text',
-  title: 'Reclamations',
-  subtitle: '5'
+  icon: 'fa-solid fa-suitcase-medical',
+  title: 'Upcoming Appointments',
+  subtitle: '2'
 },
 {
   bgcolor: 'warning',
   icon: 'bi bi-person-circle fs-3',
-  title: 'Clients Number',
-  subtitle: ''
+  title: 'Next Medications',
+  subtitle: 'Heart pills'
 },
 {
   bgcolor: 'info',
   icon: 'bi bi-person-circle fs-3',
-  title: 'Agents Number',
-  subtitle: ''
+  title: 'Pending Payments',
+  subtitle: 'Dr. Smith'
+},
+{
+  bgcolor: 'info',
+  icon: 'bi bi-person-circle fs-3',
+  title: 'Emergency Contact Info',
+  subtitle: '911'
 },
 ];
 }

@@ -18,6 +18,7 @@
   }
   
   .card-body small {
+    
     font-size: 0.9rem; /* Subtitle size */
     color: #6c757d; /* Neutral gray for subtitles */
   }

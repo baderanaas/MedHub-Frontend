@@ -7,11 +7,14 @@ import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { PatientsComponent } from './patients/patients.component';
 import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
 import { DocNotesComponent } from './doc-notes/doc-notes.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { DocProfileComponent } from './doc-profile/doc-profile.component';
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
     path: '',
     data: { role: 'doctor' },
-    canActivate: [ roleGuard],
+    canActivate: [roleGuard],
     children: [
       {
         path: 'dashboard',
@@ -21,7 +24,7 @@ const routes: Routes = [{
       {
         path: 'patient',
         component: PatientsComponent,
-        title: 'Dashboard',
+        title: 'Patients',
       },
       {
         path: 'patient-details/:id',
@@ -31,13 +34,24 @@ const routes: Routes = [{
       {
         path: 'docnote',
         component: DocNotesComponent,
-        title: 'doctor notes',
+        title: 'Doctor Notes',
+      },
+      {
+        path: 'appointments',
+        component: AppointmentsComponent,
+        title: 'Appointments',
+      },
+      {
+        path: 'profile',
+        component: DocProfileComponent,
+        title: 'Doctor Profile',
       },
     ],
-  }];
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DoctorRoutingModule { }
+export class DoctorRoutingModule {}

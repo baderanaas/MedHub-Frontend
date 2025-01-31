@@ -1,13 +1,9 @@
-import { Appointment } from "../../../patient/patient-appointments/interfaces/appointment";
 
-export interface  Patient{
-    id:number,
+export interface Patient{
     username:string,
     firstName:String,
     lastName:String,
     email:string,
-    phone:string,
-    age:number,
-    appointments:Appointment[]
-
+    phone:number,
+    sexe:string
 }
