@@ -19,6 +19,7 @@ import { MedicationsComponent } from './medications/medications.component';
 import { SessionLabelPipe } from '../shared/pipes/session-label.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RequestsComponent } from './requests/requests.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { CommModule } from '../shared/comm/comm.module';
 
@@ -29,6 +30,8 @@ import { CommModule } from '../shared/comm/comm.module';
     PatientAppointmentsComponent,
     AddAppointmentComponent,
     MedicationsComponent,
+    //SessionLabelPipe,
+    RequestsComponent,
     //SessionLabelPipe,
     PatientProfileComponent,
   ],

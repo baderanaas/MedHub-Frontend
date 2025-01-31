@@ -1,25 +1,60 @@
+/* Card Styles */
 .card {
-    background-color: #ffffff; /* White background */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #f8fbfd; /* Off-white background */
+  border: 1px solid #a2b9c5; /* Light blue border */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 120px; /* Fixed height for all cards */
+  display: flex;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Adds a hover effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Rounded Circle Icon */
+.rounded-circle {
+  width: 50px;
+  height: 50px; /* Ensure the circle is consistent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a2b9c5; /* Light blue background */
+  color: #1a3d4f; /* Dark blue text */
+  font-size: 1.5rem; /* Icon size */
+}
+
+/* Card Body */
+.card-body {
+  flex: 1; /* Allow the body to take up remaining space */
+  padding: 1rem;
+}
+
+.card-body h3 {
+  font-size: 1.5rem; /* Larger title */
+  font-weight: bold;
+  color: #1a3d4f; /* Dark blue text */
+  margin-bottom: 0.5rem;
+}
+
+.card-body small {
+  font-size: 0.9rem; /* Subtitle size */
+  color: #6c757d; /* Neutral gray for subtitles */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 50%; /* Two cards per row on medium screens */
+    max-width: 50%;
   }
-  
-  .card:hover {
-    transform: translateY(-5px); /* Adds a hover effect */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+@media (max-width: 576px) {
+  .col-md-6 {
+    flex: 0 0 100%; /* One card per row on small screens */
+    max-width: 100%;
   }
-  
-  .rounded-circle {
-    width: 50px;
-    height: 50px; /* Ensure the circle is consistent */
-  }
-  
-  .card-body h5 {
-    font-size: 1.25rem; /* Slightly larger title */
-  }
-  
-  .card-body small {
-    
-    font-size: 0.9rem; /* Subtitle size */
-    color: #6c757d; /* Neutral gray for subtitles */
-  }
-  
+}

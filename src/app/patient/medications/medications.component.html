@@ -1,59 +1,66 @@
-<div class="table-header">
-    <h4 class="my-medications-heading">{{ title }}</h4>
-    <button class="btn btn-primary add-medication-btn" (click)="openAddMedication()">
-      + Add Medication
-    </button>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Medications List</h2>
+    <div class="d-flex align-items-center">
+      <div class="position-relative me-3">
+        <input
+          [(ngModel)]="name"
+          name="speciality"
+          type="text"
+          class="form-control pe-5"
+          placeholder="Search by Speciality"
+          (keydown.enter)="search()"
+          (input)="reset()"
+        />
+        <i
+          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+        ></i>
+      </div>
+    </div>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Med Name</th>
-        <th>Type</th>
-        <th>Dose</th>
-        <th>Per Day</th>
-        <th>Period</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let medication of Medications">
-        <td>{{ medication.name }}</td>
-        <td>{{ medication.type }}</td>
-        <td>{{ medication.dose }}</td>
-        <td>{{ medication.perDay }}</td>
-        <td>{{ medication.period }}</td>
-        <td>{{ medication.description }}</td>
-        <td>
-          <div class="dropdown">
-            <button
-              class="btn btn-light dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="fas fa-ellipsis-v"></i>
-            </button>
-            <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenuButton">
-              <li>
-                <a
-                  class="dropdown-item text-success"
-                  (click)="onStatusChange(medication, 'inProgress')"
-                  >In Progress</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item text-danger"
-                  (click)="onStatusChange(medication, 'done')"
-                  >Done</a
-                >
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text font-medium text-center">Medication</th>
+          <th class="text font-medium text-center">Frequency</th>
+          <th class="text font-medium text-center">Morning</th>
+          <th class="text font-medium text-center">Midday</th>
+          <th class="text font-medium text-center">Night</th>
+          <th class="text font-medium text-center">Prescription required</th>
+          <th class="text font-medium text-center">Side effects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let med of medications$ | async">
+          <td class="text-center">
+            {{ med.name }}
+          </td>
+          <td class="text-center">{{ med.frequency }}</td>
+          <td class="text-center">
+            <mat-icon class="green" *ngIf="med.morning">done_outline</mat-icon>
+            <mat-icon class="red" *ngIf="!med.morning">clear</mat-icon>
+          </td>
+          <td class="text-center">
+            <mat-icon class="green" *ngIf="med.midday">done_outline</mat-icon>
+            <mat-icon class="red" *ngIf="!med.midday">clear</mat-icon>
+          </td>
+          <td class="text-center">
+            <mat-icon class="green" *ngIf="med.night">done_outline</mat-icon>
+            <mat-icon class="red" *ngIf="!med.night">clear</mat-icon>
+          </td>
+          <td class="text-center">
+            <span *ngIf="med.prescriptionRequired" class="material-icons green">
+              verified
+            </span>
+            <span *ngIf="!med.prescriptionRequired" class="material-icons red">
+              warning
+            </span>
+          </td>
+          <td class="text-center">{{ med.sideEffects }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
