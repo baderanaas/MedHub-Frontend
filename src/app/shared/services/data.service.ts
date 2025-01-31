@@ -76,4 +76,5 @@ export class DataService {
     const username = this.auth.getUserNameFromToken()?.trim();
     return this.http.get<any>(`${Api_Urls.getPatientByUsername}/${username}`);
   }
+
 }

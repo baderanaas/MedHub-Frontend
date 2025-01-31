@@ -1,9 +1,4 @@
-<div class="table-header">
-  <h4 class="my-appointments-heading">{{ title }}</h4>
-  <button class="btn btn-primary add-appointment-btn" (click)="openAddAppointment()">
-    + Add Appointment
-  </button>
-</div>
+
 <div *ngIf="upcomingAppointments.length; else noAppointments">
   <div class="upcoming-appointments-container">
     <h4>Upcoming Appointments</h4>
@@ -21,14 +16,13 @@
           <td>{{ appointment.doctor.firstName + ' ' + appointment.doctor.lastName }}</td>
           <td>{{ appointment.doctor.speciality }}</td>
           <td>{{ appointment.date | date }}</td>
-          <td>{{ appointment.session | sessionLabel}}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  
 </div>
 
 <ng-template #noAppointments>
-  <p>No upcoming appointments found.</p>
+  <p class="no-appointments">No upcoming appointments found.</p>
 </ng-template>

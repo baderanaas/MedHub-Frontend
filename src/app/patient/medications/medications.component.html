@@ -1,59 +1,58 @@
 <div class="table-header">
-    <h4 class="my-medications-heading">{{ title }}</h4>
-    <button class="btn btn-primary add-medication-btn" (click)="openAddMedication()">
-      + Add Medication
-    </button>
-  </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Med Name</th>
-        <th>Type</th>
-        <th>Dose</th>
-        <th>Per Day</th>
-        <th>Period</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let medication of Medications">
-        <td>{{ medication.name }}</td>
-        <td>{{ medication.type }}</td>
-        <td>{{ medication.dose }}</td>
-        <td>{{ medication.perDay }}</td>
-        <td>{{ medication.period }}</td>
-        <td>{{ medication.description }}</td>
-        <td>
-          <div class="dropdown">
-            <button
-              class="btn btn-light dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="fas fa-ellipsis-v"></i>
-            </button>
-            <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenuButton">
-              <li>
-                <a
-                  class="dropdown-item text-success"
-                  (click)="onStatusChange(medication, 'inProgress')"
-                  >In Progress</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item text-danger"
-                  (click)="onStatusChange(medication, 'done')"
-                  >Done</a
-                >
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <h4 class="my-medications-heading">{{ title }}</h4>
+  <button class="btn btn-primary add-medication-btn" (click)="openAddMedication()">
+    + Add Medication
+  </button>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Med Name</th>
+      <th>Type</th>
+      <th>Dose</th>
+      <th>Per Day</th>
+      <th>Period</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let medication of Medications">
+      <td>{{ medication.name }}</td>
+      <td>{{ medication.type }}</td>
+      <td>{{ medication.dose }}</td>
+      <td>{{ medication.perDay }}</td>
+      <td>{{ medication.period }}</td>
+      <td>{{ medication.description }}</td>
+      <td>
+        <div class="dropdown">
+          <button
+            class="btn btn-light dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+          <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <a
+                class="dropdown-item text-success"
+                (click)="onStatusChange(medication, 'inProgress')"
+                >In Progress</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-danger"
+                (click)="onStatusChange(medication, 'done')"
+                >Done</a
+              >
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
