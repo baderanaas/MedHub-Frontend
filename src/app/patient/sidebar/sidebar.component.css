@@ -2,6 +2,7 @@
 .sidenav-container {
   display: flex;
   height: 100vh;
+  background-color: white;
 }
 
 /* Sidebar */
@@ -44,6 +45,7 @@ mat-nav-list {
 /* List Items */
 mat-list-item {
   display: flex;
+  align-items: center;
   align-items: center;
   padding: 10px 20px;
   transition: background-color 0.3s ease;

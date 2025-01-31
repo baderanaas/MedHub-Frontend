@@ -15,13 +15,30 @@ export class RegisterComponent {
   authService = inject(AuthService);
   router = inject(Router);
   toastr = inject(ToastrService);
-  loginLink = routes.login;
+  loginLink = `/${routes.login}`;
+  bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+  speciality = [
+    'Cardiology',
+    'Dermatology',
+    'Gynecology',
+    'Pediatrics',
+    'Orthopedics',
+    'Neurology',
+    'Psychiatry',
+    'Radiology',
+    'Ophthalmology',
+    'ENT',
+    'Generalist',
+    'Urology',
+    'Dentistry',
+    'Anesthesiology',
+    'Emergency Medicine',
+  ];
 
   register(user: RegisterDto) {
     this.authService.register(user).subscribe({
       next: (res) => {
         console.log('registered successfully ' + res);
-        this.toastr.success('user added successfuly', 'success');
         this.toastr.success('user added successfuly', 'success');
         this.router.navigate([routes.login]);
       },

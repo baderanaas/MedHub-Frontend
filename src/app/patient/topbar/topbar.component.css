@@ -8,6 +8,7 @@
   padding: 0 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   z-index: 1000;
+  padding: 10px;
 }
 
 /* App Title */
@@ -17,7 +18,27 @@
   color: #f8fbfd; /* Off-white text */
   margin-right: 16px;
 }
+.sidenav-header {
+  display: flex;
+  align-items: center;
 
+  margin-bottom: 20px;
+  background-color: #3f8f8f;
+}
+.sidenav-title {
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+mat-icon.logo {
+  font-size: 36px;
+  color: #e8d7c3;
+  margin-left: 10px;
+}
+.username {
+  font-size: 18px;
+}
 /* Spacer */
 .spacer {
   flex-grow: 1;
