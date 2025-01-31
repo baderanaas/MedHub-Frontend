@@ -30,8 +30,8 @@ import { CommModule } from '../shared/comm/comm.module';
     PatientAppointmentsComponent,
     AddAppointmentComponent,
     MedicationsComponent,
-    SessionLabelPipe,
-    RequestsComponent
+    //SessionLabelPipe,
+    RequestsComponent,
     //SessionLabelPipe,
     PatientProfileComponent,
   ],

@@ -17,10 +17,6 @@ const routes: Routes = [
       { path: 'appointments', component: PatientAppointmentsComponent },
       { path: 'doctors', component: DoctorsComponent },
       { path: 'requests', component: RequestsComponent },
-      { path: 'medications', component: MedicationsComponent },
-      { path: 'dashboard', component: DashboardComponent,  },
-      { path: 'appointments', component: PatientAppointmentsComponent, },
-      { path: 'doctors', component: DoctorsComponent, },
       {path:'medications',component:MedicationsComponent},
       {path:'profile',component:PatientProfileComponent}
     ],

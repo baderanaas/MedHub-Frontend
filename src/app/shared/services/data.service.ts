@@ -107,6 +107,10 @@ export class DataService {
     const username = this.auth.getUserNameFromToken()?.trim();
     return this.http.get<any[]>(`${Api_Urls.getUpcommingAppointment}/${username}`);
   }
+  getUpcomingAppointmentsNumber(): Observable<any[]> {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<any[]>(`${Api_Urls.getPatientUpcomingNumber}/${username}`);
+  }
 
   getPatientByUsername(): Observable<any> {
     const username = this.auth.getUserNameFromToken()?.trim();
