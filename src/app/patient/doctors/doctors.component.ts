@@ -108,4 +108,38 @@ export class DoctorsComponent {
       alert('Please fill in all fields.');
     }
   }
+
+
+  isDoctorInfoModalOpen: boolean = false;
+
+  openDoctorInfoModal(doctor: Doctor) {
+    this.selectedDoctor = doctor;
+    this.isDoctorInfoModalOpen = true;
+    this.showDoctorInfoModal();
+  }
+
+  closeDoctorInfoModal() {
+    this.isDoctorInfoModalOpen = false;
+    this.selectedDoctor = null;
+    this.hideDoctorInfoModal();
+  }
+
+  showDoctorInfoModal() {
+    const modalElement = document.getElementById('doctorInfoModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    }
+  }
+
+  hideDoctorInfoModal() {
+    const modalElement = document.getElementById('doctorInfoModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      if (modal) {
+        modal.hide(); // Hides the modal
+      }
+    }
+  }
+
 }

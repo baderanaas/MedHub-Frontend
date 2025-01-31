@@ -4,6 +4,13 @@ export const Api_Urls = {
   getDoctors: 'http://localhost:3000/doctor',
   getDoctorAppointmentsByName: 'http://localhost:3000/appointment/doctor',
   getPateintAppointments: 'http://localhost:3000/appointment/patient',
+  addAppointment:'http://localhost:3000/appointment',
+  getAvailableSessions:'http://localhost:3000/appointment/availableSessions',
+  getPassedAppointement:'http://localhost:3000/appointment/patient',
+  getUpcommingAppointment:'http://localhost:3000/appointment/patient/upcoming',
+  getPatientByUsername:'http://localhost:3000/patient',
+  getDoctorByMatricule:'http://localhost:3000/doctor',
+
   getPateintRequests: 'http://localhost:3000/appointment/patient/requests',
   addAppointment: 'http://localhost:3000/appointment',
   getAvailableSessions: 'http://localhost:3000/appointment/availableSessions',

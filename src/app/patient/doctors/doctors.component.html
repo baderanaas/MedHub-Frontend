@@ -7,20 +7,20 @@
           [(ngModel)]="speciality"
           name="speciality"
           type="text"
-          class="form-control pe-5"
+          class="form-control pe-5 search-input"
           placeholder="Search by Speciality"
           (keydown.enter)="search()"
           (input)="reset()"
         />
         <i
-          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 search-icon"
         ></i>
       </div>
     </div>
   </div>
 
   <div class="table-responsive">
-    <table class="table align-middle text-nowrap">
+    <table class="table align-middle text-nowrap table-hover">
       <thead class="table-dark">
         <tr>
           <th class="text font-medium">Doctor</th>
@@ -28,11 +28,11 @@
           <th class="text font-medium">Speciality</th>
           <th class="text font-medium">Email</th>
           <th class="text font-medium text-center">Phone</th>
-          <th class="text font-medium text-center"></th>
+          <th class="text font-medium text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let doc of doctors$ | async">
+        <tr *ngFor="let doc of doctors$ | async" class="doctor-row">
           <td>
             <div class="d-flex align-items-center">
               <img
@@ -43,10 +43,10 @@
                 "
                 alt="user"
                 width="45"
-                class="rounded-circle"
+                class="rounded-circle doctor-image"
               />
               <div class="ms-3">
-                <h5 class="mb-0 font-medium">
+                <h5 class="mb-0 font-medium doctor-name" (click)="openDoctorInfoModal(doc)">
                   {{ doc.lastName }} {{ doc.firstName }}
                 </h5>
               </div>
@@ -59,9 +59,8 @@
           <td class="text-center">
             <button
               type="button"
-              class="btn btn-outline-primary btn-sm me-2"
+              class="btn btn-outline-primary btn-sm me-2 action-button"
               (click)="openAppointmentModal(doc)"
-
             >
               Take Appointment
             </button>
@@ -71,6 +70,7 @@
     </table>
   </div>
 </div>
+
 <!-- Appointment Modal -->
 <div
   class="modal fade"
@@ -82,11 +82,11 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-primary text-white">
         <h5 class="modal-title" id="appointmentModalLabel">Appointment Form</h5>
         <button
           type="button"
-          class="btn-close"
+          class="btn-close btn-close-white"
           data-bs-dismiss="modal"
           aria-label="Close"
           (click)="closeModal()"
@@ -135,8 +135,6 @@
               </option>
             </select>
           </div>
-
-          <!-- Add more fields if needed -->
         </form>
       </div>
       <div class="modal-footer">
@@ -149,6 +147,45 @@
           (click)="addAppointment(selectedDoctor.matricule)"
         >
           Save Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Doctor Info Modal -->
+<div
+  class="modal fade"
+  id="doctorInfoModal"
+  tabindex="-1"
+  aria-labelledby="doctorInfoModalLabel"
+  aria-hidden="true"
+  [ngClass]="{ show: isDoctorInfoModalOpen }"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title" id="doctorInfoModalLabel">Doctor Information</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeDoctorInfoModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="selectedDoctor" class="doctor-info">
+          <p><strong>Name:</strong> {{ selectedDoctor.firstName }} {{ selectedDoctor.lastName }}</p>
+          <p><strong>Matricule:</strong> {{ selectedDoctor.matricule }}</p>
+          <p><strong>Speciality:</strong> {{ selectedDoctor.speciality }}</p>
+          <p><strong>Email:</strong> {{ selectedDoctor.email }}</p>
+          <p><strong>Phone:</strong> {{ selectedDoctor.phone }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeDoctorInfoModal()">
+          Close
         </button>
       </div>
     </div>

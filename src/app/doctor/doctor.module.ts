@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.component';
 import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
+import { DocProfileComponent } from './doc-profile/doc-profile.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments
     DocTopbarComponent,
     DocTopCardComponent,
     TodaysAppointmentsComponent,
+    DocProfileComponent,
     
   ],
   imports: [

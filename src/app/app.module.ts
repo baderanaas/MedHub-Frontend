@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
+import { CommModule } from './shared/comm/comm.module';
 import { routes } from './config/routes';
 
 @NgModule({
@@ -44,7 +45,9 @@ import { routes } from './config/routes';
     FullLayoutComponent,
     DoctorLayoutComponent,
     UnauthorizedComponent,
-    DocSidebarComponent
+    DocSidebarComponent,
+    //SessionLabelPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ import { routes } from './config/routes';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    DashboardModule,
+    //DashboardModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -66,12 +69,12 @@ import { routes } from './config/routes';
       progressBar: true,
       progressAnimation: 'decreasing',
     }),
-    PatientModule,
     DoctorModule,
     MatMenuModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    CommModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
