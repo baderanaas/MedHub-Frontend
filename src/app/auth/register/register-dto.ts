@@ -1,5 +1,4 @@
-import { Role } from "../enums/role-enum";
-
+import { Role } from '../enums/role-enum';
 
 export interface RegisterDto {
   username: string;
@@ -15,6 +14,16 @@ export interface RegisterDto {
   role: Role;
 
   phone: string;
+
+  sexe: string;
+
+  speciality?: string;
+
+  height?: number;
+
+  weight?: number;
+
+  bloodType?: string;
 
   password: string;
 }

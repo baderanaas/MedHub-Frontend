@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.css']
+  styleUrls: ['./appointments.component.css'],
 })
 export class AppointmentsComponent {
   title = 'My Appointments';
@@ -13,15 +13,15 @@ export class AppointmentsComponent {
       email: 'john.doe@example.com',
       phoneNumber: '+123456789',
       date: new Date(),
-      time: '10:30 AM'
+      time: '10:30 AM',
     },
     {
       patientName: 'Jane Smith',
       email: 'jane.smith@example.com',
       phoneNumber: '+987654321',
       date: new Date(),
-      time: '2:00 PM'
-    }
+      time: '2:00 PM',
+    },
   ];
 
   onActionSelected(appointment: any, action: string) {

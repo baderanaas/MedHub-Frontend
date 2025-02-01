@@ -7,19 +7,31 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { DocSidebarComponent } from './doc-sidebar/doc-sidebar.component';
 import { DocTopbarComponent } from './doc-topbar/doc-topbar.component';
-
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.component';
+import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 @NgModule({
   declarations: [
     PatientsComponent,
     AppointmentsComponent,
     DocDashboardComponent,
-    DocSidebarComponent,
-    DocTopbarComponent
+    DocTopbarComponent,
+    DocTopCardComponent,
+    TodaysAppointmentsComponent,
+    DoctorProfileComponent,
   ],
   imports: [
     CommonModule,
-    DoctorRoutingModule
-  ]
+    DoctorRoutingModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    RouterModule,
+  ],
 })
 export class DoctorModule {}

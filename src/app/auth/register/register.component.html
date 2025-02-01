@@ -1,24 +1,24 @@
 <!-- Section: Design Block -->
-<section class="">
+<section class="form-section">
   <!-- Jumbotron -->
   <div
     class="px-4 py-5 px-md-5 text-center text-lg-start"
     style="background-color: hsl(0, 0%, 96%)"
   >
-     <div class="container">
+    <div class="form-container">
       <div class="row gx-lg-5 align-items-center">
         <div class="col-lg-6 mb-5 mb-lg-0">
           <h1 class="my-5 display-3 fw-bold ls-tight">
             Revolutionize Healthcare <br />
             <span class="title">with MedHub</span>
           </h1>
-          <p style="color: hsl(217, 10%, 50.8%)">
-             Welcome to MedHub, your comprehensive solution for seamless
-            healthcare management. Whether you're a doctor looking to
-            streamline your workflow or a patient seeking effortless
-            communication with medical professionals, MedHub has you covered.
-            Experience a smarter way to manage appointments, consultations, and
-            more—all in one place.
+          <p class="para">
+            Welcome to MedHub, your comprehensive solution for seamless
+            healthcare management. Whether you're a doctor looking to streamline
+            your workflow or a patient seeking effortless communication with
+            medical professionals, MedHub has you covered. Experience a smarter
+            way to manage appointments, consultations, and more—all in one
+            place.
           </p>
         </div>
 
@@ -89,7 +89,6 @@
                         minlength="8"
                         maxlength="8"
                         pattern="^\d+$"
-
                       />
                       <label class="form-label" for="form3Example2"
                         >Phone</label
@@ -101,6 +100,7 @@
                       </small>
                     </div>
                   </div>
+
                   <div class="col-md-6 mb-4">
                     <div data-mdb-input-init class="form-outline">
                       <input
@@ -161,6 +161,106 @@
                     >
                   </div>
                 </div>
+
+                <!-- Sexe Selection -->
+                <div class="form-outline mb-4 d-flex align-items-center">
+                  <label class="form-label me-3">Select Sexe:</label>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input check"
+                      type="radio"
+                      id="male"
+                      name="sexe"
+                      value="male"
+                      [(ngModel)]="user.sexe"
+                    />
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline ms-3">
+                    <input
+                      class="form-check-input check"
+                      type="radio"
+                      id="female"
+                      name="sexe"
+                      value="female"
+                      [(ngModel)]="user.sexe"
+                    />
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+                <div *ngIf="user.role == 'patient'" class="row">
+                  <div class="col-md-4 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input
+                        #height="ngModel"
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="user.height"
+                        name="height"
+                        minlength="3"
+                        maxlength="3"
+                        pattern="^\d+$"
+                      />
+                      <label class="form-label" for="form3Example2"
+                        >Height</label
+                      >
+                      <small
+                        *ngIf="height.invalid && height.touched"
+                        class="text-danger"
+                        >Please enter a valid height
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="user.weight"
+                        name="weight"
+                      />
+                      <label class="form-label" for="form3Example2"
+                        >Weight</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <select
+                        class="form-control"
+                        id="bloodType"
+                        [(ngModel)]="user.bloodType"
+                        name="bloodType"
+                      >
+                        <option *ngFor="let type of bloodTypes">
+                          {{ type }}
+                        </option>
+                      </select>
+                      <label for="speciality" class="form-label"
+                        >Blood Type</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  *ngIf="user.role == 'doctor'"
+                  data-mdb-input-init
+                  class="form-outline mb-4"
+                >
+                  <label for="speciality" class="form-label">Speciality</label>
+                  <select
+                    class="form-control"
+                    id="speciality"
+                    [(ngModel)]="user.speciality"
+                    name="speciality"
+                  >
+                    <option *ngFor="let spec of speciality">
+                      {{ spec }}
+                    </option>
+                  </select>
+                </div>
+
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
                   <input
@@ -203,16 +303,12 @@
 
                 <!-- Checkbox -->
                 <div class="form-check d-flex justify-content-center mb-4">
-                  <input
-                    class="form-check-input me-2 check"
-                    type="checkbox"
-                    value=""
-                    id="form2Example33"
-                    checked
-                  />
-                  <label class="form-check-label" for="form2Example33">
-                    Subscribe to our newsletter
-                  </label>
+                  <a
+                    [routerLink]="loginLink"
+                    class="btn btn-link btn-block mb-4"
+                  >
+                    Back to Login
+                  </a>
                 </div>
 
                 <!-- Submit button -->

@@ -23,7 +23,15 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
+import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
+import { CommModule } from './shared/comm/comm.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +44,9 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
     FullLayoutComponent,
     DoctorLayoutComponent,
     UnauthorizedComponent,
+    DocSidebarComponent,
+    //SessionLabelPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +58,7 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
     MatMenuModule,
     MatToolbarModule,
     MatButtonModule,
-    DashboardModule,
+    //DashboardModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -58,16 +69,20 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
       progressBar: true,
       progressAnimation: 'decreasing',
     }),
-    PatientModule,
     DoctorModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    CommModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RequestInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:RequestInterceptor,
+    multi:true
+  }],
+  
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}

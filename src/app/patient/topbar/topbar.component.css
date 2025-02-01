@@ -1,26 +1,44 @@
 /* Top Bar Styles */
 .top-bar {
-  background-color: #263238; /* Sidebar and Top Bar Matching Background */
-  color: white;
-  height: 65px;
-  padding: 0 16px;
+  background-color: #1a3d4f; /* Dark blue background */
+  color: #f8fbfd; /* Off-white text */
+  height: 64px;
   display: flex;
   align-items: center;
-  position: fixed; /* Fixes the top bar at the top of the page */
-  top: 0;
-  left: 0;
-  right: 0;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   z-index: 1000;
-  margin-left: 250px;
+  padding: 10px;
 }
 
 /* App Title */
 .app-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  color: #ffffff;
+  color: #f8fbfd; /* Off-white text */
+  margin-right: 16px;
 }
+.sidenav-header {
+  display: flex;
+  align-items: center;
 
+  margin-bottom: 20px;
+  background-color: #3f8f8f;
+}
+.sidenav-title {
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+mat-icon.logo {
+  font-size: 36px;
+  color: #e8d7c3;
+  margin-left: 10px;
+}
+.username {
+  font-size: 18px;
+}
 /* Spacer */
 .spacer {
   flex-grow: 1;
@@ -30,110 +48,119 @@
 .search-container {
   display: flex;
   align-items: center;
-  flex-grow: 1; /* Allow the container to expand */
-  max-width: 50%; /* Default width on larger screens */
+  flex-grow: 1;
+  max-width: 50%;
   margin-left: 20%;
-  margin-right: auto;
   position: relative;
-  width: 100%; /* Ensure the container adjusts fully */
 }
 
 /* Search Input */
 .search-input {
-  background: transparent; /* No background color */
-  border: 2px solid rgb(10, 20, 75); /* Black border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 8px 12px;
-  color: rgb(255, 255, 255); /* Text color */
+  background: rgba(248, 251, 253, 0.1); /* Off-white with transparency */
+  border: 2px solid #a2b9c5; /* Light blue border */
+  border-radius: 25px; /* Rounded corners */
+  padding: 8px 16px;
+  color: #f8fbfd; /* Off-white text */
   outline: none;
-  flex-grow: 1; /* Allow input to expand within the container */
+  flex-grow: 1;
   font-size: 14px;
-  min-width: 0; /* Prevent the input from overflowing */
+  transition: border-color 0.3s ease;
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.7); /* Placeholder color */
-  text-shadow: 1px 1px 2px rgba(104, 99, 99, 0.5); /* Shadow effect for placeholder */
+  color: rgba(248, 251, 253, 0.7); /* Off-white placeholder */
   font-style: italic;
 }
-.search-input:focus::placeholder {
-  color: transparent; /* Makes the placeholder disappear on focus */
+
+.search-input:focus {
+  border-color: #1a3d4f; /* Dark blue border on focus */
 }
 
 /* Search Button */
 .search-button {
-  background-color: #263238; /* Match top bar color */
+  background-color: #a2b9c5; /* Light blue background */
   border: none;
-  margin-left: 8px; /* Space between input and button */
+  margin-left: 8px;
   border-radius: 50%; /* Circular button */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  color: white; /* Icon color */
-  transition: background-color 0.3s;
+  color: #1a3d4f; /* Dark blue icon */
+  transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
+  background-color: #8fa7b3; /* Darker light blue on hover */
 }
 
-/* Login Button */
-.login {
-  color: #ced9de;
-  font-size: large;
-  width: 35px;
-  margin-left: auto; /* Push the button to the right */
-  white-space: nowrap; /* Prevent text wrapping */
-  margin-right: 15%;
+/* User Menu Button */
+.user-menu-button {
+  color: #f8fbfd; /* Off-white icon */
+  margin-left: 16px;
+  transition: color 0.3s ease;
+}
+
+.user-menu-button:hover {
+  color: #a2b9c5; /* Light blue icon on hover */
+}
+
+/* Menu Items */
+.mat-menu-item {
+  color: #1a3d4f; /* Dark blue text */
+  font-size: 14px;
+}
+
+.mat-menu-item:hover {
+  background-color: rgba(162, 185, 197, 0.1); /* Light blue background on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .search-container {
-    max-width: 90%; /* Increase container width */
+    max-width: 60%;
+    margin-left: 10%;
   }
 
   .search-input {
-    font-size: 12px; /* Reduce font size for smaller screens */
-  }
-  .login {
-    margin-right: 10px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 768px) {
   .search-container {
-    max-width: 100%; /* Take full width */
+    max-width: 70%;
+    margin-left: 5%;
   }
 
   .search-input {
     font-size: 12px;
-    padding: 6px 10px; /* Reduce padding */
+    padding: 6px 12px;
   }
 
-  .login {
-    margin-left: 20px; /* Adjust login button margin */
-    font-size: medium; /* Adjust font size */
+  .app-title {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 480px) {
   .search-container {
-    max-width: 100%; /* Full-width container */
-    margin-bottom: 8px; /* Add spacing between components */
+    max-width: 80%;
+    margin-left: 0;
   }
 
   .search-input {
-    font-size: 10px; /* Further reduce font size */
+    font-size: 10px;
     padding: 4px 8px;
   }
 
-  .login {
-    margin-left: 10px; /* Reduce margin for smaller screens */
-    font-size: small;
-    /* Adjust font size */
+  .app-title {
+    font-size: 16px;
+  }
+
+  .user-menu-button {
+    margin-left: 8px;
   }
 }
