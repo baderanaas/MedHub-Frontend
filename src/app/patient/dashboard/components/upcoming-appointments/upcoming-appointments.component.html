@@ -1,64 +1,28 @@
-<div class="table-header">
-  <h4 class="my-appointments-heading">{{ title }}</h4>
-  <button class="btn btn-primary add-appointment-btn" (click)="openAddAppointment()">
-    + Add Appointment
-  </button>
+
+<div *ngIf="upcomingAppointments.length; else noAppointments">
+  <div class="upcoming-appointments-container">
+    <h4>Upcoming Appointments</h4>
+    <table class="appointments-table">
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Specialty</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of upcomingAppointments">
+          <td>{{ appointment.doctor.firstName + ' ' + appointment.doctor.lastName }}</td>
+          <td>{{ appointment.doctor.speciality }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Doctor Name</th>
-      <th>Specialty</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let appointment of upcomingAppointments">
-      <td>{{ appointment.doctorName }}</td>
-      <td>{{ appointment.specialty }}</td>
-      <td>{{ appointment.date | date: 'shortDate' }}</td>
-      <td>{{ appointment.time }}</td>
-      <td>
-        <div class="dropdown">
-          <button
-            class="btn btn-light dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fas fa-ellipsis-v"></i>
-          </button>
-          <ul
-            class="dropdown-menu custom-dropdown"
-            aria-labelledby="dropdownMenuButton"
-          >
-            <li>
-              <a
-                class="dropdown-item"
-                (click)="onActionSelected(appointment, 'viewProfile')"
-                >View Profile</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                (click)="onActionSelected(appointment, 'reschedule')"
-                >Reschedule</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item text-danger"
-                (click)="onActionSelected(appointment, 'cancel')"
-                >Cancel</a
-              >
-            </li>
-          </ul>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<ng-template #noAppointments>
+  <p class="no-appointments">No upcoming appointments found.</p>
+</ng-template>

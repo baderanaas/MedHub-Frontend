@@ -12,6 +12,7 @@ import { routes } from 'src/app/config/routes';
 export class TopbarComponent implements OnInit, OnChanges {
   title: string = '';
   @Input() selectedRoute = '';
+  user: string = '';
   authService = inject(AuthService);
   router = inject(Router);
   ngOnChanges(): void {
@@ -30,6 +31,10 @@ export class TopbarComponent implements OnInit, OnChanges {
       this.title = this.acr.snapshot.title;
     } else {
       console.log('empty');
+    }
+    const username = this.authService.getUserNameFromToken();
+    if (username) {
+      this.user = username;
     }
   }
 

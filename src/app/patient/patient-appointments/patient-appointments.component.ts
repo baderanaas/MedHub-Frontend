@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Observable } from 'rxjs';
 import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
@@ -9,24 +10,24 @@ import { Appointment } from 'src/app/patient/patient-appointments/interfaces/app
   styleUrls: ['./patient-appointments.component.css'],
 })
 export class PatientAppointmentsComponent implements OnInit {
-  data = inject(DataService);
-  appointments$: Observable<Appointment[]> = this.data.getPatientAppointments() ?? new Observable<Appointment[]>();
-
-  name: string = ''
   ngOnInit(): void {
-    this.appointments$.subscribe({
+    this.appointments$?.subscribe({
       next: (res) => {
         console.log(res);
       },
     });
   }
+  data = inject(DataService);
+  appointments$ = this.data.getPatientAppointments();
+  initialAppointments$ = this.appointments$;
 
-  /**
-   * Simple function to toggle payment status.
-   */
-  togglePayment(appointment: Appointment): void {
-    if (!appointment.payed) {
-      appointment.payed = true; //  Can only switch to paid
+  name: string = '';
+  searchByName() {
+    this.appointments$ = this.data.getDoctorAppointmentsByName(this.name);
+  }
+  reset() {
+    if (this.name.trim() == '') {
+      this.appointments$ = this.initialAppointments$;
     }
   }
 }

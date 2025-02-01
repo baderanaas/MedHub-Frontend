@@ -1,108 +1,104 @@
+/* Sidebar Container */
 .sidenav-container {
   display: flex;
   height: 100vh;
+  background-color: white;
 }
+
+/* Sidebar */
 .sidenav {
   width: 250px;
-  background-color: #3f8f8f; /* Dark color */
-  color: white;
+  background-color: #1a3d4f; /* Dark blue background */
+  color: #f8fbfd; /* Off-white text */
   padding-top: 20px;
-  box-shadow: 4px 0px 10px #3f8f8f;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
+
+/* Sidebar Header */
 .sidenav-header {
   display: flex;
   align-items: center;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #3f8f8f; /* Slightly lighter background */
+  background-color: #1a3d4f; /* Dark blue background */
 }
+
 .sidenav-title {
   font-size: 24px;
   font-weight: bold;
   margin-left: 10px;
+  color: #f8fbfd; /* Off-white text */
 }
+
+/* Logo Icon */
 mat-icon.logo {
   font-size: 36px;
-  color: #E8D7C3; /* Highlight color for the logo */
+  color: #a2b9c5; /* Light blue accent color */
 }
-.icon{
-  font-size: 20px;
-  color: #0cd62d; /* Highlight color for the logo */
-}
+
+/* Navigation List */
 mat-nav-list {
-  background-color: #3f8f8f;
+  background-color: #1a3d4f; /* Dark blue background */
   padding: 0;
 }
+
+/* List Items */
 mat-list-item {
-  background-color: #3f8f8f;
   display: flex;
-  align-items: center; /* Ensures vertical alignment */
+  align-items: center;
+  align-items: center;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
-  min-height: 50px; /* Ensure that list item has a consistent height */
+  min-height: 50px;
+  color: #f8fbfd; /* Off-white text */
 }
+
 mat-list-item:hover {
-  background-color: #455a64; /* Darken color on hover */
+  background-color: rgba(162, 185, 197, 0.1); /* Light blue hover effect */
 }
+
+/* Icons */
 mat-icon {
-  color: #E8D7C3;
-  margin-right: 15px; /* Space between icon and text */
+  color: #a2b9c5; /* Light blue accent color */
+  margin-right: 15px;
   font-size: 20px;
-  display:inline;
-  align-items: center; /* Vertically center the icon */
-  justify-content: center; /* Ensure the icon is centered horizontally */
-  min-width: 30px; /* Add a fixed minimum width to align properly */
 }
-mat-sidenav[mode="over"] {
-  background-color: #3f8f8f;
-  width: 200px;
+
+/* Active State */
+mat-list-item.active {
+  background-color: rgba(162, 185, 197, 0.2); /* Light blue for active item */
 }
-mat-sidenav-content {
-  flex-grow: 1;
-  padding: 20px;
+
+mat-list-item.active mat-icon {
+  color: #a2b9c5; /* Light blue accent color */
 }
+
+/* Sidebar Item Text */
+.sidenav-item-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #f8fbfd; /* Off-white text */
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive Design */
 @media screen and (max-width: 768px) {
   .sidenav {
-    background-color: #3f8f8f;
     width: 200px;
   }
 
-  mat-sidenav[opened] {
-    width: 250px;
+  .sidenav-title {
+    font-size: 20px;
   }
-}
 
-/* Additional custom styles for the items */
-.sidenav-item {
-  background-color:  #3f8f8f;
-  display: flex;
-  align-items: center; /* Ensures items (icon + text) are aligned */
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
-  min-height: 50px; /* Ensures that the items are consistent in height */
-}
+  mat-icon.logo {
+    font-size: 30px;
+  }
 
-
-
-.sidenav-item:hover {
-  background-color: #3f8f8f;
-}
-
-.sidenav-item-text {
-  font-size: 20px;
-  font-weight: 500;
-  color:white;
-  transition: color 0.3s ease;
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflowing text */
-  text-overflow: ellipsis; /* Adds ellipsis (...) for overflowed text */
-}
-
-.sidenav-item.active .sidenav-item-text {
-  color: #ffffff; /* Change this to the color you want for the active item */
-}
-
-/* Active state - Change background color (optional) */
-.sidenav-item.active {
-  background-color: #3f8f8f; /* Darker background on active item */
+  .sidenav-item-text {
+    font-size: 14px;
+  }
 }

@@ -1,9 +1,44 @@
-.button{
-    background-color: rgb(12, 168, 67);
+.button {
+  background-color: rgb(12, 168, 67);
 }
-.check{
-    background-color: rgb(12, 168, 67);
+.check {
+  background-color: rgb(12, 168, 67);
 }
-.title{
-    color:rgb(12, 168, 67); ;
+.title {
+  color: rgb(12, 168, 67);
+}
+.form-outline {
+  position: relative;
+  z-index: 1;
+}
+.container,
+.card,
+.form-section {
+  overflow: visible !important;
+}
+.form-section {
+  margin-top: 0 !important;
+  padding-top: 20px;
+  position: relative !important;
+  border: 2px solid rgb(13, 181, 24);
+  background: rgba(255, 0, 0, 0.2); /* Semi-transparent red */
+}
+.form-container {
+  height: auto !important;
+  min-height: 500px; /* Adjust as needed */
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-section {
+  padding-top: 170px !important;
+}
+* {
+  overflow: visible !important;
+}
+.para {
+  color: hsl(217, 10%, 50.8%);
+  padding-bottom: 300px;
 }
