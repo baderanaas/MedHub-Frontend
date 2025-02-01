@@ -13,4 +13,3 @@ export class HealthHistoryComponent {
     question.value = answer;
   }
 }
-

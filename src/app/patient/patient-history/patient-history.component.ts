@@ -22,14 +22,23 @@ export class PatientHistoryComponent {
     { value: 'Yes', label: 'Yes' },
     { value: 'Quit', label: 'Quit' }
   ];
-  
+
+  vapingOptions = [ // Options pour le vapotage
+    { value: 'No', label: 'No' },
+    { value: 'Yes', label: 'Yes' }
+  ];
+
+  alcoholOptions = [ // Options pour l'alcool
+    { value: 'No', label: 'No' },
+    { value: 'Yes', label: 'Yes' }
+  ];
   drugOptions = [
     { value: 'Rarely', label: 'Rarely' },
     { value: 'Opioids', label: 'Opioids' },
     { value: 'Never', label: 'Never' },
-    { value: 'Marijuana', label: 'Marijuana' }
-  ];
-  updateAnswer(question: any, answer: string) {
-    question.value = answer;
-  }
+    { value: 'Marijuana', label: 'Marijuana' },
+    { value: 'Cocaine', label: 'Cocaine' },
+    { value: 'Other', label: 'Other' }
+  ]
 }
+

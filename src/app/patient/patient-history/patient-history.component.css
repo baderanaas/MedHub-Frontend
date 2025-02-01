@@ -1,91 +1,27 @@
-.history-container {
-    background: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .description {
-    color: #666;
-  }
-  
-  .history-cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .history-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1;
-    min-width: 180px;
-  }
-  
-  .question {
-    font-weight: bold;
-  }
-  
-  .toggle-buttons {
-    margin-top: 10px;
-  }
-  
-  .toggle {
-    background: #eee;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  
-  .toggle.active {
-    background: #007bff;
-    color: white;
-  }
-  
-  .other-conditions {
-    margin-top: 20px;
-  }
-  
-  .text-area {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .social-history-container {
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-  }
-
-  .question-section {
+/* Main container */
+.patient-history-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 20px; /* Espacement entre les colonnes */
+    max-width: 5000px;
+    margin: auto;
+    padding: 20px;
+}
 
-  .question-card {
-    padding: 15px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+/* Colonne gauche contenant Health History et Patient History */
+.left-column {
+    display: flex;
+    flex-direction: column; /* Pour empiler Health History et Patient History */
+    gap: 20px; /* Espacement entre les sections */
+}
 
+/* Colonne droite contenant Social History */
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
 
-  mat-form-field {
-    width: 100%;
-  }
+/* Patient History sous Health History */
+.patient-history {
+    width: 100%; /* S'assure que ça prend toute la largeur de la colonne */
+}

@@ -22,11 +22,20 @@ import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.com
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';  // Add this
+import { MatNativeDateModule } from '@angular/material/core'; // Add this
+import { AddAppointmentComponent } from './patient/dashboard/components/add-appointment/add-appointment.component';
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 
 @NgModule({
   declarations: [
+    AddAppointmentComponent,
     AppComponent,
     SidebarComponent,
     TopbarComponent,
@@ -36,8 +45,7 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     FullLayoutComponent,
     DoctorLayoutComponent,
     UnauthorizedComponent,
-  
-    
+    DocSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -60,14 +68,19 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
       progressAnimation: 'decreasing',
     }),
     PatientModule,
-    DoctorModule
+    DoctorModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule, // Add this
+    MatNativeDateModule, // Add this
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:RequestInterceptor,
-    multi:true
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptor,
+    multi: true
   }],
   bootstrap: [AppComponent],
-
 })
 export class AppModule {}

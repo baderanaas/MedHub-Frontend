@@ -1,16 +1,15 @@
+import { AddAppointmentDto } from './../../shared/dto/add-appointment.dto';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Doctor } from './interfaces/doctor';
 import { Component, inject, OnInit } from '@angular/core';
-import { filter, map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import * as bootstrap from 'bootstrap';
-import { AddAppointmentDto } from 'src/app/shared/dto/add-appointment.dto';
-import { AppModule } from "../../app.module";
+import { AvailableSessionsDTo } from 'src/app/shared/dto/available-session.dto';
 
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
   styleUrls: ['./doctors.component.css'],
-
 })
 export class DoctorsComponent {
   doctors: Doctor[] = [];
@@ -20,12 +19,26 @@ export class DoctorsComponent {
     date: new Date(),
     session: 0,
   };
-  appointmentDate!: Date;
+  availableSessionDto: AvailableSessionsDTo = {
+    date: '',
+    username: '',
+  };
   dataService = inject(DataService);
   filteredDoctor: Doctor[] = [];
   doctors$ = this.dataService.getDoctors();
-selectedSession: any;
-availableSessions: number[]=[1,2,3,4,5];
+  sessions$!: Observable<number[]>;
+  onDateChange(): void {
+    if (this.appointmentDto.date && this.selectedDoctor) {
+      console.log(this.appointmentDto.date);
+      this.sessions$ = this.dataService.getAvailableSessions(
+        this.appointmentDto.date,
+        this.selectedDoctor.username
+      );
+    }
+  }
+
+  speciality = '';
+
   getDoctors() {
     this.doctors$.subscribe({
       next: (docs) => {
@@ -36,7 +49,6 @@ availableSessions: number[]=[1,2,3,4,5];
       },
     });
   }
-  speciality = '';
 
   search() {
     const filteredDoctors$ = this.doctors$.pipe(
@@ -77,13 +89,13 @@ availableSessions: number[]=[1,2,3,4,5];
     }
   }
 
-  // This method handles appointment form submission
   addAppointment(docMat: number) {
-    if (this.appointmentDate) {
-      this.appointmentDto.date = this.appointmentDate;
-
+    if (this.appointmentDto.date && this.appointmentDto.session) {
+      console.log(this.appointmentDto);
+      const session = Number(this.appointmentDto.session);
+      this.appointmentDto.session = session;
       this.dataService.addAppointment(docMat, this.appointmentDto).subscribe({
-        next: (res) => {
+        next: () => {
           this.hideModal();
         },
         error: (err) => {
