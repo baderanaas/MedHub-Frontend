@@ -11,6 +11,7 @@ import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments
 })
 export class AppointmentsComponent implements OnInit {
   title = 'My Appointments';
+  selectedPatient: any;
   upcomingAppointments: Appointment[] = []; // Utilisez le modèle Appointment
 
   constructor(private dataService: DataService) {}
@@ -58,9 +59,22 @@ export class AppointmentsComponent implements OnInit {
   }
 
   cancelAppointment(appointmentId: number): void {
-    console.log('Canceling appointment ID:', appointmentId);
-    // Implémentez la logique pour annuler le rendez-vous
+    if (confirm('Are you sure you want to cancel this appointment?')) {
+      this.dataService.deleteAppointmentByDoctor(appointmentId).subscribe(
+        () => {
+          console.log(`Appointment ${appointmentId} cancelled successfully.`);
+          // Supprime le rendez-vous annulé de la liste
+          this.upcomingAppointments = this.upcomingAppointments.filter(
+            (appointment) => appointment.id !== appointmentId
+          );
+        },
+        (error) => {
+          console.error(`Error cancelling appointment ${appointmentId}:`, error);
+        }
+      );
+    }
   }
+  
 
   onAddAppointment(): void {
     console.log('Add Appointment button clicked');

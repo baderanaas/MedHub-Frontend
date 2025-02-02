@@ -121,4 +121,8 @@ export class DataService {
     const doctorId = this.auth.getIdFromToken();
     return this.http.get<any[]>(`${Api_Urls.getUpcomingDoctorAppointments}/${doctorId}`);
   }
+  deleteAppointmentByDoctor(appointmentId: number): Observable<void> {
+    const doctorMat = this.auth.getIdFromToken();
+    return this.http.delete<void>(`${Api_Urls.deleteAppointmentByDoctor}/${appointmentId}/${doctorMat}`);
+  }
 }
