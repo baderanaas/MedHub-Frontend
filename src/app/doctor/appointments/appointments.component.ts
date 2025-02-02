@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Observable } from 'rxjs';
-import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
+import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments';
 
 @Component({
   selector: 'app-appointments',
@@ -20,7 +20,6 @@ export class AppointmentsComponent implements OnInit {
   }
 
   loadUpcomingDoctorAppointments(): void {
-    const doctorId = 1; // Remplacez par l'ID du docteur connecté
     this.dataService.getUpcomingDoctorAppointments().subscribe(
       (data) => {
         this.upcomingAppointments = data;
@@ -35,7 +34,7 @@ export class AppointmentsComponent implements OnInit {
     console.log(`Action "${action}" selected for:`, appointment);
     switch (action) {
       case 'viewProfile':
-        this.viewPatientProfile(appointment.patient.id);
+        this.viewPatientProfile(appointment.patient.username);
         break;
       case 'reschedule':
         this.rescheduleAppointment(appointment.id);
@@ -48,8 +47,8 @@ export class AppointmentsComponent implements OnInit {
     }
   }
 
-  viewPatientProfile(patientId: number): void {
-    console.log('Viewing profile for patient ID:', patientId);
+  viewPatientProfile(username: string): void {
+    console.log('Viewing profile for patient ID:', username);
     // Implémentez la logique pour afficher le profil du patient
   }
 

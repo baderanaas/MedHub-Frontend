@@ -38,7 +38,7 @@ import { CommModule } from '../shared/comm/comm.module';
   imports: [
     CommonModule,
     PatientRoutingModule,
-    //DashboardModule,
+    DashboardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
