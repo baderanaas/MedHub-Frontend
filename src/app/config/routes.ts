@@ -5,5 +5,7 @@ export const routes = {
   unAuthorized: 'unauthorized',
   patientDashboard: 'patient/dashboard',
   doctorDashboard: 'doctor/dashboard',
-  PatientHistory: 'patient/history',
+  patientRequests: 'requests',
+  patientAppointments: 'appointment',
+  patientDoctors: 'doctor',
 };

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PatientRoutingModule } from './patient-routing.module';
 import { DocumentComponent } from './document/document.component';
 import { DoctorsComponent } from './doctors/doctors.component';
@@ -16,22 +15,30 @@ import { MatButtonModule } from '@angular/material/button';
 import { AddAppointmentComponent } from './dashboard/components/add-appointment/add-appointment.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MedicationsComponent } from './medications/medications.component';
-import { SessionLabelPipe } from '../shared/pipes/session-label.pipe'
+import { SessionLabelPipe } from '../shared/pipes/session-label.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RequestsComponent } from './requests/requests.component';
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { CommModule } from '../shared/comm/comm.module';
 
 @NgModule({
   declarations: [
     DocumentComponent,
     DoctorsComponent,
     PatientAppointmentsComponent,
-    SessionLabelPipe
-    
+    MedicationsComponent,
+    //SessionLabelPipe,
+    RequestsComponent,
+    //SessionLabelPipe,
+    PatientProfileComponent,
+
+
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    DashboardModule,
+    //DashboardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -45,6 +52,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    CommModule,
+    
   ]
 })
 export class PatientModule { }

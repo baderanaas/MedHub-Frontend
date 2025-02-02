@@ -4,25 +4,28 @@ import { PatientAppointmentsComponent } from './patient-appointments/patient-app
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from '../shared/guards/auth.guard';
 import { DoctorsComponent } from './doctors/doctors.component';
-import { PatientHistoryComponent } from './patient-history/patient-history.component';import { MedicationsComponent } from './medications/medications.component';
-
+import { MedicationsComponent } from './medications/medications.component';
+import { RequestsComponent } from './requests/requests.component';
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { roleGuard } from '../shared/guards/role.guard';
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'dashboard', component: DashboardComponent,  },
-      { path: 'appointments', component: PatientAppointmentsComponent, },
-      { path: 'doctors', component: DoctorsComponent, },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'appointments', component: PatientAppointmentsComponent },
+      { path: 'doctors', component: DoctorsComponent },
+      { path: 'requests', component: RequestsComponent },
       {path:'medications',component:MedicationsComponent},
-      { path: 'history', component: PatientHistoryComponent },
+      {path:'profile',component:PatientProfileComponent}
     ],
-    // canActivate: [ roleGuard],
+    canActivate: [roleGuard],
     data: { role: 'patient' },
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PatientRoutingModule { }
+export class PatientRoutingModule {}

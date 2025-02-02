@@ -27,11 +27,10 @@ import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';  // Add this
-import { MatNativeDateModule } from '@angular/material/core'; // Add this
-import { AddAppointmentComponent } from './patient/dashboard/components/add-appointment/add-appointment.component';
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
+import { CommModule } from './shared/comm/comm.module';
+import { AddAppointmentComponent } from './patient/dashboard/components/add-appointment/add-appointment.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +44,9 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     FullLayoutComponent,
     DoctorLayoutComponent,
     UnauthorizedComponent,
-    DocSidebarComponent
-  ],
+    DocSidebarComponent,
+    //SessionLabelPipe,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +56,7 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    DashboardModule,
+    //DashboardModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -67,20 +67,19 @@ import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
       progressBar: true,
       progressAnimation: 'decreasing',
     }),
-    PatientModule,
     DoctorModule,
     MatMenuModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDatepickerModule, // Add this
-    MatNativeDateModule, // Add this
+    CommModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: RequestInterceptor,
     multi: true
   }],
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}
