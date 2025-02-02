@@ -14,7 +14,8 @@ import { RouterModule } from '@angular/router';
 import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.component';
 import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
 import { DocProfileComponent } from './doc-profile/doc-profile.component';
-
+import { MatMenuModule } from '@angular/material/menu'; // Importez MatMenuModule
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { DocProfileComponent } from './doc-profile/doc-profile.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    MatMenuModule, // Ajoutez MatMenuModule ici
+    MatButtonModule,
   ]
 })
 export class DoctorModule { }
