@@ -43,6 +43,17 @@ export class DataService {
     return this.http.get<Appointment[]>(Api_Urls.getDoctorAppointmentsByName, { params });
   }
 
+  getDoctorId(): number | null {
+    return this.auth.getDoctorId();
+  }
+
+  getCompletedAppointmentsByDoctor(): Observable<Patient[]> | null {
+    const doctorId = this.getDoctorId();
+    return doctorId ? this.http.get<Patient[]>(`/api/doctor/completed/${doctorId}`) : null;
+  }
+
+
+
   getMedications(): Observable<Medication[]> {
     return this.http.get<Medication[]>(Api_Urls.getMedications);
   }

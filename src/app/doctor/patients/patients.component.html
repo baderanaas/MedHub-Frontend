@@ -1,113 +1,112 @@
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="text-dark font-medium fs-4">Patients List</h2>
-    </div>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Patients List</h2>
+  </div>
 
-    <div class="table-responsive">
-      <table class="table align-middle text-nowrap">
-        <thead class="table-dark">
-          <tr>
-            <th class="text font-medium">Patient</th>
-            <th class="text font-medium">Sexe</th>
-            <th class="text font-medium">Email</th>
-            <th class="text font-medium text-center">Phone</th>
-            <th class="text font-medium text-center"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let patient of patients">
-            <td>
-              <div class="d-flex align-items-center">
-                <img
-                  [src]="patient.sexe === 'male' ? '../../../assets/male.png' : '../../../assets/female.png'"
-                  alt="user"
-                  width="45"
-                  class="rounded-circle"
-                />
-                <div class="ms-3">
-                  <h5 class="mb-0 font-medium">
-                    {{ patient.lastName }} {{ patient.firstName }}
-                  </h5>
-                </div>
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text font-medium">Patient</th>
+          <th class="text font-medium">Sexe</th>
+          <th class="text font-medium">Email</th>
+          <th class="text font-medium text-center">Phone</th>
+          <th class="text font-medium text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>
+            <div class="d-flex align-items-center">
+              <img
+                [src]="patient.sexe === 'male' ? '../../../assets/male.png' : '../../../assets/female.png'"
+                alt="user"
+                width="45"
+                class="rounded-circle"
+              />
+              <div class="ms-3">
+                <h5 class="mb-0 font-medium">
+                  {{ patient.lastName }} {{ patient.firstName }}
+                </h5>
               </div>
-            </td>
-            <td>{{ patient.sexe }}</td>
-            <td>{{ patient.email }}</td>
-            <td>{{ patient.phone }}</td>
-            <td class="text-center">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm me-2"
-                (click)="openAppointmentModal(patient)"
-              >
-                View Profile
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </div>
+          </td>
+          <td>{{ patient.sexe }}</td>
+          <td>{{ patient.email }}</td>
+          <td>{{ patient.phone }}</td>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm me-2"
+              (click)="openAppointmentModal(patient)"
+            >
+              View Profile
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <!-- Modal -->
-    <!-- Modal Template -->
+  <!-- Modal -->
+  <!-- Modal Template -->
 <div class="modal fade" id="patientModal" tabindex="-1" aria-labelledby="patientModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="patientModalLabel">Patient Profile</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Patient Info Section -->
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <h6 class="section-title">General Information</h6>
-              <ul class="list-group">
-                <li class="list-group-item">Name: {{ selectedPatient?.lastName }} {{ selectedPatient?.firstName }}</li>
-                <li class="list-group-item">Sexe: {{ selectedPatient?.sexe }}</li>
-                <li class="list-group-item">Email: {{ selectedPatient?.email }}</li>
-                <li class="list-group-item">Phone: {{ selectedPatient?.phone }}</li>
-              </ul>
-            </div>
-            <div class="col-md-6 mb-3">
-              <h6 class="section-title">Medical Information</h6>
-              <ul class="list-group">
-                <li class="list-group-item">Height: {{ selectedPatient?.height }} cm</li>
-                <li class="list-group-item">Weight: {{ selectedPatient?.weight }} kg</li>
-                <li class="list-group-item">Blood Type: {{ selectedPatient?.bloodType }}</li>
-                <li class="list-group-item">Diagnosed Diseases: {{ selectedPatient?.diagnosedDiseases }}</li>
-                <li class="list-group-item">Allergies: {{ selectedPatient?.allergies }}</li>
-              </ul>
-            </div>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="patientModalLabel">Patient Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Patient Info Section -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <h6 class="section-title">General Information</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Name: {{ selectedPatient?.lastName }} {{ selectedPatient?.firstName }}</li>
+              <li class="list-group-item">Sexe: {{ selectedPatient?.sexe }}</li>
+              <li class="list-group-item">Email: {{ selectedPatient?.email }}</li>
+              <li class="list-group-item">Phone: {{ selectedPatient?.phone }}</li>
+            </ul>
           </div>
+          <div class="col-md-6 mb-3">
+            <h6 class="section-title">Medical Information</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Height: {{ selectedPatient?.height }} cm</li>
+              <li class="list-group-item">Weight: {{ selectedPatient?.weight }} kg</li>
+              <li class="list-group-item">Blood Type: {{ selectedPatient?.bloodType }}</li>
+              <li class="list-group-item">Diagnosed Diseases: {{ selectedPatient?.diagnosedDiseases }}</li>
+              <li class="list-group-item">Allergies: {{ selectedPatient?.allergies }}</li>
+            </ul>
+          </div>
+        </div>
 
-          <!-- Appointments Section -->
-          <h6 class="section-title mt-4">Appointment History</h6>
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let appointment of selectedPatient?.appointments">
-                  <td>{{ appointment.date }}</td>
-                  <td>{{ appointment.time }}</td>
-                  <td>{{ appointment.description }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <!-- Appointments Section -->
+        <h6 class="section-title mt-4">Appointment History</h6>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let appointment of selectedPatient?.appointments">
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.description }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
 
-  </div>
-
+</div>
