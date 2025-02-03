@@ -1,0 +1,118 @@
+/* Main container */
+.social-history-container {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  max-width: 1000px;
+  font-family: Arial, sans-serif;
+  margin: auto;
+  border-left: 6px solid #28a745;
+}
+
+/* Title */
+.social-history-container h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* Question card */
+.question-card {
+  background: #f8f9fa;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #28a745;
+}
+
+/* Question text */
+.question {
+  font-size: 16px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Material radio buttons */
+mat-radio-group {
+  display: flex;
+  gap: 15px;
+}
+
+/* Material button toggles */
+mat-button-toggle-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Material form fields */
+mat-form-field {
+  width: 100%;
+}
+
+/* Select all button */
+.select-all {
+  background: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.select-all:hover {
+  background: #1e7e34;
+}
+
+/* Drug selection options */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Drug frequency section */
+.frequency {
+  margin-top: 15px;
+}
+
+.frequency p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Textarea for drug frequency */
+mat-form-field textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #f8f8f8;
+  transition: border 0.3s ease;
+}
+
+mat-form-field textarea:focus {
+  border-color: #28a745;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .social-history-container {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  mat-radio-group,
+  mat-button-toggle-group {
+    flex-direction: column;
+  }
+}

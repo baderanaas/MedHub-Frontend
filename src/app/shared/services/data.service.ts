@@ -136,4 +136,8 @@ export class DataService {
     return this.http.put<Appointment>(`${Api_Urls.updateAppointment}/${id}`, data);
   }
 
+  getUpcomingDoctorAppointments(): Observable<any> {
+    const doctorId = this.auth.getIdFromToken();
+    return this.http.get<any[]>(`${Api_Urls.getUpcomingDoctorAppointments}/${doctorId}`);
+  }
 }

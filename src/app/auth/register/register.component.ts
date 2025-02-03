@@ -40,6 +40,7 @@ export class RegisterComponent {
       next: (res) => {
         console.log('registered successfully ' + res);
         this.toastr.success('user added successfuly', 'success');
+        this.toastr.success('user added successfuly', 'success');
         this.router.navigate([routes.login]);
       },
       error: (err) => {

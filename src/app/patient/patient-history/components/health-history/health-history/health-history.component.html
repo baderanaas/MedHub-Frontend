@@ -1,0 +1,18 @@
+<div class="history-container">
+  <h2 class="title">Health history</h2>
+
+  <div class="history-card" *ngFor="let question of healthQuestions">
+    <p class="question">{{ question.question }}</p>
+    <div class="toggle-group">
+      <button class="toggle" [class.active]="question.value === 'No'" (click)="updateAnswer(question, 'No')">No</button>
+      <button class="toggle" [class.active]="question.value === 'Yes'" (click)="updateAnswer(question, 'Yes')">Yes</button>
+    </div>
+  </div>
+
+  <div class="other-conditions">
+    <p class="question">Do you have other health conditions?</p>
+    <textarea class="text-area" placeholder="Describe your other health conditions..."></textarea>
+  </div>
+</div>
+
+  

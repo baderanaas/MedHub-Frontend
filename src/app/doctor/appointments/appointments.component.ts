@@ -1,36 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { DataService } from 'src/app/shared/services/data.service';
+import { Observable } from 'rxjs';
+import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments';
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.css']
+  styleUrls: ['./appointments.component.css'],
 })
-export class AppointmentsComponent {
+export class AppointmentsComponent implements OnInit {
   title = 'My Appointments';
-  upcomingAppointments = [
-    {
-      patientName: 'John Doe',
-      email: 'john.doe@example.com',
-      phoneNumber: '+123456789',
-      date: new Date(),
-      time: '10:30 AM'
-    },
-    {
-      patientName: 'Jane Smith',
-      email: 'jane.smith@example.com',
-      phoneNumber: '+987654321',
-      date: new Date(),
-      time: '2:00 PM'
-    }
-  ];
+  upcomingAppointments: Appointment[] = []; // Utilisez le modèle Appointment
 
-  onActionSelected(appointment: any, action: string) {
-    console.log(`Action "${action}" selected for:`, appointment);
-    // Implement functionality for view profile, reschedule, or cancel here
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.loadUpcomingDoctorAppointments();
   }
 
-  onAddAppointment() {
+  loadUpcomingDoctorAppointments(): void {
+    this.dataService.getUpcomingDoctorAppointments().subscribe(
+      (data) => {
+        this.upcomingAppointments = data;
+      },
+      (error) => {
+        console.error('Error fetching upcoming doctor appointments:', error);
+      }
+    );
+  }
+
+  onActionSelected(appointment: Appointment, action: string): void {
+    console.log(`Action "${action}" selected for:`, appointment);
+    switch (action) {
+      case 'viewProfile':
+        this.viewPatientProfile(appointment.patient.username);
+        break;
+      case 'reschedule':
+        this.rescheduleAppointment(appointment.id);
+        break;
+      case 'cancel':
+        this.cancelAppointment(appointment.id);
+        break;
+      default:
+        console.warn('Unknown action:', action);
+    }
+  }
+
+  viewPatientProfile(username: string): void {
+    console.log('Viewing profile for patient ID:', username);
+    // Implémentez la logique pour afficher le profil du patient
+  }
+
+  rescheduleAppointment(appointmentId: number): void {
+    console.log('Rescheduling appointment ID:', appointmentId);
+    // Implémentez la logique pour reprogrammer le rendez-vous
+  }
+
+  cancelAppointment(appointmentId: number): void {
+    console.log('Canceling appointment ID:', appointmentId);
+    // Implémentez la logique pour annuler le rendez-vous
+  }
+
+  onAddAppointment(): void {
     console.log('Add Appointment button clicked');
-    // Implement "Add Appointment" logic
+    // Implémentez la logique pour ajouter un rendez-vous
   }
 }
