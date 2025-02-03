@@ -35,7 +35,7 @@ export class AppointmentsComponent implements OnInit {
     console.log(`Action "${action}" selected for:`, appointment);
     switch (action) {
       case 'viewProfile':
-        this.viewPatientProfile(appointment.patient.username);
+        this.viewPatientProfile(appointment.patient);
         break;
       case 'reschedule':
         this.rescheduleAppointment(appointment.id);
@@ -48,9 +48,17 @@ export class AppointmentsComponent implements OnInit {
     }
   }
 
-  viewPatientProfile(username: string): void {
-    console.log('Viewing profile for patient ID:', username);
-    // Implémentez la logique pour afficher le profil du patient
+  viewPatientProfile(patient: any): void {
+    console.log('Viewing profile for patient ID:', patient.username);
+    this.selectedPatient = patient;
+    const modalElement = document.getElementById('patientModal');
+    
+    if (modalElement) { // Ensure the element is not null
+      const modal = new window.bootstrap.Modal(modalElement);
+      modal.show();
+    } else {
+      console.error('Modal element not found.');
+    }
   }
 
   rescheduleAppointment(appointmentId: number): void {

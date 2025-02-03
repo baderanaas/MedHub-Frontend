@@ -33,3 +33,63 @@
     </tr>
   </tbody>
 </table>
+    <!-- Modal -->
+    <!-- Modal Template -->
+    <div class="modal fade" id="patientModal" tabindex="-1" aria-labelledby="patientModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="patientModalLabel">Patient Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Patient Info Section -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h6 class="section-title">General Information</h6>
+                <ul class="list-group">
+                  <li class="list-group-item">Name: {{ selectedPatient?.lastName }} {{ selectedPatient?.firstName }}</li>
+                  <li class="list-group-item">Sexe: {{ selectedPatient?.sexe }}</li>
+                  <li class="list-group-item">Email: {{ selectedPatient?.email }}</li>
+                  <li class="list-group-item">Phone: {{ selectedPatient?.phone }}</li>
+                </ul>
+              </div>
+              <div class="col-md-6 mb-3">
+                <h6 class="section-title">Medical Information</h6>
+                <ul class="list-group">
+                  <li class="list-group-item">Height: {{ selectedPatient?.height }} cm</li>
+                  <li class="list-group-item">Weight: {{ selectedPatient?.weight }} kg</li>
+                  <li class="list-group-item">Blood Type: {{ selectedPatient?.bloodType }}</li>
+                  <li class="list-group-item">Diagnosed Diseases: {{ selectedPatient?.diagnosedDiseases }}</li>
+                  <li class="list-group-item">Allergies: {{ selectedPatient?.allergies }}</li>
+                </ul>
+              </div>
+            </div>
+    
+            <!-- Appointments Section -->
+            <h6 class="section-title mt-4">Appointment History</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let appointment of selectedPatient?.appointments">
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.time }}</td>
+                    <td>{{ appointment.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
