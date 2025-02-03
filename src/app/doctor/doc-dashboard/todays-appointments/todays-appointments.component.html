@@ -18,12 +18,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let appointment of upcomingAppointments">
-          <td>{{ appointment.patientName }}</td>
-          <td>{{ appointment.email }}</td>
-          <td>{{ appointment.phoneNumber }}</td>
-          <td>{{ appointment.date | date: 'shortDate' }}</td>
-          <td>{{ appointment.time }}</td>
+        <tr *ngFor="let appointment of todayAppointments">
+          <td>{{ appointment.patient.firstName+" "+ appointment.patient.lastName  }}</td>
+          <td>{{ appointment.patient.email }}</td>
+          <td>{{ appointment.patient.phone }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel}}</td>
           <td>
             <div class="dropdown">
               <button
@@ -72,9 +72,9 @@
         class="appointment-card" 
         *ngFor="let request of paginatedAppointments; let i = index" 
         (click)="selectRequest(i)">
-        <h5>{{ request.patientName }}</h5>
+        <h5>{{ request.patient.firstName +" "+request.patient.lastName  }}</h5>
         <p>Date: {{ request.date }}</p>
-        <p>Time: {{ request.time }}</p>
+        <p>Time: {{ request.session |  sessionLabel }}</p>
 
         <div *ngIf="selectedRequestIndex === i" class="action-buttons">
           <button 

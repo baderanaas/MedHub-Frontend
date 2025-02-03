@@ -31,7 +31,7 @@ export class DoctorsComponent {
     if (this.appointmentDto.date && this.selectedDoctor) {
       console.log(this.appointmentDto.date);
       this.sessions$ = this.dataService.getAvailableSessions(
-        this.appointmentDto.date.toISOString().split('T')[0],
+        this.appointmentDto.date,
         this.selectedDoctor.username
       );
     }

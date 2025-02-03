@@ -19,7 +19,7 @@
           <td>
             <div class="d-flex align-items-center">
               <img
-                [src]="patient.sexe === 'male' ? '../../../assets/male.png' : '../../../assets/female.png'"
+                [src]="patient.sexe === 'male' ? '../../../assets/patmale.png' : '../../../assets/patfemale.png'"
                 alt="user"
                 width="45"
                 class="rounded-circle"
@@ -89,14 +89,13 @@
               <tr>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Description</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let appointment of selectedPatient?.appointments">
-                <td>{{ appointment.date }}</td>
-                <td>{{ appointment.time }}</td>
-                <td>{{ appointment.description }}</td>
+
+                <td>{{ appointment.date | date }}</td>
+                <td>{{ appointment.session | sessionLabel }}</td>
               </tr>
             </tbody>
           </table>

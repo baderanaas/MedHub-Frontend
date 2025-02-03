@@ -1,36 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
+import { CommModule } from 'src/app/shared/comm/comm.module';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-todays-appointments',
   templateUrl: './todays-appointments.component.html',
-  styleUrls: ['./todays-appointments.component.css']
-})
-export class TodaysAppointmentsComponent {
-  title = "Today's Appointments";
-  upcomingAppointments = [
-    {
-      patientName: 'John Doe',
-      email: 'john.doe@example.com',
-      phoneNumber: '+123456789',
-      date: new Date(),
-      time: '10:30 AM'
-    },
-    {
-      patientName: 'Jane Smith',
-      email: 'jane.smith@example.com',
-      phoneNumber: '+987654321',
-      date: new Date(),
-      time: '2:00 PM'
-    }
-  ];
+  styleUrls: ['./todays-appointments.component.css'],
+  // imports: [CommModule],
 
-  requestedAppointments = [
-    { patientName: 'John Doe', date: '2025-01-29', time: '10:00 AM' },
-    { patientName: 'Jane Smith', date: '2025-01-29', time: '11:30 AM' },
-    { patientName: 'Alice Johnson', date: '2025-01-30', time: '02:15 PM' },
-    { patientName: 'Bob Williams', date: '2025-01-31', time: '09:00 AM' },
-    { patientName: 'Charlie Brown', date: '2025-02-01', time: '12:45 PM' },
-    { patientName: 'Eve Davis', date: '2025-02-01', time: '03:00 PM' },
+})
+export class TodaysAppointmentsComponent implements OnInit {
+  title = "Today's Appointments";
+  todayAppointments: any[]=[];
+  ngOnInit(): void {
+    this.fetchDoctorTodayAppointments();
+    this.fetchDoctorRequestedAppointments();
+  }
+  constructor( private appointmentService :DataService){}
+  upcomingAppointments:any[] = [];
+
+  requestedAppointments:any[] = [
   ];
 
   pageSize = 2;
@@ -94,6 +84,34 @@ export class TodaysAppointmentsComponent {
   onAddAppointment() {
     console.log('Add Appointment button clicked');
     // Implement "Add Appointment" logic
+  }
+
+
+  fetchDoctorTodayAppointments(): void {
+    this.appointmentService.getDoctorTodayAppointments().subscribe({
+      next: (data) => {
+        this.todayAppointments = data;
+      },
+      error: (error) => {
+        console.error('Error fetching today\'s appointments:', error);
+        this.todayAppointments = [];
+      }
+    });
+  }
+
+
+
+  fetchDoctorRequestedAppointments(): void {
+    this.appointmentService.getDoctorRequestedAppointments().subscribe({
+      next: (data) => {
+        console.log("mala 3icha kalba");
+        this.requestedAppointments = data;
+      },
+      error: (error) => {
+        console.error('Error fetching today\'s appointments:', error);
+        this.requestedAppointments = [];
+      }
+    });
   }
 
 }

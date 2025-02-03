@@ -75,6 +75,8 @@ export class AuthService {
       return null;
     }
   }
+
+  
   getDoctorId(): number | null {
     return this.getIdFromToken();
   }

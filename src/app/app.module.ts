@@ -80,7 +80,7 @@ import { CommModule } from './shared/comm/comm.module';
     useClass:RequestInterceptor,
     multi:true
   }],
-  
+
   bootstrap: [AppComponent],
 
 })

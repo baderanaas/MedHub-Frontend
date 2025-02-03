@@ -18,7 +18,7 @@ export class PatientsComponent implements OnInit {
   constructor(private dataService: DataService, private authService: AuthService) {}
 
   ngOnInit() {
-    this.doctorId = this.authService.getDoctorId() || 0; // Empêche d'avoir une valeur null
+    this.doctorId = this.authService.getDoctorId() || 0; 
     this.loadPatients();
   }
 
@@ -35,12 +35,38 @@ export class PatientsComponent implements OnInit {
     }
   }
 
+
   openAppointmentModal(patient: Patient) {
     this.selectedPatient = patient;
-    const modalElement = document.getElementById('patientModal');
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      modal.show();
+
+    const doctorUsername = this.authService.getUserNameFromToken()?.trim();
+    const patientUsername = patient.username;
+
+    if (doctorUsername && patientUsername) {
+      this.dataService.getDoctorPatientCompletedAppointments(doctorUsername, patientUsername).subscribe(
+        (appointments) => {
+          if (this.selectedPatient) {
+            this.selectedPatient.appointments = appointments;
+          }
+        },
+        (error) => {
+          console.error('Error fetching completed appointments:', error);
+          if (this.selectedPatient) {
+            this.selectedPatient.appointments = [];
+          }
+        }
+      );
     }
+
+    setTimeout(() => {
+      const modalElement = document.getElementById('patientModal');
+      if (modalElement) {
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+      }
+    }, 500);
   }
+
+
+
 }
