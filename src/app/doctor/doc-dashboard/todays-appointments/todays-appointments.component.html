@@ -77,14 +77,15 @@
         <p>Time: {{ request.session |  sessionLabel }}</p>
 
         <div *ngIf="selectedRequestIndex === i" class="action-buttons">
-          <button 
-            class="btn btn-success accept-btn" 
-            (click)="onAccept(request, $event)">
+          <button  #accept value="accepted"
+            class="btn btn-success accept-btn"
+            (click)="onAccept(request.id,accept.value)" 
+           >
             Accept
           </button>
-          <button 
+          <button #reject value="rejected"
             class="btn btn-danger reject-btn" 
-            (click)="onReject(request, $event)">
+            (click)="onAccept(request.id,reject.value)">
             Reject
           </button>
         </div>
