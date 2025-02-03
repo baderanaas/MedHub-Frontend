@@ -127,4 +127,9 @@ export class DataService {
     return this.http.get<any[]>(`${Api_Urls.getDoctorTodaysAppointment}/${username}`);
   }
 
+  getDoctorRequestedAppointments(): Observable<Appointment[]> {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<any[]>(`${Api_Urls.getDoctorRequestedAppointment}/${username}`);
+  }
+
 }

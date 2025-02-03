@@ -72,9 +72,9 @@
         class="appointment-card" 
         *ngFor="let request of paginatedAppointments; let i = index" 
         (click)="selectRequest(i)">
-        <h5>{{ request.patientName }}</h5>
+        <h5>{{ request.patient.firstName +" "+request.patient.lastName  }}</h5>
         <p>Date: {{ request.date }}</p>
-        <p>Time: {{ request.time }}</p>
+        <p>Time: {{ request.session |  sessionLabel }}</p>
 
         <div *ngIf="selectedRequestIndex === i" class="action-buttons">
           <button 

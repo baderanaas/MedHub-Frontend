@@ -14,17 +14,12 @@ export class TodaysAppointmentsComponent implements OnInit {
   todayAppointments: any[]=[];
   ngOnInit(): void {
     this.fetchDoctorTodayAppointments();
+    this.fetchDoctorRequestedAppointments();
   }
   constructor( private appointmentService :DataService){}
   upcomingAppointments:any[] = [];
 
-  requestedAppointments = [
-    { patientName: 'John Doe', date: '2025-01-29', time: '10:00 AM' },
-    { patientName: 'Jane Smith', date: '2025-01-29', time: '11:30 AM' },
-    { patientName: 'Alice Johnson', date: '2025-01-30', time: '02:15 PM' },
-    { patientName: 'Bob Williams', date: '2025-01-31', time: '09:00 AM' },
-    { patientName: 'Charlie Brown', date: '2025-02-01', time: '12:45 PM' },
-    { patientName: 'Eve Davis', date: '2025-02-01', time: '03:00 PM' },
+  requestedAppointments:any[] = [
   ];
 
   pageSize = 2;
@@ -94,12 +89,26 @@ export class TodaysAppointmentsComponent implements OnInit {
   fetchDoctorTodayAppointments(): void {
     this.appointmentService.getDoctorTodayAppointments().subscribe({
       next: (data) => {
-        console.log("mala 3icha kalba");
         this.todayAppointments = data;
       },
       error: (error) => {
         console.error('Error fetching today\'s appointments:', error);
         this.todayAppointments = [];
+      }
+    });
+  }
+
+
+
+  fetchDoctorRequestedAppointments(): void {
+    this.appointmentService.getDoctorRequestedAppointments().subscribe({
+      next: (data) => {
+        console.log("mala 3icha kalba");
+        this.requestedAppointments = data;
+      },
+      error: (error) => {
+        console.error('Error fetching today\'s appointments:', error);
+        this.requestedAppointments = [];
       }
     });
   }
