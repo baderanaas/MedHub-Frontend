@@ -1,28 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
+import { CommModule } from 'src/app/shared/comm/comm.module';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-todays-appointments',
   templateUrl: './todays-appointments.component.html',
-  styleUrls: ['./todays-appointments.component.css']
+  styleUrls: ['./todays-appointments.component.css'],
+ 
 })
-export class TodaysAppointmentsComponent {
+export class TodaysAppointmentsComponent implements OnInit {
   title = "Today's Appointments";
-  upcomingAppointments = [
-    {
-      patientName: 'John Doe',
-      email: 'john.doe@example.com',
-      phoneNumber: '+123456789',
-      date: new Date(),
-      time: '10:30 AM'
-    },
-    {
-      patientName: 'Jane Smith',
-      email: 'jane.smith@example.com',
-      phoneNumber: '+987654321',
-      date: new Date(),
-      time: '2:00 PM'
-    }
-  ];
+  todayAppointments: any[]=[];
+  ngOnInit(): void {
+    this.fetchDoctorTodayAppointments();
+  }
+  constructor( private appointmentService :DataService){}
+  upcomingAppointments:any[] = [];
 
   requestedAppointments = [
     { patientName: 'John Doe', date: '2025-01-29', time: '10:00 AM' },
@@ -94,6 +88,20 @@ export class TodaysAppointmentsComponent {
   onAddAppointment() {
     console.log('Add Appointment button clicked');
     // Implement "Add Appointment" logic
+  }
+
+
+  fetchDoctorTodayAppointments(): void {
+    this.appointmentService.getDoctorTodayAppointments().subscribe({
+      next: (data) => {
+        console.log("mala 3icha kalba");
+        this.todayAppointments = data;
+      },
+      error: (error) => {
+        console.error('Error fetching today\'s appointments:', error);
+        this.todayAppointments = [];
+      }
+    });
   }
 
 }

@@ -16,5 +16,8 @@ export const Api_Urls = {
   getUpcommingAppointment:'http://localhost:3000/appointment/patient/upcoming',
   getPatientByUsername:'http://localhost:3000/patient',
   getDoctorByMatricule:'http://localhost:3000/doctor',
+  getDoctorUpcommingAppointment:'http://localhost:3000/appointment/doctor/upcoming',
+  getDoctorTodaysAppointment:'http://localhost:3000/appointment/doctor/today',
+  
 
 };

@@ -18,12 +18,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let appointment of upcomingAppointments">
-          <td>{{ appointment.patientName }}</td>
-          <td>{{ appointment.email }}</td>
-          <td>{{ appointment.phoneNumber }}</td>
-          <td>{{ appointment.date | date: 'shortDate' }}</td>
-          <td>{{ appointment.time }}</td>
+        <tr *ngFor="let appointment of todayAppointments">
+          <td>{{ appointment.patient.firstName+" "+ appointment.patient.lastName  }}</td>
+          <td>{{ appointment.patient.email }}</td>
+          <td>{{ appointment.patient.phone }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel}}</td>
           <td>
             <div class="dropdown">
               <button

@@ -7,7 +7,7 @@ import { SessionLabelPipe } from '../pipes/session-label.pipe';
 @NgModule({
   declarations: [SessionLabelPipe],
   imports: [
-    CommonModule
+   
   ],
   exports:[SessionLabelPipe]
 })
