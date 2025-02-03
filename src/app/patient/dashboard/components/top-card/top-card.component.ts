@@ -13,7 +13,32 @@ export class TopCardComponent implements OnInit {
   notPayed$ = this.data.getNotPayed();
   upcoming$ = this.data.getUpcoming();
   upcoming = 0;
-  topcard: any[] = [];
+  topcard: any[] = [
+    {
+      bgcolor: 'danger',
+      icon: 'fa-solid fa-calendar-alt',
+      title: 'Upcoming Appointments',
+      subtitle: `${this.upcoming}`,
+    },
+    {
+      bgcolor: 'warning',
+      icon: 'fa-solid fa-clock',
+      title: 'Next Appointment',
+      subtitle: 'No Appointment ',
+    },
+    {
+      bgcolor: 'info',
+      icon: 'fa-solid fa-dollar-sign',
+      title: 'Pending Payments',
+      subtitle: 'No Appointment',
+    },
+    {
+      bgcolor: 'info',
+      icon: 'fa-solid fa-phone-volume',
+      title: 'Emergency Contact Info',
+      subtitle: '29419967',
+    },
+  ];
   notPayed = 0;
   updateTopCard() {
     this.topcard = [

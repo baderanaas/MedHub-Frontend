@@ -30,15 +30,12 @@ import { CommModule } from '../shared/comm/comm.module';
     PatientAppointmentsComponent,
     AddAppointmentComponent,
     MedicationsComponent,
-    SessionLabelPipe,
-    RequestsComponent
-    //SessionLabelPipe,
-    PatientProfileComponent,
+    RequestsComponent,
+    PatientProfileComponent
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    //DashboardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -53,6 +50,6 @@ import { CommModule } from '../shared/comm/comm.module';
     MatFormFieldModule,
     MatInputModule,
     CommModule
-  ]
+  ],
 })
-export class PatientModule { }
+export class PatientModule {}

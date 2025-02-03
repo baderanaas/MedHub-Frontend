@@ -10,7 +10,7 @@ import { routes } from 'src/app/config/routes';
   styleUrls: ['./topbar.component.css'],
 })
 export class TopbarComponent implements OnInit, OnChanges {
-  title: string = '';
+  title: string = 'MedHub';
   @Input() selectedRoute = '';
   user: string = '';
   authService = inject(AuthService);

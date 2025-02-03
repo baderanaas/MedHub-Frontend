@@ -18,7 +18,7 @@ interface Appointment {
 })
 export class UpcomingAppointmentsComponent  implements OnInit{
   upcomingAppointments: any[] = [];
-  username = 'hassenhassen'; // Replace with dynamic username
+  username = 'hassenhassen'; 
   title:string=" Upcoming Appointments"
 
   constructor(private appointmentService: DataService,private dialog: MatDialog) {}

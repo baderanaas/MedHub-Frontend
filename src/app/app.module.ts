@@ -30,7 +30,6 @@ import { MatInputModule } from '@angular/material/input';
 
 
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
-import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 import { CommModule } from './shared/comm/comm.module';
 import { routes } from './config/routes';
 
@@ -46,7 +45,7 @@ import { routes } from './config/routes';
     DoctorLayoutComponent,
     UnauthorizedComponent,
     DocSidebarComponent,
-    //SessionLabelPipe,
+   
     
   ],
   imports: [
@@ -58,7 +57,6 @@ import { routes } from './config/routes';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    //DashboardModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

@@ -13,10 +13,12 @@
 
 /* App Title */
 .app-title {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   color: #f8fbfd; /* Off-white text */
   margin-right: 16px;
+  padding-left: 10px;
+  
 }
 .sidenav-header {
   display: flex;

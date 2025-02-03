@@ -1,4 +1,5 @@
 <mat-toolbar class="top-bar">
+  <mat-icon class="logo">home</mat-icon>
   <h6 class="app-title">{{ title }}</h6>
   <div class="search-container">
     <input type="text" placeholder="Find doctor..." class="search-input" />
@@ -18,7 +19,7 @@
       <i class="fa-solid fa-user-nurse"></i> Profile
     </button>
     <button mat-menu-item>
-      <i class="fa-solid fa-user-injured"></i> Log Out
+      <i class="fa-solid fa-user-injured" (click)="logout()"></i> Log Out
     </button>
   </mat-menu>
 </mat-toolbar>

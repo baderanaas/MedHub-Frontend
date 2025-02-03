@@ -9,6 +9,7 @@ import { AddAppointmentDto } from '../dto/add-appointment.dto';
 import { AvailableSessionsDTo } from '../dto/available-session.dto';
 import { Medication } from 'src/app/patient/medications/interfaces/medication.interface';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -63,15 +64,18 @@ export class DataService {
     });
   }
 
-
   getPatientHistory(): Observable<any[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getPassedAppointement}/history/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getPassedAppointement}/history/${username}`
+    );
   }
 
   getUpcomingAppointments(): Observable<any[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getUpcommingAppointment}/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getUpcommingAppointment}/${username}`
+    );
   }
 
   getPatientByUsername(): Observable<any> {
@@ -88,6 +92,12 @@ export class DataService {
   }
   getMedications(): Observable<Medication[]> {
     return this.http.get<Medication[]>(Api_Urls.getMedications);
+  }
+  getPatientMedications(): Observable<Medication[]> {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<Medication[]>(
+      Api_Urls.getPatientMedications + `/${username}`
+    );
   }
   getPatientNextAppointment(): Observable<Appointment> {
     const userName = this.auth.getUserNameFromToken();
