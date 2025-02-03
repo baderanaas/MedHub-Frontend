@@ -11,7 +11,7 @@ import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments
 })
 export class AppointmentsComponent implements OnInit {
   title = 'My Appointments';
-  upcomingAppointments: Appointment[] = []; // Utilisez le modèle Appointment
+  upcomingAppointments: any[] = []; // Utilisez le modèle Appointment
 
   constructor(private dataService: DataService) {}
 
@@ -20,7 +20,7 @@ export class AppointmentsComponent implements OnInit {
   }
 
   loadUpcomingDoctorAppointments(): void {
-    this.dataService.getUpcomingDoctorAppointments().subscribe(
+    this.dataService.getDoctorUpcomingAppointments().subscribe(
       (data) => {
         this.upcomingAppointments = data;
       },

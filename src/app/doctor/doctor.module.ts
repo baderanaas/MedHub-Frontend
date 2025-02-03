@@ -15,6 +15,8 @@ import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.c
 import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
 import { DocProfileComponent } from './doc-profile/doc-profile.component';
 import { CommModule } from '../shared/comm/comm.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { CommModule } from '../shared/comm/comm.module';
     MatSidenavModule,
     MatListModule,
     RouterModule,
-    CommModule
+    CommModule,
+    MatMenuModule, // Ajoutez MatMenuModule ici
+    MatButtonModule,
   ]
 })
 export class DoctorModule { }

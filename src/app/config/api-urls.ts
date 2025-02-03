@@ -19,7 +19,7 @@ export const Api_Urls = {
   getDoctorUpcommingAppointment:'http://localhost:3000/appointment/doctor/upcoming',
   getDoctorTodaysAppointment:'http://localhost:3000/appointment/doctor/today',
   getDoctorRequestedAppointment:'http://localhost:3000/appointment/doctor/requested',
-  updateAppointment:'http://localhost:3000/appointment'
+  updateAppointment:'http://localhost:3000/appointment',
 
 
   getUpcomingDoctorAppointments: 'http://localhost:3000/appointment/doctor/upcoming',

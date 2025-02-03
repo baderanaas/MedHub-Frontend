@@ -19,11 +19,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let appointment of todayAppointments">
-          <td>{{ appointment.patient.firstName+" "+ appointment.patient.lastName  }}</td>
+          <td>{{ appointment.patient.firstName + " " + appointment.patient.lastName }}</td>
           <td>{{ appointment.patient.email }}</td>
           <td>{{ appointment.patient.phone }}</td>
           <td>{{ appointment.date | date }}</td>
-          <td>{{ appointment.session | sessionLabel}}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
           <td>
             <div class="dropdown">
               <button
@@ -68,24 +68,30 @@
         <p>No requested appointments.</p>
       </div>
 
-      <div 
-        class="appointment-card" 
-        *ngFor="let request of paginatedAppointments; let i = index" 
-        (click)="selectRequest(i)">
-        <h5>{{ request.patient.firstName +" "+request.patient.lastName  }}</h5>
+      <div
+        class="appointment-card"
+        *ngFor="let request of paginatedAppointments; let i = index"
+        (click)="selectRequest(i)"
+      >
+        <h5>{{ request.patient.firstName + " " + request.patient.lastName }}</h5>
         <p>Date: {{ request.date }}</p>
-        <p>Time: {{ request.session |  sessionLabel }}</p>
+        <p>Time: {{ request.session | sessionLabel }}</p>
 
         <div *ngIf="selectedRequestIndex === i" class="action-buttons">
-          <button  #accept value="accepted"
+          <button
+            #accept
+            value="accepted"
             class="btn btn-success accept-btn"
-            (click)="onAccept(request.id,accept.value)" 
-           >
+            (click)="onAccept(request.id, accept.value)"
+          >
             Accept
           </button>
-          <button #reject value="rejected"
-            class="btn btn-danger reject-btn" 
-            (click)="onAccept(request.id,reject.value)">
+          <button
+            #reject
+            value="rejected"
+            class="btn btn-danger reject-btn"
+            (click)="onAccept(request.id, reject.value)"
+          >
             Reject
           </button>
         </div>
@@ -93,17 +99,18 @@
 
       <!-- Navigation Buttons -->
       <div class="pagination-buttons">
-        <button 
-          class="btn btn-secondary prev-btn" 
-          (click)="previousPage()" 
-          [disabled]="isFirstPage">
+        <button
+          class="btn btn-secondary prev-btn"
+          (click)="previousPage()"
+          [disabled]="isFirstPage"
+        >
           Previous
         </button>
-
-        <button 
-          class="btn btn-primary next-btn" 
-          (click)="nextPage()" 
-          [disabled]="isLastPage">
+        <button
+          class="btn btn-primary next-btn"
+          (click)="nextPage()"
+          [disabled]="isLastPage"
+        >
           Next
         </button>
       </div>
