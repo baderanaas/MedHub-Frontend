@@ -166,4 +166,9 @@ export class DataService {
   getDoctorPatientCompletedAppointments(doctorUsername: string, patientUsername: string) {
     return this.http.get<Appointment[]>(`${Api_Urls.getDoctorPatientCompletedAppointments}/${doctorUsername}/${patientUsername}`);
   }
+
+  getNextWeekAppointments() {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<Appointment[]>(`${Api_Urls.getPatientNextWeekUpcoming}/${username}`);
+  }
 }

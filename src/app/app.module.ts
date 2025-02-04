@@ -30,11 +30,9 @@ import { MatInputModule } from '@angular/material/input';
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 import { CommModule } from './shared/comm/comm.module';
-import { AddAppointmentComponent } from './patient/dashboard/components/add-appointment/add-appointment.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
   declarations: [
-    AddAppointmentComponent,
     AppComponent,
     SidebarComponent,
     TopbarComponent,
@@ -74,7 +72,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     MatInputModule,
     CommModule,
-    PatientModule
+    PatientModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

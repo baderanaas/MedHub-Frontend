@@ -11,6 +11,7 @@ export const Api_Urls = {
   getPatientNextAppointment: 'http://localhost:3000/appointment/patient/next',
   getPatientNotPayed: 'http://localhost:3000/appointment/patient/notpayed',
   getPatientUpcoming: 'http://localhost:3000/appointment/patient/upcoming',
+  getPatientNextWeekUpcoming: 'http://localhost:3000/appointment/patient/next-week',
   getPatientUpcomingNumber: 'http://localhost:3000/appointment/patient/upcomingNumber',
   getPassedAppointement:'http://localhost:3000/appointment/patient',
   getUpcommingAppointment:'http://localhost:3000/appointment/patient/upcoming',
