@@ -1,5 +1,9 @@
 <mat-toolbar class="top-bar">
-  <h6 class="app-title">{{ title }}</h6>
+  <!-- <div class="sidenav-header">
+    <mat-icon class="logo">home</mat-icon>
+    <span class="sidenav-title">MedHub</span>
+  </div> -->
+  <h6>{{ title }}</h6>
   <div class="search-container">
     <input type="text" placeholder="Find doctor..." class="search-input" />
     <button mat-icon-button class="search-button">
@@ -7,17 +11,18 @@
     </button>
   </div>
 
-  <!-- Dropdown with Font Awesome icon -->
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="user-menu-button">
-    <i class="fa-solid fa-user-doctor"></i>
-  </button>
-
+  <div>
+    <label class="username">{{ user }}</label>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <i class="fa-solid fa-user-doctor"></i>
+    </button>
+  </div>
   <!-- Menu content -->
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="profile" routerLinkActive="active">
+    <button mat-menu-item routerLink="profile"routerLinkActive="active">
       <i class="fa-solid fa-user-nurse"></i> Profile
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="logout()">
       <i class="fa-solid fa-user-injured"></i> Log Out
     </button>
   </mat-menu>

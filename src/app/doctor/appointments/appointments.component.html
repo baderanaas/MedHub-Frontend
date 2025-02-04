@@ -1,65 +1,39 @@
-<div class="table-header">
+<div class="container">
+  <div class="table-header">
     <h4 class="my-appointments-heading">{{ title }}</h4>
-    <button class="btn btn-primary add-appointment-btn" (click)="onAddAppointment()">
-      + Add Appointment
-    </button>
   </div>
-  
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Patient Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let appointment of upcomingAppointments">
-        <td>{{ appointment.patientName }}</td>
-        <td>{{ appointment.email }}</td>
-        <td>{{ appointment.phoneNumber }}</td>
-        <td>{{ appointment.date | date: 'shortDate' }}</td>
-        <td>{{ appointment.time }}</td>
-        <td>
-          <div class="dropdown">
-            <button
-              class="btn btn-light dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="fas fa-ellipsis-v"></i>
+
+  <div class="upcoming-appointments-container">
+    <table class="appointments-table">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of upcomingAppointments">
+          <td>{{ appointment.patient.firstName }} {{ appointment.patient.lastName }}</td>
+          <td>{{ appointment.patient.email }}</td>
+          <td>{{ appointment.patient.phone }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
+          <td>
+            <button mat-button [matMenuTriggerFor]="menu" class="btn-outline-primary">
+              <i class="fas fa-ellipsis-v"></i> <mat-icon matSuffix>arrow_drop_down</mat-icon>
             </button>
-            <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenuButton">
-              <li>
-                <a
-                  class="dropdown-item"
-                  (click)="onActionSelected(appointment, 'viewProfile')"
-                  >View Profile</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item"
-                  (click)="onActionSelected(appointment, 'reschedule')"
-                  >Reschedule</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item text-danger"
-                  (click)="onActionSelected(appointment, 'cancel')"
-                  >Cancel</a
-                >
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="onActionSelected(appointment, 'viewProfile')">View Profile</button>
+              <button mat-menu-item (click)="onActionSelected(appointment, 'reschedule')">Reschedule</button>
+              <button mat-menu-item (click)="onActionSelected(appointment, 'cancel')" class="text-danger">Cancel</button>
+            </mat-menu>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

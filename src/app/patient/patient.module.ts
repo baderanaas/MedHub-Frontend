@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PatientRoutingModule } from './patient-routing.module';
 import { DocumentComponent } from './document/document.component';
 import { DoctorsComponent } from './doctors/doctors.component';
@@ -28,17 +27,18 @@ import { CommModule } from '../shared/comm/comm.module';
     DocumentComponent,
     DoctorsComponent,
     PatientAppointmentsComponent,
-    AddAppointmentComponent,
     MedicationsComponent,
     //SessionLabelPipe,
     RequestsComponent,
     //SessionLabelPipe,
     PatientProfileComponent,
+
+
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    //DashboardModule,
+    DashboardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -52,7 +52,8 @@ import { CommModule } from '../shared/comm/comm.module';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    CommModule
+    CommModule,
+    
   ]
 })
 export class PatientModule { }

@@ -11,11 +11,20 @@ export const Api_Urls = {
   getPatientNextAppointment: 'http://localhost:3000/appointment/patient/next',
   getPatientNotPayed: 'http://localhost:3000/appointment/patient/notpayed',
   getPatientUpcoming: 'http://localhost:3000/appointment/patient/upcoming',
-  getPatientUpcomingNumber:
-    'http://localhost:3000/appointment/patient/upcomingNumber',
-  getPassedAppointement: 'http://localhost:3000/appointment/patient',
-  getUpcommingAppointment: 'http://localhost:3000/appointment/patient/upcoming',
-  getPatientByUsername: 'http://localhost:3000/patient',
-  getDoctorByMatricule: 'http://localhost:3000/doctor',
-  getDoctorPassedAppointement: 'http://localhost:3000/appointment/doctor',
+  getPatientUpcomingNumber: 'http://localhost:3000/appointment/patient/upcomingNumber',
+  getPassedAppointement:'http://localhost:3000/appointment/patient',
+  getUpcommingAppointment:'http://localhost:3000/appointment/patient/upcoming',
+  getPatientByUsername:'http://localhost:3000/patient',
+  getDoctorByMatricule:'http://localhost:3000/doctor',
+  getDoctorUpcommingAppointment:'http://localhost:3000/appointment/doctor/upcoming',
+  getDoctorTodaysAppointment:'http://localhost:3000/appointment/doctor/today',
+  getDoctorRequestedAppointment:'http://localhost:3000/appointment/doctor/requested',
+  updateAppointment:'http://localhost:3000/appointment',
+  getDoctorByUsername:'http://localhost:3000/doctor/username',
+
+  getUpcomingDoctorAppointments: 'http://localhost:3000/appointment/doctor/upcoming',
+  getDoctorPassedAppointement: 'http://localhost:3000/appointment/doctor/passed',
+
+  getDoctorCompletedAppointments: 'http://localhost:3000/patient/completed/doctor',
+  getDoctorPatientCompletedAppointments: 'http://localhost:3000/appointment/completedappointments/doctor'
 };

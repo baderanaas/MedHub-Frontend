@@ -1,62 +1,62 @@
 <div class="doctor-profile-container p-4">
-  <h2 class="text-primary mb-4">Doctor Profile</h2>
-
-  <div *ngIf="doctor">
-    <!-- Left Section: Personal Information -->
-    <div class="profile-sections d-flex flex-wrap">
-      <div class="left-section me-4 mb-4 flex-grow-1">
-        <h4>Personal Information</h4>
-        <ul class="list-unstyled">
-          <li>
-            <strong>Name:</strong> {{ doctor?.firstName }}
-            {{ doctor?.lastName }}
-          </li>
-          <li><strong>Specialty:</strong> {{doctor?.speciality}}</li>
-          <li><strong>Sexe:</strong> {{ doctor?.sexe }}</li>
-          <li><strong>Email:</strong> {{ doctor?.email }}</li>
-          <li><strong>Phone:</strong> {{ doctor?.phone }}</li>
-        </ul>
+    <h2 class="text-primary mb-4">Doctor Profile</h2>
+  
+    <div *ngIf="doctor">
+      <!-- Left Section: Personal Information -->
+      <div class="profile-sections d-flex flex-wrap">
+        <div class="left-section me-4 mb-4 flex-grow-1">
+          <h4>Personal Information</h4>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Name:</strong> {{ doctor?.firstName }}
+              {{ doctor?.lastName }}
+            </li>
+            <li><strong>Specialty:</strong> {{doctor?.speciality}}</li>
+            <li><strong>Sexe:</strong> {{ doctor?.sexe }}</li>
+            <li><strong>Email:</strong> {{ doctor?.email }}</li>
+            <li><strong>Phone:</strong> {{ doctor?.phone }}</li>
+          </ul>
+        </div>
+  
+        <!-- Right Section: Medical Information -->
+        <!-- <div class="right-section mb-4 flex-grow-1">
+          <h4>Medical Information</h4>
+          <ul class="list-unstyled">
+            <li><strong>Height:</strong> {{ doctor?.height }} m</li>
+            <li><strong>Weight:</strong> {{ doctor?.weight }} kg</li>
+            <li><strong>Blood Type:</strong> {{ doctor?.bloodType }}</li>
+          </ul>
+        </div> -->
       </div>
-
-      <!-- Right Section: Medical Information -->
-      <!-- <div class="right-section mb-4 flex-grow-1">
-        <h4>Medical Information</h4>
-        <ul class="list-unstyled">
-          <li><strong>Height:</strong> {{ doctor?.height }} m</li>
-          <li><strong>Weight:</strong> {{ doctor?.weight }} kg</li>
-          <li><strong>Blood Type:</strong> {{ doctor?.bloodType }}</li>
-        </ul>
-      </div> -->
     </div>
+  
+    <!-- Appointments Section -->
+    <div class="appointments-section mt-5" *ngIf="appointments?.length">
+      <h4>Past Appointments</h4>
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of appointments">
+            <td>
+              {{ appointment?.patient?.firstName }}
+              {{ appointment?.patient?.lastName }}
+            </td>
+            <td>{{ appointment?.date | date }}</td>
+            <!-- <td>{{ appointment?.session | sessionLabel}}</td> -->
+            <td>{{ appointment?.session | sessionLabel}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Message if no appointments -->
+    <p *ngIf="!appointments?.length" class="text-muted">
+      No past appointments available.
+    </p>
   </div>
-
-  <!-- Appointments Section -->
-  <div class="appointments-section mt-5" *ngIf="appointments?.length">
-    <h4>Past Appointments</h4>
-    <table class="table table-bordered table-hover">
-      <thead class="table-dark">
-        <tr>
-          <th>Patient</th>
-          <th>Date</th>
-          <th>Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let appointment of appointments">
-          <td>
-            {{ appointment?.patient?.firstName }}
-            {{ appointment?.patient?.lastName }}
-          </td>
-          <td>{{ appointment?.date | date }}</td>
-          <!-- <td>{{ appointment?.session | sessionLabel}}</td> -->
-          <td>{{ appointment?.session }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Message if no appointments -->
-  <p *ngIf="!appointments?.length" class="text-muted">
-    No past appointments available.
-  </p>
-</div>

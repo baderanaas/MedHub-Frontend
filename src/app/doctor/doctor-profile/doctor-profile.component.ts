@@ -19,7 +19,7 @@ export class DoctorProfileComponent implements OnInit {
   }
 
   loadDoctorProfile(): void {
-    this.doctorService.getDoctorByMat().subscribe(
+    this.doctorService.getDoctorByUserName().subscribe(
       (data) => {
         this.doctor = data;
       },

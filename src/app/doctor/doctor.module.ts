@@ -13,7 +13,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.component';
 import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
+import { CommModule } from '../shared/comm/comm.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     DocTopCardComponent,
     TodaysAppointmentsComponent,
     DoctorProfileComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -32,6 +37,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     MatSidenavModule,
     MatListModule,
     RouterModule,
-  ],
+    CommModule,
+    MatMenuModule, // Ajoutez MatMenuModule ici
+    MatButtonModule,
+  ]
 })
-export class DoctorModule {}
+export class DoctorModule { }
