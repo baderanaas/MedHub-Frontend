@@ -19,6 +19,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FormsModule } from '@angular/forms';
+import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     TodaysAppointmentsComponent,
     DocProfileComponent,
     DoctorProfileComponent,
+    StatisticsChartComponent
     
   ],
   imports: [
@@ -43,7 +46,9 @@ import { FormsModule } from '@angular/forms';
     CommModule,
     MatMenuModule, // Ajoutez MatMenuModule ici
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    Ng2GoogleChartsModule,
+    
   ]
 })
 export class DoctorModule { }

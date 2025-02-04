@@ -170,4 +170,18 @@ export class DataService {
     const username = this.auth.getUserNameFromToken()?.trim();
     return this.http.get<Appointment[]>(`${Api_Urls.getPatientNextWeekUpcoming}/${username}`);
   }
+
+  private apiUrl = 'http://localhost:3000/patient/statistics';
+
+  getAgeDistribution(): Observable<{ ageGroup: string; count: number }[]> {
+    return this.http.get<{ ageGroup: string; count: number }[]>(
+      `${this.apiUrl}/age`
+    );
+  }
+
+  getGenderDistribution(): Observable<{ gender: string; count: number }[]> {
+    return this.http.get<{ gender: string; count: number }[]>(
+      `${this.apiUrl}/gender`
+    );
+  }
 }
