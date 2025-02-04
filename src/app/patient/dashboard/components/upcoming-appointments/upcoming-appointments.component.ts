@@ -3,12 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/shared/services/data.service';
 
 
-interface Appointment {
-  doctorName: string;
-  specialty: string;
-  date: Date;
-  time: string;
-}
+// interface Appointment {
+//   doctorName: string;
+//   specialty: string;
+//   date: Date;
+//   time: string;
+// }
 
 @Component({
   selector: 'app-upcoming-appointments',

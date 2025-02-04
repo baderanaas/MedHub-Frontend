@@ -204,3 +204,42 @@ input.form-control:focus {
   background-color: #ffe6e6; /* Light red background for danger items */
   color: #dc3545; /* Red text for danger items */
 }
+
+/* Reschedule Button */
+.btn-reschedule {
+  background-color: #3f8f8f; /* Teal background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-reschedule:hover {
+  background-color: #2a3a42; /* Darker teal on hover */
+  transform: translateY(-1px); /* Slight lift on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+/* Cancel Button */
+.btn-cancel {
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #a71d2a; /* Darker red on hover */
+  transform: translateY(-1px); /* Slight lift on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+/* Button Container */
+td {
+  white-space: nowrap; /* Prevent buttons from wrapping */
+}

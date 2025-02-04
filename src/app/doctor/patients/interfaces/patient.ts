@@ -10,7 +10,5 @@ export interface Patient{
   height?: number; 
   weight?: number;
   bloodType?: string;
-  diagnosedDiseases?: string[];
-  allergies?: string[];
   appointments?: { date: Date;     session:number  }[];
 }

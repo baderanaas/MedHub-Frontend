@@ -3,6 +3,7 @@ import { map } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Observable } from 'rxjs';
 import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
+import { UpdateAppointmentDto } from 'src/app/shared/dto/update-appointment.dto';
 
 @Component({
   selector: 'app-patient-appointments',
@@ -29,5 +30,19 @@ export class PatientAppointmentsComponent implements OnInit {
     if (this.name.trim() == '') {
       this.appointments$ = this.initialAppointments$;
     }
+  }
+
+
+  onAccept(id:number,status:string){
+    let update:UpdateAppointmentDto={
+      status: ''
+    };
+    update.status=status;
+    this.data.updateAppointment(id,update).subscribe({
+      next:(res)=>{
+        console.log('done');
+        this.appointments$=this.data.getPatientAppointments();
+      }
+    })
   }
 }

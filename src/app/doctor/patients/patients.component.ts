@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Patient } from 'src/app/doctor/patients/interfaces/patient';
+import { map } from 'rxjs';
 
 declare var bootstrap: any; // Déclaration de Bootstrap pour éviter l'erreur de compilation
 
@@ -14,12 +15,16 @@ export class PatientsComponent implements OnInit {
   patients: Patient[] = [];
   selectedPatient: Patient | null = null;
   doctorId: number = 0;
+  doctorUsername:string="";
 
   constructor(private dataService: DataService, private authService: AuthService) {}
+
+  // patients$ = this.dataService.getCompletedAppointmentsByDoctor();
 
   ngOnInit() {
     this.doctorId = this.authService.getDoctorId() || 0; 
     this.loadPatients();
+    // this.doctorUsername=this.authService.getUserNameFromToken() || "";
   }
 
   loadPatients() {
@@ -66,6 +71,24 @@ export class PatientsComponent implements OnInit {
       }
     }, 500);
   }
+
+
+
+
+  // search() {
+  //     const filteredPatient$ = this.patients$.pipe(
+  //       map((data) => data.filter((spec) => spec.speciality == this.speciality))
+  //     );
+  //     this.doctors$ = filteredPatient$;
+  //   }
+  //   reset() {
+  //     if (this.speciality.trim() === '') {
+  //       this.doctors$ = this.dataService.getDoctors();
+  //     }
+  //   }
+  
+
+  
 
 
 

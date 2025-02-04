@@ -20,7 +20,7 @@ export class DataService {
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(Api_Urls.getDoctors);
   }
-  getPatientAppointments(): Observable<Appointment[]> | null {
+  getPatientAppointments(): Observable<any[]> | null {
     const username = this.auth.getUserNameFromToken()?.trim();
     console.log(username);
     if (username) {
@@ -158,7 +158,6 @@ export class DataService {
 
   getCompletedAppointmentsByDoctor(): Observable<any[]> | null {
     const doctorUsername =  this.auth.getUserNameFromToken()?.trim();
-    ;
     return doctorUsername ? this.http.get<any[]>(`${Api_Urls.getDoctorCompletedAppointments}/${doctorUsername}`) : null;
   }
 

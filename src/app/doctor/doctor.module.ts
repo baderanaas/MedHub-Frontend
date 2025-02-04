@@ -18,6 +18,7 @@ import { CommModule } from '../shared/comm/comm.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     CommModule,
     MatMenuModule, // Ajoutez MatMenuModule ici
     MatButtonModule,
+    FormsModule
   ]
 })
 export class DoctorModule { }
