@@ -46,6 +46,7 @@ mat-nav-list {
 mat-list-item {
   display: flex;
   align-items: center;
+  align-items: center;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
   min-height: 50px;

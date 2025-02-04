@@ -27,12 +27,10 @@ import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
-
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
+import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 import { CommModule } from './shared/comm/comm.module';
-import { routes } from './config/routes';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +43,8 @@ import { routes } from './config/routes';
     DoctorLayoutComponent,
     UnauthorizedComponent,
     DocSidebarComponent,
-   
-    
-  ],
+    //SessionLabelPipe,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,6 +54,8 @@ import { routes } from './config/routes';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
+    //DashboardModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -72,15 +71,15 @@ import { routes } from './config/routes';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    CommModule
+    CommModule,
+    PatientModule,
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:RequestInterceptor,
-    multi:true
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptor,
+    multi: true
   }],
   
   bootstrap: [AppComponent],
-
 })
 export class AppModule {}

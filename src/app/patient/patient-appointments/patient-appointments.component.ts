@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
+import { Observable } from 'rxjs';
+import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
 
 @Component({
   selector: 'app-patient-appointments',

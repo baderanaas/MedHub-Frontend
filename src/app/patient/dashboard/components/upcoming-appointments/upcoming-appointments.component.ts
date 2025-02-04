@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {AddAppointmentComponent} from '../add-appointment/add-appointment.component'
 import { DataService } from 'src/app/shared/services/data.service';
 
 
@@ -18,61 +17,27 @@ interface Appointment {
 })
 export class UpcomingAppointmentsComponent  implements OnInit{
   upcomingAppointments: any[] = [];
-  username = 'hassenhassen'; 
+ // username = 'hassenhassen'; // Replace with dynamic username
   title:string=" Upcoming Appointments"
 
   constructor(private appointmentService: DataService,private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.fetchUpcomingAppointments();
+    this.fetchNextWeekAppointments();
   }
 
-  fetchUpcomingAppointments(): void {
-    this.appointmentService.getUpcomingAppointments().subscribe({
+  fetchNextWeekAppointments(): void {
+    this.appointmentService.getNextWeekAppointments().subscribe({
       next: (data) => {
-        const today = new Date();
-        const startOfWeek = new Date(today);
-        const endOfWeek = new Date(today);
-        
-        // Set start of the week (Monday)
-        startOfWeek.setDate(today.getDate() - today.getDay() + 1);
-        startOfWeek.setHours(0, 0, 0, 0);
-  
-        // Set end of the week (Sunday)
-        endOfWeek.setDate(startOfWeek.getDate() + 6);
-        endOfWeek.setHours(23, 59, 59, 999);
-  
-        // Filter appointments within the week range
-        this.upcomingAppointments = data.filter((appointment: any) => {
-          const appointmentDate = new Date(appointment.date);
-          return appointmentDate >= startOfWeek && appointmentDate <= endOfWeek;
-        });
+        this.upcomingAppointments = data;
       },
       error: (error) => {
-        console.error('Error fetching appointments:', error);
+        console.error('Error fetching next week appointments:', error);
         this.upcomingAppointments = [];
       }
     });
   }
   
-  
 
-  openAddAppointment() {
-    const dialogRef = this.dialog.open(AddAppointmentComponent, {
-      width: '600px',
-      data: {},
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        console.log('New Appointment:', result);
-        // Save the data or perform further actions
-      }
-    });
-  }
-
-  onAddAppointment() {
-    console.log('Add Appointment button clicked');
-  }
   
 }

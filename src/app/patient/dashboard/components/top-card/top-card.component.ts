@@ -11,7 +11,7 @@ export class TopCardComponent implements OnInit {
   data = inject(DataService);
   nextAppointment$ = this.data.getPatientNextAppointment();
   notPayed$ = this.data.getNotPayed();
-  upcoming$ = this.data.getUpcoming();
+  upcoming$ = this.data.getUpcomingAppointmentsNumber();
   upcoming = 0;
   topcard: any[] = [
     {
@@ -83,7 +83,7 @@ export class TopCardComponent implements OnInit {
       },
     });
     this.upcoming$.subscribe({
-      next: (res: number) => {
+      next: (res:any) => {
         this.upcoming = res;
         console.log('res' + res);
         this.updateTopCard();
