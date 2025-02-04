@@ -76,4 +76,19 @@ export class AuthService {
     }
   }
 
+  getMatriculeFromToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded?.matricule || null;
+    } else {
+      return null;
+    }
+  }
+
+  getDoctorId(): number | null {
+    return this.getIdFromToken();
+  } 
+
+
 }

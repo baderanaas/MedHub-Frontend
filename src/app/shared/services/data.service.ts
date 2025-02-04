@@ -140,4 +140,30 @@ export class DataService {
     const doctorId = this.auth.getIdFromToken();
     return this.http.get<any[]>(`${Api_Urls.getUpcomingDoctorAppointments}/${doctorId}`);
   }
+
+  getDoctorByMat(): Observable<any> {
+    const matricule = this.auth.getMatriculeFromToken()?.trim();
+    return this.http.get<any>(`${Api_Urls.getDoctorByMatricule}/${matricule}`);
+  }
+
+  getDoctorHistory(): Observable<any[]> {
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<any[]>(`${Api_Urls.getDoctorPassedAppointement}/${username}`);
+  }
+  getDoctorByUserName():Observable<any[]>{
+    const username = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<any[]>(`${Api_Urls.getDoctorByUsername}/${username}`);
+
+  }
+
+  getCompletedAppointmentsByDoctor(): Observable<any[]> | null {
+    const doctorUsername =  this.auth.getUserNameFromToken()?.trim();
+    ;
+    return doctorUsername ? this.http.get<any[]>(`${Api_Urls.getDoctorCompletedAppointments}/${doctorUsername}`) : null;
+  }
+
+
+  getDoctorPatientCompletedAppointments(doctorUsername: string, patientUsername: string) {
+    return this.http.get<Appointment[]>(`${Api_Urls.getDoctorPatientCompletedAppointments}/${doctorUsername}/${patientUsername}`);
+  }
 }

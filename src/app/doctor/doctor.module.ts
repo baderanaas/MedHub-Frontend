@@ -17,6 +17,7 @@ import { DocProfileComponent } from './doc-profile/doc-profile.component';
 import { CommModule } from '../shared/comm/comm.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     DocTopCardComponent,
     TodaysAppointmentsComponent,
     DocProfileComponent,
+    DoctorProfileComponent,
     
   ],
   imports: [

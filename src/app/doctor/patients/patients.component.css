@@ -109,12 +109,12 @@ table .btn {
     color: #007bff;
     transition: background-color 0.3s, color 0.3s;
   }
-  
+
   .btn-outline-primary:hover {
     background-color: #007bff;
     color: white;
   }
-  
+
   .modal-body p {
     font-size: 1rem;
     margin-bottom: 0.75rem;
@@ -125,22 +125,21 @@ table .btn {
     color: #007bff;
     margin-bottom: 0.5rem;
   }
-  
+
   .list-group-item {
     background-color: #f9f9f9;
   }
-  
+
   .table th {
     background-color: #007bff;
     color: white;
     text-align: center;
   }
-  
+
   .table td {
     text-align: center;
   }
-  
+
   .modal-content {
     border-radius: 1rem;
   }
-  
