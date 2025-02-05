@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 import { AddAppointmentDto } from '../dto/add-appointment.dto';
 import { AvailableSessionsDTo } from '../dto/available-session.dto';
 import { Medication } from 'src/app/patient/medications/interfaces/medication.interface';
+import { UpdateAppointmentDto } from '../dto/update-appointment.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -133,7 +134,10 @@ export class DataService {
   }
 
 
-
+  updateAppointment(id: number, data:UpdateAppointmentDto): Observable<Appointment> {
+    return this.http.put<Appointment>(`${Api_Urls.updateAppointment}/${id}`, data);
+  }
+  
   getCompletedAppointmentsByDoctor(): Observable<any[]> | null {
     const doctorUsername =  this.auth.getUserNameFromToken()?.trim();
     ;
@@ -143,6 +147,10 @@ export class DataService {
 
   getDoctorPatientCompletedAppointments(doctorUsername: string, patientUsername: string) {
     return this.http.get<Appointment[]>(`${Api_Urls.getDoctorPatientCompletedAppointments}/${doctorUsername}/${patientUsername}`);
+  }
+
+  respondAppointment(id: number, status: string) {
+    return this.http.put(`http://localhost:3000/appointment/respond/${id}`, { status });
   }
 
 

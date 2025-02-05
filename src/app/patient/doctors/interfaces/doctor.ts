@@ -9,6 +9,7 @@ export interface Doctor{
     phone:number,
     speciality:string,
     sexe:string,
+    location?:string,
     appointments:Appointment[]
 
 }

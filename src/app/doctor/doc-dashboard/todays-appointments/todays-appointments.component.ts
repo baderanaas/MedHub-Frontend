@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
 import { CommModule } from 'src/app/shared/comm/comm.module';
+import { UpdateAppointmentDto } from 'src/app/shared/dto/update-appointment.dto';
 import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-todays-appointments',
   templateUrl: './todays-appointments.component.html',
   styleUrls: ['./todays-appointments.component.css'],
-  // imports: [CommModule],
 
 })
 export class TodaysAppointmentsComponent implements OnInit {
   title = "Today's Appointments";
   todayAppointments: any[]=[];
+
   ngOnInit(): void {
     this.fetchDoctorTodayAppointments();
     this.fetchDoctorRequestedAppointments();
@@ -59,11 +60,6 @@ export class TodaysAppointmentsComponent implements OnInit {
     this.selectedRequestIndex = this.selectedRequestIndex === index ? null : index;
   }
 
-  onAccept(request: any, event: MouseEvent) {
-    event.stopPropagation();
-    alert(`Appointment with ${request.patientName} accepted.`);
-    this.removeRequest(request);
-  }
 
   onReject(request: any, event: MouseEvent) {
     event.stopPropagation();
@@ -100,11 +96,21 @@ export class TodaysAppointmentsComponent implements OnInit {
   }
 
 
-
+  onAccept(id:number,status:string){
+    let update:UpdateAppointmentDto={
+      status: ''
+    };
+    update.status=status;
+    this.appointmentService.updateAppointment(id,update).subscribe({
+      next:(res)=>{
+        console.log('done');
+        this.fetchDoctorRequestedAppointments()
+      }
+    })
+  }
   fetchDoctorRequestedAppointments(): void {
     this.appointmentService.getDoctorRequestedAppointments().subscribe({
       next: (data) => {
-        console.log("mala 3icha kalba");
         this.requestedAppointments = data;
       },
       error: (error) => {
@@ -113,5 +119,7 @@ export class TodaysAppointmentsComponent implements OnInit {
       }
     });
   }
+
+
 
 }
