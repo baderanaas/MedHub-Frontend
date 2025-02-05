@@ -55,4 +55,4 @@ import { CommModule } from '../shared/comm/comm.module';
     
   ]
 })
-export class PatientModule { }
+export class PatientModule {}

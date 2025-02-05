@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DoctorLayoutComponent } from '../layouts/doctor-layout/doctor-layout.component';
-import { authGuard } from '../shared/guards/auth.guard';
-import { roleGuard } from '../shared/guards/role.guard';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { PatientsComponent } from './patients/patients.component';
-import { DocProfileComponent } from './doc-profile/doc-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 const routes: Routes = [{

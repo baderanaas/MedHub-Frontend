@@ -11,6 +11,7 @@ import { UpdateAppointmentDto } from 'src/app/shared/dto/update-appointment.dto'
   styleUrls: ['./patient-appointments.component.css'],
 })
 export class PatientAppointmentsComponent implements OnInit {
+
   ngOnInit(): void {
     this.appointments$?.subscribe({
       next: (res) => {

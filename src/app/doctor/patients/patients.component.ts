@@ -1,95 +1,134 @@
-import { Component, OnInit } from '@angular/core';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Medication } from './../../patient/medications/interfaces/medication.interface';
+import { Component, inject, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Patient } from 'src/app/doctor/patients/interfaces/patient';
-import { map } from 'rxjs';
 
-declare var bootstrap: any; // Déclaration de Bootstrap pour éviter l'erreur de compilation
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-patients-list',
   templateUrl: './patients.component.html',
-  styleUrls: ['./patients.component.css']
+  styleUrls: ['./patients.component.css'],
 })
 export class PatientsComponent implements OnInit {
+  selectedMedication: Medication = {
+    id: 0,
+    name: '',
+    frequency: 0,
+    morning: false,
+    midday: false,
+    night: false,
+    prescriptionRequired: false,
+    sideEffects: '',
+  };
+  addMedication() {
+    this.data
+      .addMedication(
+        this.selectedPatient.username,
+        this.selectedMedication.name
+      )
+      .subscribe({
+        next: () => {
+          this.tstr.success('Medication Added');
+          this.loadPatients();
+        },
+      });
+  }
+
   patients: Patient[] = [];
-  selectedPatient: Patient | null = null;
-  doctorId: number = 0;
-  doctorUsername:string="";
+  selectedPatient: Patient = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    username: '',
+    sexe: '',
+    email: '',
+    phone: '',
+    medications: [],
+  };
+  data = inject(DataService);
+  patients$ = this.data.getCompletedAppointmentsByDoctor();
+  appointments$ = this.data.getDoctorPatientCompletedAppointments(
+    this.selectedPatient.username
+  );
+  medications$ = this.data.getMedications();
+  medications: Medication[] = [];
+  medicationName: string = '';
 
-  constructor(private dataService: DataService, private authService: AuthService) {}
-
-  // patients$ = this.dataService.getCompletedAppointmentsByDoctor();
-
+  constructor(private tstr: ToastrService) {}
+  getMedications() {
+    this.medications$.subscribe({
+      next: (res) => {
+        this.medications = res;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
   ngOnInit() {
-    this.doctorId = this.authService.getDoctorId() || 0; 
     this.loadPatients();
-    // this.doctorUsername=this.authService.getUserNameFromToken() || "";
   }
 
   loadPatients() {
-    if (this.doctorId > 0) {
-      this.dataService.getCompletedAppointmentsByDoctor()?.subscribe(
-        (patients) => {
-          this.patients = patients;
-        },
-        (error) => {
-          console.error('Erreur lors du chargement des patients', error);
-        }
-      );
-    }
+    this.patients$.subscribe({
+      next: (res) => {
+        this.patients = res;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
-
-  openAppointmentModal(patient: Patient) {
+  openProfileModal(patient: Patient) {
+    const modalElement = document.getElementById('patientModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    }
     this.selectedPatient = patient;
-
-    const doctorUsername = this.authService.getUserNameFromToken()?.trim();
     const patientUsername = patient.username;
 
-    if (doctorUsername && patientUsername) {
-      this.dataService.getDoctorPatientCompletedAppointments(doctorUsername, patientUsername).subscribe(
-        (appointments) => {
-          if (this.selectedPatient) {
-            this.selectedPatient.appointments = appointments;
-          }
-        },
-        (error) => {
-          console.error('Error fetching completed appointments:', error);
-          if (this.selectedPatient) {
-            this.selectedPatient.appointments = [];
-          }
-        }
-      );
+    if (patientUsername) {
+      this.data
+        .getDoctorPatientCompletedAppointments(patientUsername)
+        .subscribe({
+          next: (res) => {
+            if (this.selectedPatient) {
+              this.selectedPatient.appointments = res;
+            }
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
     }
-
-    setTimeout(() => {
-      const modalElement = document.getElementById('patientModal');
-      if (modalElement) {
-        const modal = new bootstrap.Modal(modalElement);
-        modal.show();
-      }
-    }, 500);
   }
+  openMedicationModal(patient: Patient) {
+    const modalElement = document.getElementById('medicationModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    }
+    this.selectedPatient = patient;
+    const patientUsername = patient.username;
 
-
-
-
-  // search() {
-  //     const filteredPatient$ = this.patients$.pipe(
-  //       map((data) => data.filter((spec) => spec.speciality == this.speciality))
-  //     );
-  //     this.doctors$ = filteredPatient$;
-  //   }
-  //   reset() {
-  //     if (this.speciality.trim() === '') {
-  //       this.doctors$ = this.dataService.getDoctors();
-  //     }
-  //   }
-  
-
-  
-
-
-
+    if (patientUsername) {
+      this.data
+        .getDoctorPatientCompletedAppointments(patientUsername)
+        .subscribe({
+          next: (res) => {
+            if (this.selectedPatient) {
+              this.selectedPatient.appointments = res;
+            }
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+    }
+  }
 }

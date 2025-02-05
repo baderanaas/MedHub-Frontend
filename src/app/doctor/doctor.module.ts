@@ -19,9 +19,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FormsModule } from '@angular/forms';
-import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
+import { ToastrModule } from 'ngx-toastr';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
-
+import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
 
 @NgModule({
   declarations: [
@@ -34,21 +34,26 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     DocProfileComponent,
     DoctorProfileComponent,
     StatisticsChartComponent
-    
   ],
   imports: [
     CommonModule,
     DoctorRoutingModule,
     MatIconModule,
     MatSidenavModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      timeOut: 3000,
+      closeButton: true,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+    }),
     MatListModule,
     RouterModule,
+    FormsModule,
     CommModule,
     MatMenuModule, // Ajoutez MatMenuModule ici
     MatButtonModule,
-    FormsModule,
     Ng2GoogleChartsModule,
-    
-  ]
+  ],
 })
-export class DoctorModule { }
+export class DoctorModule {}

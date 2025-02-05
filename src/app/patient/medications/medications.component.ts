@@ -22,6 +22,6 @@ export class MedicationsComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   data = inject(DataService);
-  medications$ = this.data.getMedications();
+  medications$ = this.data.getPatientMedications();
   name: any;
 }

@@ -17,6 +17,9 @@ body {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+.btn-color{
+  background-color: #1a3d4f;
+}
 
 .table th,
 .table td {

@@ -37,6 +37,11 @@
                     ? '../../../assets/male.png'
                     : '../../../assets/female.png'
                 "
+                [src]="
+                  patient.sexe === 'male'
+                    ? '../../../assets/male.png'
+                    : '../../../assets/female.png'
+                "
                 alt="user"
                 width="45"
                 class="rounded-circle"
@@ -55,9 +60,16 @@
             <button
               type="button"
               class="btn btn-outline-primary btn-sm me-2"
-              (click)="openAppointmentModal(patient)"
+              (click)="openProfileModal(patient)"
             >
               View Profile
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm me-2"
+              (click)="openMedicationModal(patient)"
+            >
+              Assign medications
             </button>
           </td>
         </tr>
@@ -65,8 +77,7 @@
     </table>
   </div>
 
-  <!-- Modal -->
-  <!-- Modal Template -->
+  <!-- Modal Template for profile -->
   <div
     class="modal fade"
     id="patientModal"
@@ -92,17 +103,17 @@
               <h6 class="section-title">General Information</h6>
               <ul class="list-group">
                 <li class="list-group-item">
-                  Name: {{ selectedPatient?.lastName }}
-                  {{ selectedPatient?.firstName }}
+                  Name: {{ selectedPatient.lastName }}
+                  {{ selectedPatient.firstName }}
                 </li>
                 <li class="list-group-item">
-                  Sexe: {{ selectedPatient?.sexe }}
+                  Sexe: {{ selectedPatient.sexe }}
                 </li>
                 <li class="list-group-item">
-                  Email: {{ selectedPatient?.email }}
+                  Email: {{ selectedPatient.email }}
                 </li>
                 <li class="list-group-item">
-                  Phone: {{ selectedPatient?.phone }}
+                  Phone: {{ selectedPatient.phone }}
                 </li>
               </ul>
             </div>
@@ -110,13 +121,13 @@
               <h6 class="section-title">Medical Information</h6>
               <ul class="list-group">
                 <li class="list-group-item">
-                  Height: {{ selectedPatient?.height }} cm
+                  Height: {{ selectedPatient.height }} cm
                 </li>
                 <li class="list-group-item">
-                  Weight: {{ selectedPatient?.weight }} kg
+                  Weight: {{ selectedPatient.weight }} kg
                 </li>
                 <li class="list-group-item">
-                  Blood Type: {{ selectedPatient?.bloodType }}
+                  Blood Type: {{ selectedPatient.bloodType }}
                 </li>
               </ul>
             </div>
@@ -148,6 +159,71 @@
             data-bs-dismiss="modal"
           >
             Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="medicationModal"
+  tabindex="-1"
+  aria-labelledby="medicationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="medicationModalLabel">
+          Patient Medications
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Dose Per Day</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medication of selectedPatient?.medications">
+                  <td>{{ medication.name }}</td>
+                  <td>{{ medication.frequency }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-3">
+            <label for="session" class="form-label">Session</label>
+            <select
+              class="form-control"
+              id="session"
+              name="selectedSession"
+              [(ngModel)]="selectedMedication.name"
+            >
+              <option *ngFor="let medication of medications$ | async">
+                {{ medication.name }}
+              </option>
+            </select>
+          </div>
+          <button
+            type="button"
+            class="btn btn-secondary btn-color"
+            data-bs-dismiss="modal"
+            aria-label=""
+            (click)="addMedication()"
+          >
+            Add Medication
           </button>
         </div>
       </div>

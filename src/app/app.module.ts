@@ -45,8 +45,8 @@ import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-c
     DoctorLayoutComponent,
     UnauthorizedComponent,
     DocSidebarComponent,
-    
-    ],
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +56,6 @@ import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-c
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    //DashboardModule,
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
@@ -75,14 +74,16 @@ import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-c
     MatInputModule,
     CommModule,
     PatientModule,
-    Ng2GoogleChartsModule,
+    //Ng2GoogleChartsModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: RequestInterceptor,
-    multi: true
-  }],
-  
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

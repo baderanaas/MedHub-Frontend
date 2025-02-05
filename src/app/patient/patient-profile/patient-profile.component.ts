@@ -4,7 +4,7 @@ import { DataService } from 'src/app/shared/services/data.service';
 @Component({
   selector: 'app-patient-profile',
   templateUrl: './patient-profile.component.html',
-  styleUrls: ['./patient-profile.component.css']
+  styleUrls: ['./patient-profile.component.css'],
 })
 export class PatientProfileComponent implements OnInit {
   patient: any = {};
@@ -13,7 +13,6 @@ export class PatientProfileComponent implements OnInit {
   constructor(private patientService: DataService) {}
 
   ngOnInit(): void {
-    
     this.loadPatientProfile();
     this.loadPatientHistory();
   }
@@ -33,6 +32,7 @@ export class PatientProfileComponent implements OnInit {
     this.patientService.getPatientHistory().subscribe(
       (data) => {
         this.appointments = data;
+        console.log('appointments history' + data);
       },
       (error) => {
         console.error('Error fetching patient history:', error);

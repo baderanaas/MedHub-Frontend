@@ -1,7 +1,7 @@
 import { Doctor } from "../../doctors/interfaces/doctor";
 
 export interface Appointment{
-    //id:number,
+    id:number,
     doctor:Doctor,
     status:string,
     payed:boolean,

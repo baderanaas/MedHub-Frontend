@@ -8,6 +8,7 @@ import { MedicationsComponent } from './medications/medications.component';
 import { RequestsComponent } from './requests/requests.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { roleGuard } from '../shared/guards/role.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -16,9 +17,8 @@ const routes: Routes = [
       { path: 'appointments', component: PatientAppointmentsComponent },
       { path: 'doctors', component: DoctorsComponent },
       { path: 'requests', component: RequestsComponent },
-      {path:'medications',component:MedicationsComponent},
-      {path:'profile',component:PatientProfileComponent},
-      
+      { path: 'medications', component: MedicationsComponent },
+      { path: 'profile', component: PatientProfileComponent },
     ],
     canActivate: [roleGuard],
     data: { role: 'patient' },
