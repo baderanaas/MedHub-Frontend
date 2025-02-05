@@ -33,6 +33,7 @@ import { CommModule } from './shared/comm/comm.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-chart.component';
+import { DocTopbarComponent } from './doctor/doc-topbar/doc-topbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-c
     DoctorLayoutComponent,
     UnauthorizedComponent,
     DocSidebarComponent,
+    DocTopbarComponent
   ],
 
   imports: [

@@ -54,9 +54,9 @@ body {
 
 /* Buttons */
 .btn {
-  background-color: #1a3d4f;
-  color: white;
-  border: none;
+  background-color: white;
+  color: #1a3d4f;
+  border-color: #1a3d4f;
   /* padding: 10px 16px; */
   border-radius: 4px;
   cursor: pointer;
@@ -92,4 +92,18 @@ body {
 
 .pe-5 {
   padding-right: 3rem;
+}
+
+.btn-outline-primary {
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-color: #1a3d4f; /* Dark blue border */
+  color: #1a3d4f; /* Dark blue text */
+}
+
+.btn-outline-primary:hover {
+  background-color: #1a3d4f; /* Dark blue background on hover */
+  color: #f8fbfd; /* Off-white text on hover */
 }

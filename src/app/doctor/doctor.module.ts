@@ -22,18 +22,20 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     PatientsComponent,
     AppointmentsComponent,
     DocDashboardComponent,
-    DocTopbarComponent,
+    //DocTopbarComponent,
     DocTopCardComponent,
     TodaysAppointmentsComponent,
     DocProfileComponent,
     DoctorProfileComponent,
-    StatisticsChartComponent
+    StatisticsChartComponent,
+    //DocTopbarComponent
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { StatisticsChartComponent } from './statistics-chart/statistics-chart.co
     MatMenuModule, // Ajoutez MatMenuModule ici
     MatButtonModule,
     Ng2GoogleChartsModule,
+    MatToolbarModule
   ],
 })
 export class DoctorModule {}

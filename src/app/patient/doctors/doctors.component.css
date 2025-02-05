@@ -1,4 +1,7 @@
 /* General Styles */
+
+
+
 .container {
   padding: 20px;
   background-color: #f8fbfd; /* Off-white background */
@@ -13,7 +16,7 @@ h2 {
 .search-input {
   border-radius: 20px;
   padding: 10px 20px;
-  border: 1px solid #a2b9c5; /* Light blue border */
+  border: 1px solid #1a3d4f;; /* Light blue border */
   transition: all 0.3s ease;
 }
 
@@ -23,7 +26,7 @@ h2 {
 }
 
 .search-icon {
-  color: #a2b9c5; /* Light blue icon */
+  color: #1a3d4f; /* Light blue icon */
 }
 
 /* Table Styles */
@@ -128,3 +131,4 @@ input.form-control:focus {
   border-color: #1a3d4f; /* Dark blue border on focus */
   box-shadow: 0 0 0 0.2rem rgba(26, 61, 79, 0.25); /* Dark blue shadow on focus */
 }
+

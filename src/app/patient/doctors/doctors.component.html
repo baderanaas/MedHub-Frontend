@@ -83,7 +83,7 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header bg-primary text-white">
+      <div class="modal-header  text-white">
         <h5 class="modal-title" id="appointmentModalLabel">Appointment Form</h5>
         <button
           type="button"
@@ -101,16 +101,12 @@
               type="text"
               class="form-control"
               id="doctorName"
-              [value]="
-                selectedDoctor?.firstName + ' ' + selectedDoctor?.lastName
-              "
+              [value]="selectedDoctor?.firstName + ' ' + selectedDoctor?.lastName"
               readonly
             />
           </div>
           <div class="mb-3">
-            <label for="appointmentDate" class="form-label"
-              >Appointment Date
-            </label>
+            <label for="appointmentDate" class="form-label">Appointment Date</label>
             <input
               type="date"
               class="form-control"
@@ -139,9 +135,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeModal()">
-          Close
-        </button>
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
         <button
           type="button"
           class="btn btn-primary"
@@ -185,9 +179,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeDoctorInfoModal()">
-          Close
-        </button>
+        <button type="button" class="btn btn-secondary" (click)="closeDoctorInfoModal()">Close</button>
       </div>
     </div>
   </div>

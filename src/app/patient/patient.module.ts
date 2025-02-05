@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RequestsComponent } from './requests/requests.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { CommModule } from '../shared/comm/comm.module';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CommModule } from '../shared/comm/comm.module';
     RequestsComponent,
     //SessionLabelPipe,
     PatientProfileComponent,
+    HelpComponent,
 
 
   ],

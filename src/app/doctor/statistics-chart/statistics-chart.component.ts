@@ -48,8 +48,8 @@ export class StatisticsChartComponent implements OnInit {
         title: 'Age Distribution of Patients',
         height: 400,
         legend: { position: 'none' },
-        hAxis: { title: 'Age Group' },
-        vAxis: { title: 'Number of Patients' },
+        hAxis: { title: 'Number of Patients' },
+        vAxis: { title: 'Age Group' },
       },
     };
     this.loadAgeDistribution();
