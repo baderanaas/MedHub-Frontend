@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable, ReplaySubject, tap } from 'rxjs';
+import { Observable, ReplaySubject, shareReplay, tap } from 'rxjs';
 import { Api_Urls } from 'src/app/config/api-urls';
 import { Doctor } from 'src/app/patient/doctors/interfaces/doctor';
 import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
@@ -18,12 +18,16 @@ export class DataService {
   constructor() {}
   auth = inject(AuthService);
   http = inject(HttpClient);
-  private genderData$ = new ReplaySubject<{ gender: string; count: number }[]>(
-    1
-  );
-  private ageData$ = new ReplaySubject<{ ageGroup: string; count: number }[]>(
-    1
-  );
+
+  private apiUrl = 'http://localhost:3000/patient/statistics';
+
+  genderData$ = this.http
+    .get<{ gender: string; count: number }[]>(`${this.apiUrl}/gender`)
+    .pipe(shareReplay(1));
+  ageData$ = this.http
+    .get<{ ageGroup: string; count: number }[]>(`${this.apiUrl}/age`)
+    .pipe(shareReplay(1));
+
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(Api_Urls.getDoctors);
   }
@@ -223,26 +227,5 @@ export class DataService {
   }
   reschedule(id: number, data: AddAppointmentDto): Observable<Appointment> {
     return this.http.put<Appointment>(`${Api_Urls.reschedule}/${id}`, data);
-  }
-  private apiUrl = 'http://localhost:3000/patient/statistics';
-
-  getGenderDistribution(): Observable<{ gender: string; count: number }[]> {
-    if (this.genderData$.observers.length === 0) {
-      this.http
-        .get<{ gender: string; count: number }[]>(`${this.apiUrl}/gender`)
-        .pipe(tap((data) => this.genderData$.next(data)))
-        .subscribe();
-    }
-    return this.genderData$.asObservable();
-  }
-
-  getAgeDistribution(): Observable<{ ageGroup: string; count: number }[]> {
-    if (this.ageData$.observers.length === 0) {
-      this.http
-        .get<{ ageGroup: string; count: number }[]>(`${this.apiUrl}/age`)
-        .pipe(tap((data) => this.ageData$.next(data)))
-        .subscribe();
-    }
-    return this.ageData$.asObservable();
   }
 }

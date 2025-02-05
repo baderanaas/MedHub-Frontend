@@ -57,7 +57,7 @@ export class StatisticsChartComponent implements OnInit {
 
   private loadGenderDistribution() {
     this.statisticsService
-      .getGenderDistribution()
+      .genderData$
       .subscribe((data: GenderDistribution[]) => {
         data.forEach((item: GenderDistribution) => { 
           this.genderChart.dataTable.push([item.gender, item.count]);
@@ -67,7 +67,7 @@ export class StatisticsChartComponent implements OnInit {
 
   private loadAgeDistribution() {
     this.statisticsService
-      .getAgeDistribution()
+      .ageData$
       .subscribe((data: AgeDistribution[]) => {
         data.forEach((item: AgeDistribution) => {
           this.ageChart.dataTable.push([item.ageGroup, item.count]);
