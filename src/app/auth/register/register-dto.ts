@@ -26,4 +26,7 @@ export interface RegisterDto {
   bloodType?: string;
 
   password: string;
+
+  location?:string;
+
 }

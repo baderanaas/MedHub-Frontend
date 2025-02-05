@@ -259,9 +259,27 @@
                       {{ spec }}
                     </option>
                   </select>
+
+                  <div>
+                  <label class="form-label" for="form3Example2"
+                  >location</label>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input
+                        type="string"
+                        class="form-control"
+                        [(ngModel)]="user.location"
+                        name="location"
+                      />
+
+                    </div>
+
+                  </div>
                 </div>
 
                 <!-- Email input -->
+                <label class="form-label" for="form3Example3"
+                >Email address</label
+              >
                 <div data-mdb-input-init class="form-outline mb-4">
                   <input
                     #email="ngModel"
@@ -271,9 +289,7 @@
                     name="email"
                     required
                   />
-                  <label class="form-label" for="form3Example3"
-                    >Email address</label
-                  >
+
                   <small
                     *ngIf="email.invalid && email.touched"
                     class="text-danger"
@@ -283,6 +299,8 @@
 
                 <!-- Password input -->
                 <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4">Password</label>
+
                   <input
                     #password="ngModel"
                     type="password"
@@ -292,7 +310,6 @@
                     required
                     minlength="7"
                   />
-                  <label class="form-label" for="form3Example4">Password</label>
                   <small
                     *ngIf="password.invalid && password.touched"
                     class="text-danger"
