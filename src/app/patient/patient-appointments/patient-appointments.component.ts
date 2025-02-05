@@ -10,6 +10,7 @@ import { Appointment } from 'src/app/patient/patient-appointments/interfaces/app
   styleUrls: ['./patient-appointments.component.css'],
 })
 export class PatientAppointmentsComponent implements OnInit {
+
   ngOnInit(): void {
     this.appointments$?.subscribe({
       next: (res) => {

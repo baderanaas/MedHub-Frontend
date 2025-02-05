@@ -18,7 +18,8 @@ import { CommModule } from '../shared/comm/comm.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
-
+import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,18 +31,25 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     TodaysAppointmentsComponent,
     DocProfileComponent,
     DoctorProfileComponent,
-    
   ],
   imports: [
     CommonModule,
     DoctorRoutingModule,
     MatIconModule,
     MatSidenavModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      timeOut: 3000,
+      closeButton: true,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+    }),
     MatListModule,
     RouterModule,
+    FormsModule,
     CommModule,
     MatMenuModule, // Ajoutez MatMenuModule ici
     MatButtonModule,
-  ]
+  ],
 })
-export class DoctorModule { }
+export class DoctorModule {}

@@ -107,5 +107,6 @@ export class TopCardComponent implements OnInit {
     payed: false,
     date: new Date(),
     session: 0,
+    id: 0
   };
 }

@@ -9,7 +9,7 @@ import { AddAppointmentDto } from '../dto/add-appointment.dto';
 import { AvailableSessionsDTo } from '../dto/available-session.dto';
 import { Medication } from 'src/app/patient/medications/interfaces/medication.interface';
 import { UpdateAppointmentDto } from '../dto/update-appointment.dto';
-
+import { Patient } from 'src/app/doctor/patients/interfaces/patient';
 
 @Injectable({
   providedIn: 'root',
@@ -125,47 +125,48 @@ export class DataService {
     );
   }
 
-
-  getPatientHistory(): Observable<any[]> {
-    const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getPassedAppointement}/history/${username}`);
-  }
-
-  getUpcomingAppointments(): Observable<any[]> {
-    const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getUpcommingAppointment}/${username}`);
-  }
   getUpcomingAppointmentsNumber(): Observable<any[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getPatientUpcomingNumber}/${username}`);
-  }
-
-  getPatientByUsername(): Observable<any> {
-    const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any>(`${Api_Urls.getPatientByUsername}/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getPatientUpcomingNumber}/${username}`
+    );
   }
 
   getDoctorUpcomingAppointments(): Observable<any[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getDoctorUpcommingAppointment}/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getDoctorUpcommingAppointment}/${username}`
+    );
   }
 
   getDoctorTodayAppointments(): Observable<Appointment[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getDoctorTodaysAppointment}/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getDoctorTodaysAppointment}/${username}`
+    );
   }
 
   getDoctorRequestedAppointments(): Observable<Appointment[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getDoctorRequestedAppointment}/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getDoctorRequestedAppointment}/${username}`
+    );
   }
-  updateAppointment(id: number, data:UpdateAppointmentDto): Observable<Appointment> {
-    return this.http.put<Appointment>(`${Api_Urls.updateAppointment}/${id}`, data);
+  updateAppointment(
+    id: number,
+    data: UpdateAppointmentDto
+  ): Observable<Appointment> {
+    return this.http.put<Appointment>(
+      `${Api_Urls.updateAppointment}/${id}`,
+      data
+    );
   }
 
   getUpcomingDoctorAppointments(): Observable<any> {
     const doctorId = this.auth.getIdFromToken();
-    return this.http.get<any[]>(`${Api_Urls.getUpcomingDoctorAppointments}/${doctorId}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getUpcomingDoctorAppointments}/${doctorId}`
+    );
   }
 
   getDoctorByMat(): Observable<any> {
@@ -175,27 +176,43 @@ export class DataService {
 
   getDoctorHistory(): Observable<any[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<any[]>(`${Api_Urls.getDoctorPassedAppointement}/${username}`);
+    return this.http.get<any[]>(
+      `${Api_Urls.getDoctorPassedAppointement}/${username}`
+    );
   }
-  getDoctorByUserName():Observable<any[]>{
+  getDoctorByUserName(): Observable<any[]> {
     const username = this.auth.getUserNameFromToken()?.trim();
     return this.http.get<any[]>(`${Api_Urls.getDoctorByUsername}/${username}`);
-
   }
 
-  getCompletedAppointmentsByDoctor(): Observable<any[]> | null {
-    const doctorUsername =  this.auth.getUserNameFromToken()?.trim();
-    ;
-    return doctorUsername ? this.http.get<any[]>(`${Api_Urls.getDoctorCompletedAppointments}/${doctorUsername}`) : null;
+  getCompletedAppointmentsByDoctor(): Observable<any[]> {
+    const doctorUsername = this.auth.getUserNameFromToken()?.trim();
+    return this.http.get<any[]>(
+      `${Api_Urls.getDoctorPatients}/${doctorUsername}`
+    );
   }
 
-
-  getDoctorPatientCompletedAppointments(doctorUsername: string, patientUsername: string) {
-    return this.http.get<Appointment[]>(`${Api_Urls.getDoctorPatientCompletedAppointments}/${doctorUsername}/${patientUsername}`);
+  getDoctorPatientCompletedAppointments(
+    patientUsername: string
+  ): Observable<Appointment[]> {
+    const docUserName = this.auth.getUserNameFromToken();
+    return this.http.get<Appointment[]>(
+      `${Api_Urls.getDoctorPatientCompletedAppointments}/${docUserName}/${patientUsername}`
+    );
   }
 
   getNextWeekAppointments() {
     const username = this.auth.getUserNameFromToken()?.trim();
-    return this.http.get<Appointment[]>(`${Api_Urls.getPatientNextWeekUpcoming}/${username}`);
+    return this.http.get<Appointment[]>(
+      `${Api_Urls.getPatientNextWeekUpcoming}/${username}`
+    );
+  }
+  addMedication(username: string, medName: string): Observable<Medication> {
+    const params = new HttpParams().set('medName', medName);
+    return this.http.post<Medication>(
+      Api_Urls.addMedication + `/${username}`,
+      {},
+      { params }
+    );
   }
 }

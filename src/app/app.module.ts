@@ -43,8 +43,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     DoctorLayoutComponent,
     UnauthorizedComponent,
     DocSidebarComponent,
-    //SessionLabelPipe,
-    ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +53,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    //DashboardModule,
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
@@ -74,12 +72,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     CommModule,
     PatientModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: RequestInterceptor,
-    multi: true
-  }],
-  
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

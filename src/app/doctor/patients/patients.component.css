@@ -8,6 +8,9 @@ h2 {
   color: #1a3d4f; /* Dark blue text */
   font-weight: bold;
 }
+.btn-color{
+  background-color: #1a3d4f;
+}
 
 /* Search Input */
 .search-input {

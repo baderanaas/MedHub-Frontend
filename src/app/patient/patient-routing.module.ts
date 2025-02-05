@@ -7,6 +7,7 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { MedicationsComponent } from './medications/medications.component';
 import { RequestsComponent } from './requests/requests.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { roleGuard } from '../shared/guards/role.guard';
 
 const routes: Routes = [
   {
