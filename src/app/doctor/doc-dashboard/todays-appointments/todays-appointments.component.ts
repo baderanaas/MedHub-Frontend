@@ -108,7 +108,6 @@ export class TodaysAppointmentsComponent implements OnInit {
       }
     })
   }
-  
   fetchDoctorRequestedAppointments(): void {
     this.appointmentService.getDoctorRequestedAppointments().subscribe({
       next: (data) => {

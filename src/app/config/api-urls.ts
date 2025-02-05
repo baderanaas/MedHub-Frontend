@@ -38,4 +38,5 @@ export const Api_Urls = {
     'http://localhost:3000/appointment/completedappointments/doctor',
   getPatientMedications: 'http://localhost:3000/medication/patient',
   addMedication: 'http://localhost:3000/patient/medication',
+  reschedule:'http://localhost:3000/appointment/reschedule',
 };

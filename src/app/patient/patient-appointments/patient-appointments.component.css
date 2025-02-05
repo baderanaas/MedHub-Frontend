@@ -144,6 +144,6 @@ input.form-control:focus {
 }
 
 .btn-outline-primary:hover {
-  background-color: #0d6efd; /* Blue background on hover */
-  color: white; /* White text on hover */
+  background-color: #1a3d4f; 
+  color: white;
 }
