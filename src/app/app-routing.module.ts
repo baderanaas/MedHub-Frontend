@@ -11,6 +11,7 @@ import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.com
 import { DocDashboardComponent } from './doctor/doc-dashboard/doc-dashboard.component';
 import { roleGuard } from './shared/guards/role.guard';
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
+
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     component: PatientLayoutComponent,
     loadChildren: () =>
       import('./patient/patient.module').then((m) => m.PatientModule),
+
   },
   {
     path: 'doctor',

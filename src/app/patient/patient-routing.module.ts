@@ -8,6 +8,7 @@ import { MedicationsComponent } from './medications/medications.component';
 import { RequestsComponent } from './requests/requests.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { roleGuard } from '../shared/guards/role.guard';
+import { HelpComponent } from './help/help.component';
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +19,7 @@ const routes: Routes = [
       { path: 'requests', component: RequestsComponent },
       {path:'medications',component:MedicationsComponent},
       {path:'profile',component:PatientProfileComponent},
-      
+      { path: 'help', component: HelpComponent },
     ],
     canActivate: [roleGuard],
     data: { role: 'patient' },
