@@ -18,8 +18,12 @@ export class DataService {
   constructor() {}
   auth = inject(AuthService);
   http = inject(HttpClient);
-  private genderData$ = new ReplaySubject<{ gender: string; count: number }[]>(1);
-  private ageData$ = new ReplaySubject<{ ageGroup: string; count: number }[]>(1);
+  private genderData$ = new ReplaySubject<{ gender: string; count: number }[]>(
+    1
+  );
+  private ageData$ = new ReplaySubject<{ ageGroup: string; count: number }[]>(
+    1
+  );
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(Api_Urls.getDoctors);
   }
@@ -217,24 +221,26 @@ export class DataService {
       { params }
     );
   }
-
+  reschedule(id: number, data: AddAppointmentDto): Observable<Appointment> {
+    return this.http.put<Appointment>(`${Api_Urls.reschedule}/${id}`, data);
+  }
   private apiUrl = 'http://localhost:3000/patient/statistics';
 
   getGenderDistribution(): Observable<{ gender: string; count: number }[]> {
     if (this.genderData$.observers.length === 0) {
       this.http
-        .get<{ gender: string; count:number }[]>(`${this.apiUrl}/gender`)
-        .pipe(tap(data => this.genderData$.next(data)))
+        .get<{ gender: string; count: number }[]>(`${this.apiUrl}/gender`)
+        .pipe(tap((data) => this.genderData$.next(data)))
         .subscribe();
     }
     return this.genderData$.asObservable();
   }
 
-  getAgeDistribution():Observable<{ ageGroup: string; count: number }[]> {
+  getAgeDistribution(): Observable<{ ageGroup: string; count: number }[]> {
     if (this.ageData$.observers.length === 0) {
       this.http
         .get<{ ageGroup: string; count: number }[]>(`${this.apiUrl}/age`)
-        .pipe(tap(data => this.ageData$.next(data)))
+        .pipe(tap((data) => this.ageData$.next(data)))
         .subscribe();
     }
     return this.ageData$.asObservable();
