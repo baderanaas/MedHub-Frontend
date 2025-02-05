@@ -1,3 +1,4 @@
+
 import { Component, inject, OnInit } from '@angular/core';
 import { Appointment } from 'src/app/patient/patient-appointments/interfaces/appointment';
 import { DataService } from 'src/app/shared/services/data.service';
