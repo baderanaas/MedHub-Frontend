@@ -195,19 +195,18 @@ input.form-control:focus {
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0; /* Light grey background on hover */
-  color: #007bff; /* Optional: Blue text on hover */
+  background-color: #f0f0f0; 
+  color: #007bff;
 }
 
-/* Custom styles for selected items */
 .dropdown-item.text-danger:hover {
-  background-color: #ffe6e6; /* Light red background for danger items */
-  color: #dc3545; /* Red text for danger items */
+  background-color: #ffe6e6; 
+  color: #dc3545; 
 }
 
 /* Reschedule Button */
 .btn-reschedule {
-  background-color: #3f8f8f; /* Teal background */
+  background-color: #3f8f8f; 
   color: white; /* White text */
   border: none;
   border-radius: 4px;
@@ -217,9 +216,9 @@ input.form-control:focus {
 }
 
 .btn-reschedule:hover {
-  background-color: #2a3a42; /* Darker teal on hover */
-  transform: translateY(-1px); /* Slight lift on hover */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+  background-color: #2a3a42; 
+  transform: translateY(-1px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 /* Cancel Button */

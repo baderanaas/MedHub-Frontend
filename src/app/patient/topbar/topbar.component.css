@@ -18,29 +18,32 @@
   color: #f8fbfd; /* Off-white text */
   margin-right: 16px;
   padding-left: 10px;
-  
 }
+
 .sidenav-header {
   display: flex;
   align-items: center;
-
   margin-bottom: 20px;
   background-color: #3f8f8f;
 }
+
 .sidenav-title {
   padding: 5px;
   font-size: 30px;
   font-weight: bold;
   margin-left: 15px;
 }
+
 mat-icon.logo {
   font-size: 36px;
   color: #e8d7c3;
   margin-left: 10px;
 }
+
 .username {
   font-size: 18px;
 }
+
 /* Spacer */
 .spacer {
   flex-grow: 1;
@@ -96,6 +99,13 @@ mat-icon.logo {
 
 .search-button:hover {
   background-color: #8fa7b3; /* Darker light blue on hover */
+}
+
+/* User Menu Container */
+.user-menu-container {
+  margin-left: auto; /* Pushes the container to the far right */
+  display: flex;
+  align-items: center;
 }
 
 /* User Menu Button */
