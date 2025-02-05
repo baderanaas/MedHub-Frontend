@@ -27,12 +27,12 @@ import { DocSidebarComponent } from './doctor/doc-sidebar/doc-sidebar.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
-
 import { RequestInterceptor } from './shared/interceptors/request-interceptor.interceptor';
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 import { CommModule } from './shared/comm/comm.module';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +45,8 @@ import { CommModule } from './shared/comm/comm.module';
     DoctorLayoutComponent,
     UnauthorizedComponent,
     DocSidebarComponent,
-    //SessionLabelPipe,
     
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -58,6 +57,7 @@ import { CommModule } from './shared/comm/comm.module';
     MatToolbarModule,
     MatButtonModule,
     //DashboardModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -73,15 +73,16 @@ import { CommModule } from './shared/comm/comm.module';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    CommModule
+    CommModule,
+    PatientModule,
+    Ng2GoogleChartsModule,
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:RequestInterceptor,
-    multi:true
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptor,
+    multi: true
   }],
   
   bootstrap: [AppComponent],
-
 })
 export class AppModule {}

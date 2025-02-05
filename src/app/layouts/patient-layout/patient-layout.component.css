@@ -2,24 +2,45 @@
   display: flex;
   flex-direction: column;
   height: 100vh; /* Ensure the layout takes full screen height */
-  
 }
 
 .layout-body {
   display: flex;
   flex: 1; /* Take remaining space below the top bar */
- 
 }
 
 app-sidebar {
-  width: 300px; /* Set a fixed width for the sidebar */
-  height: 100%; /* Sidebar should stretch the full height of the layout body */
-  background-color: #4ab8b8; /* Example: adjust as per your theme */
+  width: 250px; /* Default sidebar width */
+  height: auto; /* Sidebar should stretch the full height of the layout body */
+  background-color: #1a3d4f; /* Optional styling */
+  transition: all 0.3s ease-in-out;
 }
 
 .content {
   flex: 1; /* Take all remaining space for the content */
-  margin-top: 0; /* Reset margin to align under the top bar */
-  padding-top: 59px; /* Add padding for better spacing */
-  overflow-y: auto; /* Allow scrolling if content overflows */
+  margin-top: 0;
+  padding-top: 59px;
+  overflow-y: auto;
+}
+
+/* Media Queries for Responsive Behavior */
+@media (max-width: 768px) {
+  .layout-body {
+    flex-direction: column; /* Stack sidebar and content vertically */
+  }
+
+  app-sidebar {
+    width: 100%; /* Sidebar takes full width on small screens */
+    order: 1;
+  }
+
+  .content {
+    order: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  app-sidebar {
+    display: none; /* Completely hide sidebar on very small screens */
+  }
 }

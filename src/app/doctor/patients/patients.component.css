@@ -1,36 +1,167 @@
-.custom-table th,
-.custom-table td {
+/* General Styles */
+.container {
+  padding: 20px;
+  background-color: #f8fbfd; /* Off-white background */
+}
+
+h2 {
+  color: #1a3d4f; /* Dark blue text */
+  font-weight: bold;
+}
+
+/* Search Input */
+.search-input {
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid #a2b9c5; /* Light blue border */
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #1a3d4f; /* Dark blue border on focus */
+  box-shadow: 0 0 5px rgba(26, 61, 79, 0.5); /* Dark blue shadow on focus */
+}
+
+.search-icon {
+  color: #a2b9c5; /* Light blue icon */
+}
+
+/* Table Header */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-top: 30px;
+}
+
+.my-appointments-heading {
+  color: rgb(39, 39, 67);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.add-appointment-btn {
+  background-color: #3f8f8f; /* Primary blue */
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-appointment-btn:hover {
+  background-color: #2a3a42; /* Darker blue on hover */
+}
+
+/* Upcoming Appointments Container */
+.upcoming-appointments-container {
+  background-color: #f8fbfd; /* Off-white background */
+  padding: 20px; /* Increased padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Full width */
+  margin: 20px 0; /* Remove auto margin to align left */
+}
+
+h4 {
+  color: #1a3d4f; /* Dark blue text */
+  border-bottom: 2px solid #a2b9c5; /* Light blue accent border */
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-size: 1.5rem; /* Larger heading */
+}
+
+/* Appointments Table */
+.appointments-table {
+  width: 100%;
+  background-color: white;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Adds spacing between rows */
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem; /* Larger font size */
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 16px; /* Increased padding */
+  text-align: left;
+  border-bottom: 1px solid #f8fbfd; /* Off-white border between rows */
+}
+
+.appointments-table th {
+  background-color: #1a3d4f; /* Dark blue background */
+  color: #f8fbfd; /* Off-white text */
+  font-weight: 600;
+  font-size: 1.1rem; /* Larger header font size */
+  border-bottom: 2px solid #a2b9c5; /* Light blue accent border */
+}
+
+.appointments-table tbody tr {
+  background-color: white; /* White background for rows */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: all 0.3s ease;
+}
+
+.appointments-table tbody tr:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Rounded Corners for First and Last Cells in a Row */
+.appointments-table tbody tr td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.appointments-table tbody tr td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* No Appointments Message */
+.no-appointments {
+  color: #6c757d; /* Gray text */
+  font-style: italic;
   text-align: center;
-  vertical-align: middle;
-  padding: 10px;
-  font-size: 14px; /* Ensure consistent font size */
+  margin-top: 20px;
+  font-size: 1.1rem; /* Larger font size */
 }
 
-.custom-table img {
-  margin-right: 10px;
+/* Buttons */
+.btn-outline-primary {
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-color: #1a3d4f; /* Dark blue border */
+  color: #1a3d4f; /* Dark blue text */
 }
 
-.custom-table th {
-  white-space: nowrap;
-  font-size: 14px; /* Match the font size with the table cells */
+.btn-outline-primary:hover {
+  background-color: #1a3d4f; /* Dark blue background on hover */
+  color: #f8fbfd; /* Off-white text on hover */
 }
 
-.custom-table td {
-  white-space: nowrap;
-  font-size: 30px; /* Match the font size for table cells */
-}
-
-.custom-table .btn {
-  margin: 2px;
-}
-
+/* Modal Styles */
 .modal-content {
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-header {
-  border-bottom: 1px solid #dee2e6;
+  background-color: #1a3d4f; /* Dark blue header */
+  color: #f8fbfd; /* Off-white text */
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: bold;
 }
 
 .modal-body {
@@ -38,109 +169,38 @@
 }
 
 .modal-footer {
-  border-top: 1px solid #dee2e6;
+  border-top: none;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+/* Doctor Info */
+.doctor-info p {
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-  border-color: #545b62;
-}
-
-.form-control {
-  border-radius: 0.25rem;
-}
-
-h5 {
-  color: black;
-  cursor: none;
-}
-
-label {
-  color: black;
-  cursor: none;
+.doctor-info strong {
+  color: #1a3d4f; /* Dark blue text */
 }
 
 /* Optional: Custom focus border color */
 input.form-control:focus {
-  border-color: black;
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); /* Optional: add a subtle shadow for focus */
-}
-/* Set font size for all table headers and cells */
-table th,
-table td h5 {
-  font-size: 16px; /* You can adjust this value to your preference */
+  border-color: #1a3d4f; /* Dark blue border on focus */
+  box-shadow: 0 0 0 0.2rem rgba(26, 61, 79, 0.25); /* Dark blue shadow on focus */
 }
 
-/* Optional: Set consistent padding for table cells */
-table td,
-table th {
-  padding: 12px 15px;
+/* Dropdown Items */
+.dropdown-item {
+  cursor: pointer; /* Changes the cursor to pointer */
+  transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
-/* Optional: Ensure the button aligns properly */
-table .btn {
-  font-size: 14px; /* Adjust this value as needed */
+.dropdown-item:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+  color: #007bff; /* Optional: Blue text on hover */
 }
 
-.table th {
-  background-color: #b6d8e7;
+/* Custom styles for selected items */
+.dropdown-item.text-danger:hover {
+  background-color: #ffe6e6; /* Light red background for danger items */
+  color: #dc3545; /* Red text for danger items */
 }
-.text{
-    color: #222528;
-}
-
-.btn-outline-primary {
-    border-color: #007bff;
-    color: #007bff;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .btn-outline-primary:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .modal-body p {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #007bff;
-    margin-bottom: 0.5rem;
-  }
-  
-  .list-group-item {
-    background-color: #f9f9f9;
-  }
-  
-  .table th {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-  }
-  
-  .table td {
-    text-align: center;
-  }
-  
-  .modal-content {
-    border-radius: 1rem;
-  }
-  

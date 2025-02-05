@@ -7,11 +7,29 @@
 
 /* Sidebar */
 .sidenav {
-  width: 250px;
+  width: 100%; /* Full width by default */
+  height: auto; /* Height adjusts to content */
   background-color: #1a3d4f; /* Dark blue background */
   color: #f8fbfd; /* Off-white text */
   padding-top: 20px;
   box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+  .sidenav {
+    width: 300px; /* Fixed width for larger screens */
+    height: 100vh; /* Full viewport height */
+  }
+}
+
+/* Adjustments for very small screens (e.g., mobile) */
+@media (max-width: 480px) {
+  .sidenav {
+    width: 100%; /* Full width */
+    height: auto; /* Height adjusts to content */
+    padding-top: 10px; /* Reduce padding for smaller screens */
+  }
 }
 
 /* Sidebar Header */

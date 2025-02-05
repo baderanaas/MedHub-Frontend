@@ -12,7 +12,6 @@ import { SessionLabelPipe } from 'src/app/shared/pipes/session-label.pipe';
 import { CommModule } from 'src/app/shared/comm/comm.module';
 
 
-
 @NgModule({
   declarations: [
     TopCardComponent,

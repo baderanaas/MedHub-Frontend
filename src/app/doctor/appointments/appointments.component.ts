@@ -1,36 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { DataService } from 'src/app/shared/services/data.service';
+import { Observable } from 'rxjs';
+import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments';
+import { UpdateAppointmentDto } from 'src/app/shared/dto/update-appointment.dto';
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.css']
+  styleUrls: ['./appointments.component.css'],
 })
-export class AppointmentsComponent {
+export class AppointmentsComponent implements OnInit {
   title = 'My Appointments';
-  upcomingAppointments = [
-    {
-      patientName: 'John Doe',
-      email: 'john.doe@example.com',
-      phoneNumber: '+123456789',
-      date: new Date(),
-      time: '10:30 AM'
-    },
-    {
-      patientName: 'Jane Smith',
-      email: 'jane.smith@example.com',
-      phoneNumber: '+987654321',
-      date: new Date(),
-      time: '2:00 PM'
-    }
-  ];
+  //upcomingAppointments: any[] = []; // Utilisez le modèle Appointment
+  data=inject(DataService);
 
-  onActionSelected(appointment: any, action: string) {
-    console.log(`Action "${action}" selected for:`, appointment);
-    // Implement functionality for view profile, reschedule, or cancel here
+  upcomingAppointments$ = this.data.getDoctorUpcomingAppointments();
+  ngOnInit(): void {
+    this.upcomingAppointments$?.subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+    });
   }
 
-  onAddAppointment() {
-    console.log('Add Appointment button clicked');
-    // Implement "Add Appointment" logic
+  // loadUpcomingDoctorAppointments(): void {
+  //   this.data.getDoctorUpcomingAppointments().subscribe(
+  //     (data) => {
+  //       this.upcomingAppointments = data;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching upcoming doctor appointments:', error);
+  //     }
+  //   );
+  // }
+
+  onActionSelected(appointment: Appointment, action: string): void {
+
+  }
+
+
+
+  rescheduleAppointment(appointmentId: number): void {
+    console.log('Rescheduling appointment ID:', appointmentId);
+    // Implémentez la logique pour reprogrammer le rendez-vous
+  }
+
+  
+
+  
+
+  onAccept(id:number,status:string){
+    let update:UpdateAppointmentDto={
+      status: ''
+    };
+    update.status=status;
+    this.data.updateAppointment(id,update).subscribe({
+      next:(res)=>{
+        console.log('done');
+        this.upcomingAppointments$=this.data.getDoctorUpcomingAppointments();
+      }
+    })
   }
 }

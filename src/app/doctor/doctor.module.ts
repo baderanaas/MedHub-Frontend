@@ -14,6 +14,13 @@ import { RouterModule } from '@angular/router';
 import { DocTopCardComponent } from './doc-dashboard/doc-top-card/doc-top-card.component';
 import { TodaysAppointmentsComponent } from './doc-dashboard/todays-appointments/todays-appointments.component';
 import { DocProfileComponent } from './doc-profile/doc-profile.component';
+import { CommModule } from '../shared/comm/comm.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { FormsModule } from '@angular/forms';
+import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 
 @NgModule({
@@ -25,6 +32,8 @@ import { DocProfileComponent } from './doc-profile/doc-profile.component';
     DocTopCardComponent,
     TodaysAppointmentsComponent,
     DocProfileComponent,
+    DoctorProfileComponent,
+    StatisticsChartComponent
     
   ],
   imports: [
@@ -33,7 +42,13 @@ import { DocProfileComponent } from './doc-profile/doc-profile.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    CommModule,
+    MatMenuModule, // Ajoutez MatMenuModule ici
+    MatButtonModule,
+    FormsModule,
+    Ng2GoogleChartsModule,
+    
   ]
 })
 export class DoctorModule { }

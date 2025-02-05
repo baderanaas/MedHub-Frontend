@@ -17,6 +17,12 @@ export class DocTopCardComponent {
     subtitle: '2'
   },
   {
+    bgcolor: 'danger',
+    icon: 'fa-solid fa-suitcase-medical',
+    title: "Today's Appointments",
+    subtitle: '2'
+  },
+  {
     bgcolor: 'warning',
     icon: 'bi bi-person-circle fs-3',
     title: 'This Month Income',

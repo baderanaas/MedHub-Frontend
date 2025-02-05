@@ -1,10 +1,7 @@
 <div class="row">
   <!-- Today's Appointments Table -->
   <div class="col-md-8">
-    <h4 class="my-appointments-heading">{{ title }}</h4>
-    <button class="btn btn-primary add-appointment-btn" (click)="onAddAppointment()">
-      + Add Appointment
-    </button>
+    
 
     <table class="table table-bordered mt-3">
       <thead>
@@ -14,17 +11,16 @@
           <th>Phone Number</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let appointment of upcomingAppointments">
-          <td>{{ appointment.patientName }}</td>
-          <td>{{ appointment.email }}</td>
-          <td>{{ appointment.phoneNumber }}</td>
-          <td>{{ appointment.date | date: 'shortDate' }}</td>
-          <td>{{ appointment.time }}</td>
-          <td>
+        <tr *ngFor="let appointment of todayAppointments">
+          <td>{{ appointment.patient.firstName + " " + appointment.patient.lastName }}</td>
+          <td>{{ appointment.patient.email }}</td>
+          <td>{{ appointment.patient.phone }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
+          <!-- <td>
             <div class="dropdown">
               <button
                 class="btn btn-light dropdown-toggle"
@@ -53,7 +49,7 @@
                 </li>
               </ul>
             </div>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
@@ -68,23 +64,30 @@
         <p>No requested appointments.</p>
       </div>
 
-      <div 
-        class="appointment-card" 
-        *ngFor="let request of paginatedAppointments; let i = index" 
-        (click)="selectRequest(i)">
-        <h5>{{ request.patientName }}</h5>
+      <div
+        class="appointment-card"
+        *ngFor="let request of paginatedAppointments; let i = index"
+        (click)="selectRequest(i)"
+      >
+        <h5>{{ request.patient.firstName + " " + request.patient.lastName }}</h5>
         <p>Date: {{ request.date }}</p>
-        <p>Time: {{ request.time }}</p>
+        <p>Time: {{ request.session | sessionLabel }}</p>
 
         <div *ngIf="selectedRequestIndex === i" class="action-buttons">
-          <button 
-            class="btn btn-success accept-btn" 
-            (click)="onAccept(request, $event)">
+          <button
+            #accept
+            value="accepted"
+            class="btn btn-success accept-btn"
+            (click)="onAccept(request.id, accept.value)"
+          >
             Accept
           </button>
-          <button 
-            class="btn btn-danger reject-btn" 
-            (click)="onReject(request, $event)">
+          <button
+            #reject
+            value="rejected"
+            class="btn btn-danger reject-btn"
+            (click)="onAccept(request.id, reject.value)"
+          >
             Reject
           </button>
         </div>
@@ -92,17 +95,18 @@
 
       <!-- Navigation Buttons -->
       <div class="pagination-buttons">
-        <button 
-          class="btn btn-secondary prev-btn" 
-          (click)="previousPage()" 
-          [disabled]="isFirstPage">
+        <button
+          class="btn btn-secondary prev-btn"
+          (click)="previousPage()"
+          [disabled]="isFirstPage"
+        >
           Previous
         </button>
-
-        <button 
-          class="btn btn-primary next-btn" 
-          (click)="nextPage()" 
-          [disabled]="isLastPage">
+        <button
+          class="btn btn-primary next-btn"
+          (click)="nextPage()"
+          [disabled]="isLastPage"
+        >
           Next
         </button>
       </div>
