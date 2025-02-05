@@ -31,6 +31,8 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor.in
 import { SessionLabelPipe } from './shared/pipes/session-label.pipe';
 import { CommModule } from './shared/comm/comm.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { StatisticsChartComponent } from './doctor/statistics-chart/statistics-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     UnauthorizedComponent,
     DocSidebarComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -71,6 +74,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatInputModule,
     CommModule,
     PatientModule,
+    //Ng2GoogleChartsModule,
   ],
   providers: [
     {

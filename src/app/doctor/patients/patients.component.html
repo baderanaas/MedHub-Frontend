@@ -1,6 +1,19 @@
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="text-dark font-medium fs-4">Patients List</h2>
+    <div class="position-relative me-3">
+      <!-- <input
+          [(ngModel)]="searchTerm"
+          name="nameSearch"
+          type="text"
+          class="form-control pe-5 search-input"
+          placeholder="Search by patient name..."
+          (input)="searchByName()"
+        /> -->
+      <i
+        class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 search-icon"
+      ></i>
+    </div>
   </div>
 
   <div class="table-responsive">
@@ -19,6 +32,11 @@
           <td>
             <div class="d-flex align-items-center">
               <img
+                [src]="
+                  patient.sexe === 'male'
+                    ? '../../../assets/male.png'
+                    : '../../../assets/female.png'
+                "
                 [src]="
                   patient.sexe === 'male'
                     ? '../../../assets/male.png'

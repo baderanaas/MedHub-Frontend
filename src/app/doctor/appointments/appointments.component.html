@@ -16,21 +16,34 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let appointment of upcomingAppointments">
-          <td>{{ appointment.patient.firstName }} {{ appointment.patient.lastName }}</td>
+        <tr *ngFor="let appointment of upcomingAppointments$ | async">
+          <td>
+            {{ appointment.patient.firstName }}
+            {{ appointment.patient.lastName }}
+          </td>
           <td>{{ appointment.patient.email }}</td>
           <td>{{ appointment.patient.phone }}</td>
           <td>{{ appointment.date | date }}</td>
           <td>{{ appointment.session | sessionLabel }}</td>
           <td>
-            <button mat-button [matMenuTriggerFor]="menu" class="btn-outline-primary">
-              <i class="fas fa-ellipsis-v"></i> <mat-icon matSuffix>arrow_drop_down</mat-icon>
+            <!-- Reschedule Button -->
+            <!-- Reschedule Button with Icon -->
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm me-2"
+              (click)="onActionSelected(appointment, 'reschedule')"
+            >
+              <i class="fas fa-calendar-alt me-2"></i> Reschedule
             </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="onActionSelected(appointment, 'viewProfile')">View Profile</button>
-              <button mat-menu-item (click)="onActionSelected(appointment, 'reschedule')">Reschedule</button>
-              <button mat-menu-item (click)="onActionSelected(appointment, 'cancel')" class="text-danger">Cancel</button>
-            </mat-menu>
+
+            <!-- Cancel Button with Icon -->
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="onAccept(appointment.id, 'cancelled')"
+            >
+              <i class="fas fa-times-circle me-2"></i> Cancel
+            </button>
           </td>
         </tr>
       </tbody>

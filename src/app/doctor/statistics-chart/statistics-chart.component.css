@@ -1,0 +1,12 @@
+.chart-container {
+    background-color: #f8fbfd; /* Light background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  h4 {
+    color: #1a3d4f; /* Dark blue text */
+    margin-bottom: 16px;
+  }

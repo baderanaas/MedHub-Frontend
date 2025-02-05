@@ -28,7 +28,7 @@
           <th class="text-light font-medium">Date</th>
           <th class="text-light font-medium">Time</th>
           <th class="text-light font-medium">Payed</th>
-          <th class="text-light font-medium text-center"></th>
+          <th class="text-light font-medium text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -49,9 +49,20 @@
             <button type="button" class="btn btn-outline-primary btn-sm me-2" >
               Paye
             </button>
+            <!-- Cancel Button -->
+            <button
+              type="button"
+              #cancel
+              value="cancelled"
+              class="btn btn-outline-danger btn-sm"
+              (click)="onAccept(appointment.id , cancel.value)"
+            >
+              Cancel
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+

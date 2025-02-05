@@ -11,7 +11,6 @@
           <th>Phone Number</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +20,7 @@
           <td>{{ appointment.patient.phone }}</td>
           <td>{{ appointment.date | date }}</td>
           <td>{{ appointment.session | sessionLabel }}</td>
-          <td>
+          <!-- <td>
             <div class="dropdown">
               <button
                 class="btn btn-light dropdown-toggle"
@@ -45,7 +44,7 @@
                 </li>
               </ul>
             </div>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>

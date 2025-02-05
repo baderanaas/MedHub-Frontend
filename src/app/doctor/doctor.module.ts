@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     TodaysAppointmentsComponent,
     DocProfileComponent,
     DoctorProfileComponent,
+    StatisticsChartComponent
   ],
   imports: [
     CommonModule,
@@ -50,6 +53,7 @@ import { ToastrModule } from 'ngx-toastr';
     CommModule,
     MatMenuModule, // Ajoutez MatMenuModule ici
     MatButtonModule,
+    Ng2GoogleChartsModule,
   ],
 })
 export class DoctorModule {}

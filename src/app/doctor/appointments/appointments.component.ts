@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Observable } from 'rxjs';
 import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments';
+import { UpdateAppointmentDto } from 'src/app/shared/dto/update-appointment.dto';
 
 @Component({
   selector: 'app-appointments',
@@ -11,59 +12,54 @@ import { Appointment } from 'src/app/doctor/appointments/interfaces/appointments
 })
 export class AppointmentsComponent implements OnInit {
   title = 'My Appointments';
-  upcomingAppointments: any[] = []; // Utilisez le modèle Appointment
+  //upcomingAppointments: any[] = []; // Utilisez le modèle Appointment
+  data=inject(DataService);
 
-  constructor(private dataService: DataService) {}
-
+  upcomingAppointments$ = this.data.getDoctorUpcomingAppointments();
   ngOnInit(): void {
-    this.loadUpcomingDoctorAppointments();
+    this.upcomingAppointments$?.subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+    });
   }
 
-  loadUpcomingDoctorAppointments(): void {
-    this.dataService.getDoctorUpcomingAppointments().subscribe(
-      (data) => {
-        this.upcomingAppointments = data;
-      },
-      (error) => {
-        console.error('Error fetching upcoming doctor appointments:', error);
-      }
-    );
-  }
+  // loadUpcomingDoctorAppointments(): void {
+  //   this.data.getDoctorUpcomingAppointments().subscribe(
+  //     (data) => {
+  //       this.upcomingAppointments = data;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching upcoming doctor appointments:', error);
+  //     }
+  //   );
+  // }
 
   onActionSelected(appointment: Appointment, action: string): void {
-    console.log(`Action "${action}" selected for:`, appointment);
-    switch (action) {
-      case 'viewProfile':
-        this.viewPatientProfile(appointment.patient.username);
-        break;
-      case 'reschedule':
-        this.rescheduleAppointment(appointment.id);
-        break;
-      case 'cancel':
-        this.cancelAppointment(appointment.id);
-        break;
-      default:
-        console.warn('Unknown action:', action);
-    }
+
   }
 
-  viewPatientProfile(username: string): void {
-    console.log('Viewing profile for patient ID:', username);
-    // Implémentez la logique pour afficher le profil du patient
-  }
+
 
   rescheduleAppointment(appointmentId: number): void {
     console.log('Rescheduling appointment ID:', appointmentId);
     // Implémentez la logique pour reprogrammer le rendez-vous
   }
 
-  cancelAppointment(appointmentId: number): void {
-    console.log('Canceling appointment ID:', appointmentId);
-    // Implémentez la logique pour annuler le rendez-vous
-  }
+  
 
-  onAddAppointment(): void {
-    console.log('Add Appointment button clicked');
-    // Implémentez la logique pour ajouter un rendez-vous
+  
+
+  onAccept(id:number,status:string){
+    let update:UpdateAppointmentDto={
+      status: ''
+    };
+    update.status=status;
+    this.data.updateAppointment(id,update).subscribe({
+      next:(res)=>{
+        console.log('done');
+        this.upcomingAppointments$=this.data.getDoctorUpcomingAppointments();
+      }
+    })
   }
 }

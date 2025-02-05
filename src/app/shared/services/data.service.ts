@@ -21,7 +21,7 @@ export class DataService {
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(Api_Urls.getDoctors);
   }
-  getPatientAppointments(): Observable<Appointment[]> | null {
+  getPatientAppointments(): Observable<any[]> | null {
     const username = this.auth.getUserNameFromToken()?.trim();
     console.log(username);
     if (username) {
@@ -213,6 +213,20 @@ export class DataService {
       Api_Urls.addMedication + `/${username}`,
       {},
       { params }
+    );
+  }
+
+  private apiUrl = 'http://localhost:3000/patient/statistics';
+
+  getAgeDistribution(): Observable<{ ageGroup: string; count: number }[]> {
+    return this.http.get<{ ageGroup: string; count: number }[]>(
+      `${this.apiUrl}/age`
+    );
+  }
+
+  getGenderDistribution(): Observable<{ gender: string; count: number }[]> {
+    return this.http.get<{ gender: string; count: number }[]>(
+      `${this.apiUrl}/gender`
     );
   }
 }
