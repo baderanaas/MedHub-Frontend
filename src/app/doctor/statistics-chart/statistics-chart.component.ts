@@ -16,17 +16,14 @@ interface AgeDistribution {
   styleUrls: ['./statistics-chart.component.css'],
 })
 export class StatisticsChartComponent implements OnInit {
-  public genderChart: any;
-  public ageChart: any;
+  genderChart: any;
+  ageChart: any;
 
   constructor(private statisticsService: DataService) {}
 
   ngOnInit() {
     this.initGenderChart();
     this.initAgeChart();
-
-    this.loadGenderDistribution();
-    this.loadAgeDistribution();
   }
 
   private initGenderChart() {
@@ -40,6 +37,7 @@ export class StatisticsChartComponent implements OnInit {
         legend: { position: 'top' },
       },
     };
+    this.loadGenderDistribution();
   }
 
   private initAgeChart() {
@@ -54,13 +52,14 @@ export class StatisticsChartComponent implements OnInit {
         vAxis: { title: 'Number of Patients' },
       },
     };
+    this.loadAgeDistribution();
   }
 
   private loadGenderDistribution() {
     this.statisticsService
       .getGenderDistribution()
       .subscribe((data: GenderDistribution[]) => {
-        data.forEach((item: GenderDistribution) => {
+        data.forEach((item: GenderDistribution) => { 
           this.genderChart.dataTable.push([item.gender, item.count]);
         });
       });
