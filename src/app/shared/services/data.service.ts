@@ -137,7 +137,7 @@ export class DataService {
   updateAppointment(id: number, data:UpdateAppointmentDto): Observable<Appointment> {
     return this.http.put<Appointment>(`${Api_Urls.updateAppointment}/${id}`, data);
   }
-  
+
   getCompletedAppointmentsByDoctor(): Observable<any[]> | null {
     const doctorUsername =  this.auth.getUserNameFromToken()?.trim();
     ;
@@ -149,9 +149,7 @@ export class DataService {
     return this.http.get<Appointment[]>(`${Api_Urls.getDoctorPatientCompletedAppointments}/${doctorUsername}/${patientUsername}`);
   }
 
-  respondAppointment(id: number, status: string) {
-    return this.http.put(`http://localhost:3000/appointment/respond/${id}`, { status });
-  }
+
 
 
 }
