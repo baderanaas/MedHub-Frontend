@@ -61,13 +61,13 @@ export class DocTopCardComponent {
         bgcolor: 'warning',
         icon: 'bi bi-person-circle fs-3',
         title: 'This Month Income',
-        subtitle: '10000$',
+        subtitle: '240TND',
       },
       {
         bgcolor: 'info',
         icon: 'bi bi-person-circle fs-3',
         title: 'Total Patient Number',
-        subtitle: '800',
+        subtitle: '3',
       },
     ];
   }
