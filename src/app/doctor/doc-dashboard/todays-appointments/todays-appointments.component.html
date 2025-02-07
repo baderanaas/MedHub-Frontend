@@ -1,0 +1,110 @@
+<div class="row">
+  <!-- Today's Appointments Table -->
+  <div class="col-md-8">
+    
+    <h2>Today's appointment</h2>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of todayAppointments">
+          <td>{{ appointment.patient.firstName + " " + appointment.patient.lastName }}</td>
+          <td>{{ appointment.patient.email }}</td>
+          <td>{{ appointment.patient.phone }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
+          <!-- <td>
+            <div class="dropdown">
+              <button
+                class="btn btn-light dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="dropdown-item" (click)="onActionSelected(appointment, 'reschedule')">
+                    Reschedule
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" (click)="onActionSelected(appointment, 'cancel')">
+                    Cancel
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Requested Appointments Section -->
+  <div class="col-md-4">
+    <div class="requested-appointments-cadre">
+      <h4>Requested Appointments</h4>
+
+      <div *ngIf="requestedAppointments?.length === 0">
+        <p>No requested appointments.</p>
+      </div>
+
+      <div
+        class="appointment-card"
+        *ngFor="let request of paginatedAppointments; let i = index"
+        (click)="selectRequest(i)"
+      >
+        <h5>{{ request.patient.firstName + " " + request.patient.lastName }}</h5>
+        <p>Date: {{ request.date }}</p>
+        <p>Time: {{ request.session | sessionLabel }}</p>
+
+        <div *ngIf="selectedRequestIndex === i" class="action-buttons">
+          <button
+            #accept
+            value="accepted"
+            class="btn btn-success accept-btn"
+            (click)="onAccept(request.id, accept.value)"
+          >
+            Accept
+          </button>
+          <button
+            #reject
+            value="rejected"
+            class="btn btn-danger reject-btn"
+            (click)="onAccept(request.id, reject.value)"
+          >
+            Reject
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="pagination-buttons">
+        <button
+          class="btn btn-secondary prev-btn"
+          (click)="previousPage()"
+          [disabled]="isFirstPage"
+        >
+          Previous
+        </button>
+        <button
+          class="btn btn-primary next-btn"
+          (click)="nextPage()"
+          [disabled]="isLastPage"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

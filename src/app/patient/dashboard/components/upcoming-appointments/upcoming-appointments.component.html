@@ -1,0 +1,28 @@
+
+<div *ngIf="upcomingAppointments.length; else noAppointments">
+  <div class="upcoming-appointments-container">
+    <h4>Upcoming Appointments</h4>
+    <table class="appointments-table">
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Specialty</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of upcomingAppointments">
+          <td>{{ appointment.doctor.firstName + ' ' + appointment.doctor.lastName }}</td>
+          <td>{{ appointment.doctor.speciality }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noAppointments>
+  <p class="no-appointments">No upcoming appointments found.</p>
+</ng-template>

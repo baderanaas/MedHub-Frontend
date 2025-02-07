@@ -1,0 +1,135 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Appointments List</h2>
+    <div class="d-flex align-items-center">
+      <div class="position-relative me-3">
+        <input
+          [(ngModel)]="name"
+          name="speciality"
+          type="text"
+          class="form-control pe-5"
+          placeholder="Search by Name"
+          (keydown.enter)="searchByName()"
+        />
+        <i
+          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+        ></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-light font-medium">Doctor</th>
+          <th class="text-light font-medium">Speciality</th>
+          <th class="text-light font-medium">Date</th>
+          <th class="text-light font-medium">Time</th>
+          <th class="text-light font-medium">Payed</th>
+          <th class="text-light font-medium text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments$ | async">
+          <td>
+            <div class="ms-3">
+              <h5 class="mb-0 font-medium">
+                {{ appointment.doctor.lastName }}
+                {{ appointment.doctor.firstName }}
+              </h5>
+            </div>
+          </td>
+          <td>{{ appointment.doctor.speciality }}</td>
+          <td>{{ appointment.date | date }}</td>
+          <td>{{ appointment.session | sessionLabel }}</td>
+          <td>{{ appointment.payed ? "Payed" : "Not Payed" }}</td>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm me-2 buttonColor"
+              (click)="openAppointmentModal(appointment)"
+            >
+              <i class="fas fa-calendar-alt me-2"></i> Reschedule
+            </button>
+            <!-- Cancel Button -->
+            <button
+              type="button"
+              #cancel
+              value="cancelled"
+              class="btn btn-outline-danger btn-sm"
+              (click)="onAccept(appointment.id, cancel.value)"
+            >
+              Cancel
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="appointmentModal"
+  tabindex="-1"
+  aria-labelledby="appointmentModalLabel"
+  aria-hidden="true"
+  [ngClass]="{ show: isModalOpen }"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header  text-white">
+        <h5 class="modal-title" id="appointmentModalLabel">Appointment Form</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="appointmentDate" class="form-label"
+              >Appointment Date
+            </label>
+            <input
+              type="date"
+              class="form-control"
+              id="appointmentDate"
+              [(ngModel)]="appointmentDto.date"
+              name="appointmentDate"
+              (change)="onDateChange()"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="session" class="form-label">Session</label>
+            <select
+              class="form-control"
+              id="session"
+              [(ngModel)]="appointmentDto.session"
+              name="session"
+            >
+              <option
+                *ngFor="let session of sessions$ | async"
+                [value]="session"
+              >
+                {{ session | sessionLabel }}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="reschedule()">
+          Update Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

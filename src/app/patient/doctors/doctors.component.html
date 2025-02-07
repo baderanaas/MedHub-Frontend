@@ -1,0 +1,186 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Doctors List</h2>
+    <div class="d-flex align-items-center">
+      <div class="position-relative me-3">
+        <input
+          [(ngModel)]="speciality"
+          name="speciality"
+          type="text"
+          class="form-control pe-5 search-input"
+          placeholder="Search by Speciality"
+          (keydown.enter)="search()"
+          (input)="reset()"
+        />
+        <i
+          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 search-icon"
+        ></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th class="text font-medium">Doctor</th>
+          <th class="text font-medium">Matricule</th>
+          <th class="text font-medium">Speciality</th>
+          <th class="text font-medium">Email</th>
+          <th class="text font-medium text-center">Phone</th>
+          <th class="text font-medium text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doc of doctors$ | async" class="doctor-row">
+          <td>
+            <div class="d-flex align-items-center">
+              <img
+                [src]="
+                  doc.sexe == 'male'
+                    ? '../../../../../assets/male.png'
+                    : '../../../../../assets/female.png'
+                "
+                alt="user"
+                width="45"
+                class="rounded-circle doctor-image"
+              />
+              <div class="ms-3">
+                <h5 class="mb-0 font-medium doctor-name" (click)="openDoctorInfoModal(doc)">
+                  {{ doc.lastName }} {{ doc.firstName }}
+                </h5>
+              </div>
+            </div>
+          </td>
+          <td>{{ doc.matricule }}</td>
+          <td>{{ doc.speciality }}</td>
+          <td>{{ doc.email }}</td>
+          <td>{{ doc.phone }}</td>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm me-2 action-button"
+              (click)="openAppointmentModal(doc)"
+
+            >
+              Take Appointment
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Appointment Modal -->
+<div
+  class="modal fade"
+  id="appointmentModal"
+  tabindex="-1"
+  aria-labelledby="appointmentModalLabel"
+  aria-hidden="true"
+  [ngClass]="{ show: isModalOpen }"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header  text-white">
+        <h5 class="modal-title" id="appointmentModalLabel">Appointment Form</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="doctorName" class="form-label">Doctor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="doctorName"
+              [value]="selectedDoctor?.firstName + ' ' + selectedDoctor?.lastName"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="appointmentDate" class="form-label">Appointment Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="appointmentDate"
+              [(ngModel)]="appointmentDto.date"
+              name="appointmentDate"
+              (change)="onDateChange()"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="session" class="form-label">Session</label>
+            <select
+              class="form-control"
+              id="session"
+              [(ngModel)]="appointmentDto.session"
+              name="selectedSession"
+            >
+              <option
+                *ngFor="let session of sessions$ | async"
+                [value]="session"
+              >
+                {{ session | sessionLabel }}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addAppointment(selectedDoctor.matricule)"
+        >
+          Save Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Doctor Info Modal -->
+<div
+  class="modal fade"
+  id="doctorInfoModal"
+  tabindex="-1"
+  aria-labelledby="doctorInfoModalLabel"
+  aria-hidden="true"
+  [ngClass]="{ show: isDoctorInfoModalOpen }"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title" id="doctorInfoModalLabel">Doctor Information</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeDoctorInfoModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="selectedDoctor" class="doctor-info">
+          <p><strong>Name:</strong> {{ selectedDoctor.firstName }} {{ selectedDoctor.lastName }}</p>
+          <p><strong>Matricule:</strong> {{ selectedDoctor.matricule }}</p>
+          <p><strong>Speciality:</strong> {{ selectedDoctor.speciality }}</p>
+          <p><strong>Email:</strong> {{ selectedDoctor.email }}</p>
+          <p><strong>Phone:</strong> {{ selectedDoctor.phone }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeDoctorInfoModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

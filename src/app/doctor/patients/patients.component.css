@@ -1,0 +1,109 @@
+/* General styles */
+body {
+  background-color: #f8fbfd;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.btn-color{
+  background-color: #1a3d4f;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table th {
+  background-color: #1a3d4f;
+  color: #f8fbfd;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #eaf3f5;
+}
+
+/* Modal styles */
+.modal-header {
+  background-color: #1a3d4f;
+  color: #f8fbfd;
+}
+
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Buttons */
+.btn {
+  background-color: white;
+  color: #1a3d4f;
+  border-color: #1a3d4f;
+  /* padding: 10px 16px; */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #3f8f8f;
+}
+
+/* Search input */
+.search-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* No appointments message */
+.no-appointments {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.pe-5 {
+  padding-right: 3rem;
+}
+
+.btn-outline-primary {
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-color: #1a3d4f; /* Dark blue border */
+  color: #1a3d4f; /* Dark blue text */
+}
+
+.btn-outline-primary:hover {
+  background-color: #1a3d4f; /* Dark blue background on hover */
+  color: #f8fbfd; /* Off-white text on hover */
+}

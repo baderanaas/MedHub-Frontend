@@ -1,0 +1,33 @@
+.main-layout {
+  display: flex;
+  height: 100vh;
+  /* Ensure the layout takes full screen height */
+}
+
+.layout-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* Take remaining space below the top bar */
+}
+
+app-sidebar {
+  width: 250px;
+  /* Default sidebar width */
+  height: auto;
+  /* Sidebar should stretch the full height of the layout body */
+  background-color: #1a3d4f;
+  /* Optional styling */
+  transition: all 0.3s ease-in-out;
+}
+
+.content {
+  flex: 1;
+  /* Take all remaining space for the content */
+  margin-top: 0;
+  /* Reset margin to align under the top bar */
+  padding-top: 50px;
+  /* Add padding for better spacing */
+  overflow-y: auto;
+  /* Allow scrolling if content overflows */
+}
